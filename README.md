@@ -1,4 +1,4 @@
-# ![Portada](./Assets/Pngs/Portada_tfg.jpg)
+# ![Portada](./Assets/Inspirations/Portada_tfg.jpg)
 
 ## Índice
 
@@ -26,15 +26,15 @@ Future vs Fantasy es un juego de acción y supervivencia inspirado principalment
 
 - **Vampire Survivors**  
 Posiblemente el precursor o referente de este género. No podía faltar como inspiración a mi juego. Aunque pretendo que mi juego tenga gráficos algo mejores, sería algo similar a esto.
-# ![Inspiración1](./Assets/Pngs/Vampire_inspiration.png)
+# ![Inspiración1](./Assets/Inspirations/Vampire_inspiration.png)
 
 - **Spellbook Demonslayers**  
 Juego muy similar al vampire survivors, pero más enfocado a la magia y ataques a distancia. Algo más moderno que el juego en el que se basa pero manteniendo esa esencia retro.
-# ![Inspiración2](./Assets/Pngs/inspiration2.jpg)
+# ![Inspiración2](./Assets/Inspirations/inspiration2.jpg)
 
 - **Survivor.io**  
 Juego para móvil con enfoque más moderno todavía donde controlas a un personaje que se defiende de hordas de zombies. Es muy adictivo y tiene varias combinaciones de armas y evoluciones finales de las mismas.
-# ![Inspiración3](./Assets/Pngs/inspiration3.jpeg)
+# ![Inspiración3](./Assets/Inspirations/inspiration3.jpeg)
 
 **Pero son solo inspiraciones. No quiero que mi juego sea solo moverse y esquivar, pretendo que sea el jugador el q elija cuando sale el disparo y no que salga siempre automáticamente, para que sea un poco más divertido y controlable el juego, sin tanto caos pero con ese rollo.**
 
