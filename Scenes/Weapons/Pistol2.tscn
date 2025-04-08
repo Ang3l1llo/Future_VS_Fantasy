@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://xh6c3ps853oe"]
+
+[ext_resource type="Script" path="res://Scripts/pistol_2.gd" id="1_bh6cd"]
+[ext_resource type="Texture2D" uid="uid://bchwv3jmlisfs" path="res://Scenes/Weapons/ATLAS/Atlas_pistol2.tres" id="1_flk4g"]
+[ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="3_nmb48"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkbfr"]
+radius = 5.09902
+
+[node name="Pistol2" type="Area2D"]
+position = Vector2(98, 2)
+script = ExtResource("1_bh6cd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 0)
+shape = SubResource("CircleShape2D_rkbfr")
+
+[node name="Pivot" type="Marker2D" parent="."]
+position = Vector2(12, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(0, -11)
+texture = ExtResource("1_flk4g")
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot/Sprite2D"]
+position = Vector2(5, 0)
+
+[node name="Right" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(-16, -8)
+texture = ExtResource("3_nmb48")
+
+[node name="Left" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(-3, -8)
+texture = ExtResource("3_nmb48")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

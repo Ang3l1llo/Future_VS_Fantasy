@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://b441jtgkuuu8k"]
+
+[ext_resource type="Texture2D" uid="uid://58nc4oray1am" path="res://Scenes/Weapons/ATLAS/Atlas_rifle.tres" id="1_ewcxw"]
+[ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_asfrc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6e70"]
+size = Vector2(20, 10)
+
+[node name="Rifle" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31, 12)
+shape = SubResource("RectangleShape2D_i6e70")
+
+[node name="Pivot" type="Marker2D" parent="."]
+position = Vector2(17, 17)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(14, -5)
+texture = ExtResource("1_ewcxw")
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot/Sprite2D"]
+position = Vector2(9, -2)
+
+[node name="Right" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(8, -4)
+texture = ExtResource("2_asfrc")
+
+[node name="Left" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(18, -4)
+texture = ExtResource("2_asfrc")

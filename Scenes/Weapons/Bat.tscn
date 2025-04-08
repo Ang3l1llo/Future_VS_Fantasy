@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://csr2x7ocgujkv"]
+
+[ext_resource type="Texture2D" uid="uid://crs7blwk7ribp" path="res://Scenes/Weapons/ATLAS/Atlas_bat.tres" id="1_0nswb"]
+[ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_vty4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hr65"]
+size = Vector2(23, 6.75)
+
+[node name="Bat" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22, 12)
+shape = SubResource("RectangleShape2D_0hr65")
+
+[node name="Pivot" type="Marker2D" parent="."]
+position = Vector2(7, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(15, 8)
+texture = ExtResource("1_0nswb")
+
+[node name="Right" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(-6, 7)
+texture = ExtResource("2_vty4j")
+
+[node name="Left" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(7, 7)
+texture = ExtResource("2_vty4j")

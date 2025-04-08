@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://knan1pgn0qwm"]
+
+[ext_resource type="Texture2D" uid="uid://drucl72xvcdj1" path="res://Scenes/Weapons/ATLAS/Atlas_knife.tres" id="1_bqsj0"]
+[ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_xrpdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgmi5"]
+size = Vector2(16, 5)
+
+[node name="Knife" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31, 16)
+shape = SubResource("RectangleShape2D_sgmi5")
+
+[node name="Pivot" type="Marker2D" parent="."]
+position = Vector2(17, 17)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(14, -1)
+texture = ExtResource("1_bqsj0")
+
+[node name="Right" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(-4, -2)
+texture = ExtResource("2_xrpdy")
+
+[node name="Left" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(9, -2)
+texture = ExtResource("2_xrpdy")

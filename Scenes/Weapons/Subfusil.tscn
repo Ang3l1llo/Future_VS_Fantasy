@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dya4ygbsb8v2f"]
+
+[ext_resource type="Texture2D" uid="uid://d1m51717534ky" path="res://Scenes/Weapons/ATLAS/Atlas_subfusil.tres" id="1_i0jlk"]
+[ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_jke2o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfv2t"]
+size = Vector2(25, 12)
+
+[node name="Subfusil" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(50.5, 32)
+shape = SubResource("RectangleShape2D_lfv2t")
+
+[node name="Pivot" type="Marker2D" parent="."]
+position = Vector2(17, 17)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(33, 15)
+texture = ExtResource("1_i0jlk")
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot/Sprite2D"]
+position = Vector2(11, -3)
+
+[node name="Right" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(30, 14)
+texture = ExtResource("2_jke2o")
+
+[node name="Left" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+position = Vector2(40, 14)
+texture = ExtResource("2_jke2o")
