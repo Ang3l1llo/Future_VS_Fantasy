@@ -165,11 +165,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"RUN",
-"speed": 9.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tlh6j"]
-radius = 7.28011
+radius = 8.06226
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-38, -25)
@@ -181,7 +181,11 @@ texture_filter = 1
 position = Vector2(38, 22)
 sprite_frames = SubResource("SpriteFrames_s3wlg")
 animation = &"RUN"
+frame_progress = 0.249043
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(38, 26)
+position = Vector2(39, 24)
 shape = SubResource("CircleShape2D_tlh6j")
+
+[node name="WeaponSlot" type="Marker2D" parent="."]
+position = Vector2(39, 27)

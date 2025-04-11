@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bdx2rfm3j5jmn"]
+[gd_scene load_steps=15 format=4 uid="uid://bdx2rfm3j5jmn"]
 
 [ext_resource type="Texture2D" uid="uid://kfrkqukls7a7" path="res://Assets/MeadowLands/Ground/Tilemap_Elevation.png" id="1_g6bia"]
 [ext_resource type="Texture2D" uid="uid://p3xk4r8yrbvx" path="res://Assets/MeadowLands/Ground/Tilemap_Flat.png" id="2_o87mg"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c6m5fo2opao7n" path="res://Assets/MeadowLands/Water/Water.png" id="5_bjyh5"]
 [ext_resource type="Texture2D" uid="uid://b4qm4r8ddnbw7" path="res://Assets/MeadowLands/Water/Foam/Foam.png" id="6_5mb5t"]
 [ext_resource type="PackedScene" uid="uid://d2w5rpy4ceoe2" path="res://Scenes/player.tscn" id="7_w8ow7"]
-[ext_resource type="PackedScene" uid="uid://xh6c3ps853oe" path="res://Scenes/Weapons/Pistol2.tscn" id="8_7opgx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l16i6"]
 texture = ExtResource("1_g6bia")
@@ -1825,9 +1824,6 @@ tile_set = SubResource("TileSet_o8lk3")
 position = Vector2(378, 225)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 limit_smoothed = true
 position_smoothing_enabled = true
-
-[node name="Pistol2" parent="." instance=ExtResource("8_7opgx")]
-position = Vector2(379, 289)

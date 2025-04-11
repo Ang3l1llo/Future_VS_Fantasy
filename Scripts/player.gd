@@ -31,3 +31,4 @@ func aim_weapon():
 		var global_mouse_pos = get_global_mouse_position()
 		var _dir = global_mouse_pos - global_position
 		weapon_reference.look_at(global_mouse_pos)
+			
