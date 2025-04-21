@@ -356,8 +356,8 @@ size = Vector2(22, 41)
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"WALK"
-frame_progress = 0.261507
+animation = &"ATTACK3"
+frame_progress = 0.151672
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(35, 26)

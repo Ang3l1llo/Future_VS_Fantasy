@@ -6,7 +6,10 @@ var weapon_reference = null
 func _physics_process(_delta):
 	movement()
 	aim_weapon()
-
+	
+	#Esto fuerza la posición del jugador a estar en valores enteros de píxeles, evitando lag
+	global_position = global_position.round()
+	
 #Función que controla el movimiento
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -25,10 +28,16 @@ func movement():
 		$AnimatedSprite2D.scale.x = 1 if x_mov > 0 else -1
 
 
-#Función para apuntar en la dirección del ratón
+#Función para apuntar 
 func aim_weapon():
 	if weapon_reference:
 		var global_mouse_pos = get_global_mouse_position()
-		var _dir = global_mouse_pos - global_position
-		weapon_reference.look_at(global_mouse_pos)
-			
+		weapon_reference.look_at(global_mouse_pos) #Para que apunte en la dirección que este el ratón
+		
+		#Para rotar el arma cuando apunte hacia la otra dirección y no se vea volteada
+		var angle_deg = wrap(weapon_reference.rotation_degrees, 0, 360)
+
+		if angle_deg > 90 and angle_deg < 270:
+			weapon_reference.scale.y = -1
+		else:
+			weapon_reference.scale.y = 1

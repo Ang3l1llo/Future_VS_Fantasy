@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://ddqhf0ymj7ym2"]
+[gd_scene load_steps=39 format=3 uid="uid://ddqhf0ymj7ym2"]
 
 [ext_resource type="Texture2D" uid="uid://cnkm41o7l7tma" path="res://Assets/Enemies/Orc/Orc-Attack01.png" id="1_6twiw"]
+[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/orc.gd" id="1_sinis"]
 [ext_resource type="Texture2D" uid="uid://cxjtijh82awp5" path="res://Assets/Enemies/Orc/Orc-Attack02.png" id="2_myvjt"]
 [ext_resource type="Texture2D" uid="uid://cvlldm445myde" path="res://Assets/Enemies/Orc/Orc-Death.png" id="3_7gidh"]
 [ext_resource type="Texture2D" uid="uid://dfsfghrofbcwg" path="res://Assets/Enemies/Orc/Orc-Hurt.png" id="4_ekfdw"]
@@ -236,14 +237,19 @@ radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1iga"]
 size = Vector2(15, 26)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nem4e"]
+radius = 16.0312
+
 [node name="Orc" type="CharacterBody2D"]
+script = ExtResource("1_sinis")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
 animation = &"ATTACK2"
-frame_progress = 0.434697
+frame = 1
+frame_progress = 0.952131
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(35, 29)
@@ -259,3 +265,9 @@ shape = SubResource("RectangleShape2D_u1iga")
 position = Vector2(45, 31)
 scale = Vector2(1.86845, 1.81391)
 polygon = PackedVector2Array(1.0704, -9.37202, 6.95763, -4.96166, 6.95763, 0, -0.535212, 8.26943, -5.35204, 2.75648, 0.535194, -2.20518)
+
+[node name="DetectZone" type="Area2D" parent="."]
+
+[node name="DetectShape" type="CollisionShape2D" parent="DetectZone"]
+position = Vector2(35, 29)
+shape = SubResource("CircleShape2D_nem4e")

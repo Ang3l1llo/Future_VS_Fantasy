@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://csr2x7ocgujkv"]
 
 [ext_resource type="Texture2D" uid="uid://crs7blwk7ribp" path="res://Scenes/Weapons/ATLAS/Atlas_bat.tres" id="1_0nswb"]
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/bat.gd" id="1_exinv"]
+[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Bat.gd" id="1_k6xon"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_vty4j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hr65"]
@@ -9,7 +9,7 @@ size = Vector2(23, 6.75)
 
 [node name="Bat" type="Area2D"]
 position = Vector2(4, 3)
-script = ExtResource("1_exinv")
+script = ExtResource("1_k6xon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(25, 11)

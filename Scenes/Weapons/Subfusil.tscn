@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dya4ygbsb8v2f"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/subfusil.gd" id="1_btqh7"]
+[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Subfusil.gd" id="1_gfav0"]
 [ext_resource type="Texture2D" uid="uid://d1m51717534ky" path="res://Scenes/Weapons/ATLAS/Atlas_subfusil.tres" id="1_i0jlk"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_jke2o"]
 
@@ -8,7 +8,7 @@
 size = Vector2(25, 12)
 
 [node name="Subfusil" type="Area2D"]
-script = ExtResource("1_btqh7")
+script = ExtResource("1_gfav0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(23.5, 18)

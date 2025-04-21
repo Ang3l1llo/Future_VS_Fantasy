@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0eo44glvsiv4"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/shotgun_3.gd" id="1_hd2cn"]
+[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Shotgun3.gd" id="1_7sl6w"]
 [ext_resource type="Texture2D" uid="uid://if2jkrjl65qi" path="res://Scenes/Weapons/ATLAS/Atlas_shotgun3.tres" id="1_vp0gp"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_ncnj3"]
 
@@ -10,7 +10,7 @@ size = Vector2(28, 9)
 [node name="Shotgun3" type="Area2D"]
 texture_filter = 1
 position = Vector2(33, 21)
-script = ExtResource("1_hd2cn")
+script = ExtResource("1_7sl6w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbfj6jiess62p"]
 
+[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Sword.gd" id="1_2nu4n"]
 [ext_resource type="Texture2D" uid="uid://cx2ehb5rpm3ct" path="res://Scenes/Weapons/ATLAS/Atlas_sword.tres" id="1_6u2u0"]
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/sword.gd" id="1_rda0m"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_qiw56"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkby8"]
@@ -10,7 +10,7 @@ size = Vector2(20, 7)
 [node name="Sword" type="Area2D"]
 texture_filter = 1
 position = Vector2(33, 15)
-script = ExtResource("1_rda0m")
+script = ExtResource("1_2nu4n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1

@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://7o081iv42rgm"]
 
 [ext_resource type="Texture2D" uid="uid://duqy6rogwvuxu" path="res://Scenes/Weapons/ATLAS/Atlas_shotgun.tres" id="1_6art7"]
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/shotgun.gd" id="1_hhmdf"]
+[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Shotgun.gd" id="1_ufvhg"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_n1vom"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aqhg"]
 size = Vector2(26, 9)
 
 [node name="Shotgun" type="Area2D"]
-script = ExtResource("1_hhmdf")
+script = ExtResource("1_ufvhg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(25, 15.5)

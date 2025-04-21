@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://birvwqjhoags6"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/pistol_4.gd" id="1_r24tx"]
+[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Pistol4.gd" id="1_2e0jx"]
 [ext_resource type="Texture2D" uid="uid://epvhappxwp6o" path="res://Scenes/Weapons/ATLAS/Atlas_pistol4.tres" id="1_w2fd8"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_sac5j"]
 
@@ -8,7 +8,7 @@
 radius = 6.08276
 
 [node name="Pistol4" type="Area2D"]
-script = ExtResource("1_r24tx")
+script = ExtResource("1_2e0jx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(28, 13)

@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://b441jtgkuuu8k"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/rifle.gd" id="1_73w7n"]
 [ext_resource type="Texture2D" uid="uid://58nc4oray1am" path="res://Scenes/Weapons/ATLAS/Atlas_rifle.tres" id="1_ewcxw"]
+[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Rifle.gd" id="1_r5uac"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_asfrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6e70"]
 size = Vector2(20, 10)
 
 [node name="Rifle" type="Area2D"]
-script = ExtResource("1_73w7n")
+script = ExtResource("1_r5uac")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(26, 16)

@@ -181,7 +181,8 @@ texture_filter = 1
 position = Vector2(38, 22)
 sprite_frames = SubResource("SpriteFrames_s3wlg")
 animation = &"RUN"
-frame_progress = 0.249043
+frame = 1
+frame_progress = 0.756897
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(39, 24)
