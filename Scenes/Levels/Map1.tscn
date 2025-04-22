@@ -1835,7 +1835,6 @@ position_smoothing_enabled = true
 
 [node name="Orc" parent="Enemies" instance=ExtResource("8_lkvki")]
 position = Vector2(547, 206)
-platform_floor_layers = 4294901760
 
 [node name="Weapons" type="Node2D" parent="."]
 

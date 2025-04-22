@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5n7vii16qbd8"]
+
+[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/BULLETS/bullet_rifle.gd" id="1_8cyej"]
+[ext_resource type="Texture2D" uid="uid://ckcotg4nilu6s" path="res://Scenes/Weapons/ATLAS/Bullet_rifle.tres" id="1_vwf73"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66hp1"]
+size = Vector2(6, 3)
+
+[node name="Bullet_rifle" type="Area2D"]
+script = ExtResource("1_8cyej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_vwf73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_66hp1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

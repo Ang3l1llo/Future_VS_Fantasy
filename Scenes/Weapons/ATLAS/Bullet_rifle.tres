@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ckcotg4nilu6s"]
+
+[ext_resource type="Texture2D" uid="uid://bvcokl5qdrptf" path="res://Assets/Main Char and Weapons/GZ2-Weapons_16px.png" id="1_iyi3j"]
+
+[resource]
+atlas = ExtResource("1_iyi3j")
+region = Rect2(18.5149, 4.4739, 11.752, 7.83465)
