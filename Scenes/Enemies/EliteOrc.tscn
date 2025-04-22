@@ -351,6 +351,7 @@ size = Vector2(29.4362, 11.5772)
 size = Vector2(22, 41)
 
 [node name="EliteOrc" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

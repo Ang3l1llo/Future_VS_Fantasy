@@ -347,6 +347,7 @@ size = Vector2(10.6196, 13.7824)
 size = Vector2(22, 29)
 
 [node name="KnightTemplar" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

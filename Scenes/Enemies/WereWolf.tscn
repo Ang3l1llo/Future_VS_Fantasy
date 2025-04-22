@@ -310,6 +310,7 @@ size = Vector2(20, 24)
 size = Vector2(18.1969, 17.6414)
 
 [node name="WereWolf" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

@@ -247,6 +247,7 @@ size = Vector2(15, 24)
 size = Vector2(19.8025, 7.16684)
 
 [node name="Skeleton" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

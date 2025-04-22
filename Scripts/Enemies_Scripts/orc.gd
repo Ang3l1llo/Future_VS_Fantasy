@@ -34,8 +34,10 @@ func attack_if_possible():
 	
 	can_attack = false
 	
+	#Ataque aleatorio para que vaya variando 
 	var attack_type = randi() % 2  # 0 o 1
 
+	#Para controlar que collisionshape se aplica dependiendo del ataque, el otro se desactiva
 	if attack_type == 0:
 		sprite.play("ATTACK1")
 		attack_shape1.disabled = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bdx2rfm3j5jmn"]
+[gd_scene load_steps=19 format=4 uid="uid://bdx2rfm3j5jmn"]
 
 [ext_resource type="Texture2D" uid="uid://kfrkqukls7a7" path="res://Assets/MeadowLands/Ground/Tilemap_Elevation.png" id="1_g6bia"]
 [ext_resource type="Texture2D" uid="uid://p3xk4r8yrbvx" path="res://Assets/MeadowLands/Ground/Tilemap_Flat.png" id="2_o87mg"]
@@ -8,9 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b4qm4r8ddnbw7" path="res://Assets/MeadowLands/Water/Foam/Foam.png" id="6_5mb5t"]
 [ext_resource type="PackedScene" uid="uid://d2w5rpy4ceoe2" path="res://Scenes/player.tscn" id="7_w8ow7"]
 [ext_resource type="PackedScene" uid="uid://ddqhf0ymj7ym2" path="res://Scenes/Enemies/Orc.tscn" id="8_lkvki"]
-[ext_resource type="PackedScene" uid="uid://knan1pgn0qwm" path="res://Scenes/Weapons/Knife.tscn" id="11_80up4"]
+[ext_resource type="PackedScene" uid="uid://bdjn1iculqnbk" path="res://Scenes/Weapons/Rifle3.tscn" id="11_32j8t"]
 [ext_resource type="PackedScene" uid="uid://c1c3obdmxhvlq" path="res://Scenes/Weapons/Pistol3.tscn" id="12_5hlqu"]
-[ext_resource type="PackedScene" uid="uid://t0xpobohu68e" path="res://Scenes/Weapons/Rifle5.tscn" id="13_6q1bk"]
 [ext_resource type="PackedScene" uid="uid://csr2x7ocgujkv" path="res://Scenes/Weapons/Bat.tscn" id="14_47v5e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l16i6"]
@@ -1819,146 +1818,6 @@ sources/3 = SubResource("TileSetAtlasSource_v8uhr")
 sources/4 = SubResource("TileSetAtlasSource_puosn")
 sources/5 = SubResource("TileSetAtlasSource_ya0ss")
 
-[sub_resource type="GDScript" id="GDScript_ge4y3"]
-script/source = "extends Area2D
-
-func _ready():
-	if $Pivot.has_node(\"Left\"):
-		$Pivot/Left.visible = false
-
-func _on_body_entered(body):
-	if body.name == \"Player\":
-		print(\"Recogiendo arma...\")
-
-		call_deferred(\"_equip_weapon\", body)
-
-func _equip_weapon(body):
-	if body.weapon_reference:
-		body.weapon_reference.queue_free()  # Elimina el arma anterior
-		
-	# Mostrar las manos que estaban ocultas
-	if $Pivot.has_node(\"Left\"):
-		$Pivot/Left.visible = true
-
-	self.name = \"ArmaEquipada\"
-	$Pivot.position = Vector2(5, 0)
-
-
-	# Mover el arma al jugador
-	get_parent().remove_child(self)
-	body.add_child(self)
-	self.position = body.get_node(\"WeaponSlot\").position
-
-	# Guardar la referencia
-	body.weapon_reference = self
-"
-
-[sub_resource type="GDScript" id="GDScript_pk6ta"]
-script/source = "extends Area2D
-
-func _ready():
-	if $Pivot.has_node(\"Left\"):
-		$Pivot/Left.visible = false
-
-func _on_body_entered(body):
-	if body.name == \"Player\":
-		print(\"Recogiendo arma...\")
-
-		call_deferred(\"_equip_weapon\", body)
-
-func _equip_weapon(body):
-	if body.weapon_reference:
-		body.weapon_reference.queue_free()  # Elimina el arma anterior
-		
-	# Mostrar las manos que estaban ocultas
-	if $Pivot.has_node(\"Left\"):
-		$Pivot/Left.visible = true
-
-	self.name = \"ArmaEquipada\"
-	$Pivot.position = Vector2(5, 0)
-
-
-	# Mover el arma al jugador
-	get_parent().remove_child(self)
-	body.add_child(self)
-	self.position = body.get_node(\"WeaponSlot\").position
-
-	# Guardar la referencia
-	body.weapon_reference = self
-"
-
-[sub_resource type="GDScript" id="GDScript_36qx5"]
-script/source = "extends Area2D
-
-func _ready():
-	if $Pivot.has_node(\"Left\"):
-		$Pivot/Left.visible = false
-	if $Pivot.has_node(\"Right\"):
-		$Pivot/Right.visible = false
-
-func _on_body_entered(body):
-	if body.name == \"Player\":
-		print(\"Recogiendo arma...\")
-
-		call_deferred(\"_equip_weapon\", body)
-
-func _equip_weapon(body):
-	if body.weapon_reference:
-		body.weapon_reference.queue_free()  # Elimina el arma anterior
-		
-	# Mostrar las manos que estaban ocultas
-	if $Pivot.has_node(\"Left\"):
-		$Pivot/Left.visible = true
-	if $Pivot.has_node(\"Right\"):
-		$Pivot/Right.visible = true
-
-	self.name = \"ArmaEquipada\"
-	$Pivot.position = Vector2(0, 0)
-
-
-	# Mover el arma al jugador
-	get_parent().remove_child(self)
-	body.add_child(self)
-	self.position = body.get_node(\"WeaponSlot\").position
-
-	# Guardar la referencia
-	body.weapon_reference = self
-"
-
-[sub_resource type="GDScript" id="GDScript_cbyno"]
-script/source = "extends Area2D
-
-func _ready():
-	if $Pivot.has_node(\"Left\"):
-		$Pivot/Left.visible = false
-
-func _on_body_entered(body):
-	if body.name == \"Player\":
-		print(\"Recogiendo arma...\")
-
-		call_deferred(\"_equip_weapon\", body)
-
-func _equip_weapon(body):
-	if body.weapon_reference:
-		body.weapon_reference.queue_free()  # Elimina el arma anterior
-		
-	# Mostrar las manos que estaban ocultas
-	if $Pivot.has_node(\"Left\"):
-		$Pivot/Left.visible = true
-
-	self.name = \"ArmaEquipada\"
-	$Pivot.position = Vector2(5, 0)
-
-
-	# Mover el arma al jugador
-	get_parent().remove_child(self)
-	body.add_child(self)
-	self.position = body.get_node(\"WeaponSlot\").position
-
-	# Guardar la referencia
-	body.weapon_reference = self
-"
-
 [node name="Map1" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -1976,21 +1835,15 @@ position_smoothing_enabled = true
 
 [node name="Orc" parent="Enemies" instance=ExtResource("8_lkvki")]
 position = Vector2(547, 206)
+platform_floor_layers = 4294901760
 
 [node name="Weapons" type="Node2D" parent="."]
 
-[node name="Knife" parent="Weapons" instance=ExtResource("11_80up4")]
-position = Vector2(289, 330)
-script = SubResource("GDScript_ge4y3")
+[node name="Bat" parent="Weapons" instance=ExtResource("14_47v5e")]
+position = Vector2(304, 232)
+
+[node name="Rifle3" parent="Weapons" instance=ExtResource("11_32j8t")]
+position = Vector2(327, 274)
 
 [node name="Pistol3" parent="Weapons" instance=ExtResource("12_5hlqu")]
-position = Vector2(323, 399)
-script = SubResource("GDScript_pk6ta")
-
-[node name="Rifle5" parent="Weapons" instance=ExtResource("13_6q1bk")]
-position = Vector2(409, 409)
-script = SubResource("GDScript_36qx5")
-
-[node name="Bat" parent="Weapons" instance=ExtResource("14_47v5e")]
-position = Vector2(321, 244)
-script = SubResource("GDScript_cbyno")
+position = Vector2(388, 203)

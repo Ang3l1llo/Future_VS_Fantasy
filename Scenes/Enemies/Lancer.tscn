@@ -327,6 +327,7 @@ size = Vector2(16.0139, 9.37204)
 size = Vector2(23, 14)
 
 [node name="Lancer" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

@@ -359,6 +359,7 @@ size = Vector2(21.25, 19.5)
 size = Vector2(82, 26)
 
 [node name="OrcRider" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

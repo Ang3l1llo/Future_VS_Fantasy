@@ -241,6 +241,7 @@ size = Vector2(15, 26)
 radius = 16.0312
 
 [node name="Orc" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 script = ExtResource("1_sinis")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

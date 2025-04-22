@@ -210,6 +210,7 @@ radius = 9.05539
 size = Vector2(13, 7)
 
 [node name="SkeletonArcher" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

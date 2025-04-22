@@ -372,6 +372,7 @@ size = Vector2(17, 29)
 size = Vector2(26.7602, 11.5772)
 
 [node name="ArmoredAxeman" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

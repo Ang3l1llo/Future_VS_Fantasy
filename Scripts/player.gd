@@ -6,7 +6,7 @@ var weapon_reference = null
 func _physics_process(_delta):
 	movement()
 	aim_weapon()
-	
+	handle_shooting()
 	#Esto fuerza la posición del jugador a estar en valores enteros de píxeles, evitando lag
 	global_position = global_position.round()
 	
@@ -41,3 +41,8 @@ func aim_weapon():
 			weapon_reference.scale.y = -1
 		else:
 			weapon_reference.scale.y = 1
+
+#Función para disparar
+func handle_shooting():
+	if Input.is_action_just_pressed("shoot") and weapon_reference:
+		weapon_reference.shoot()

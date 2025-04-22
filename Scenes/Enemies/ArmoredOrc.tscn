@@ -333,6 +333,7 @@ size = Vector2(10.5352, 6.3399)
 size = Vector2(59, 17)
 
 [node name="ArmoredOrc" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

@@ -29,3 +29,10 @@ func _equip_weapon(body):
 
 	# Guardar la referencia
 	body.weapon_reference = self
+
+func shoot():
+	const BULLET = preload("res://Scenes/Weapons/BULLETS/bullet_pistol.tscn")
+	var new_bullet = BULLET.instantiate()
+	new_bullet.global_position = %ShootingPoint.global_position
+	new_bullet.global_rotation = %ShootingPoint.global_rotation
+	get_tree().current_scene.add_child(new_bullet)
