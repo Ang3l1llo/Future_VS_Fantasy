@@ -33,3 +33,31 @@ func _equip_weapon(body):
 
 	# Guardar la referencia
 	body.weapon_reference = self
+	
+	
+#Función para disparar
+func shoot():
+	const BULLET = preload("res://Scenes/Weapons/BULLETS/bullet_shotgun.tscn")
+	var shooting_position = $Pivot/ShootingPoint.global_position
+	var is_flipped = scale.y == -1
+
+	# Ajuste de posición si el arma está volteada
+	var base_offset = Vector2(0, -1) if is_flipped else Vector2.ZERO
+	base_offset = base_offset.rotated(rotation)
+
+	# Parámetros de la escopeta
+	var num_pellets = 5  # Número de balas por disparo
+	var spread_angle = deg_to_rad(20)  # Ángulo total de dispersión 
+
+	for i in num_pellets:
+		var pellet = BULLET.instantiate()
+
+		# Ángulo individual para cada bala 
+		var angle_offset = spread_angle * (float(i) / (num_pellets - 1) - 0.5)
+		var final_rotation = rotation + angle_offset
+
+		# Posición de cada proyectil
+		pellet.global_position = shooting_position + base_offset
+		pellet.rotation = final_rotation
+
+		get_tree().current_scene.add_child(pellet)

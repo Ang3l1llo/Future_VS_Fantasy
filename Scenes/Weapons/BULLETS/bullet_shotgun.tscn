@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqwcf448vrmne"]
+
+[ext_resource type="Texture2D" uid="uid://b7epjnrosua80" path="res://Scenes/Weapons/ATLAS/Bullet_shotgun.tres" id="1_fan4n"]
+[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/BULLETS/bullet_shotgun.gd" id="1_tjbso"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi7m4"]
+size = Vector2(8, 4)
+
+[node name="Bullet_shotgun" type="Area2D"]
+script = ExtResource("1_tjbso")
+
+[node name="BulletShotgun" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_fan4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_bi7m4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

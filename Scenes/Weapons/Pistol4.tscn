@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://birvwqjhoags6"]
+[gd_scene load_steps=6 format=3 uid="uid://birvwqjhoags6"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Pistol4.gd" id="1_2e0jx"]
 [ext_resource type="Texture2D" uid="uid://epvhappxwp6o" path="res://Scenes/Weapons/ATLAS/Atlas_pistol4.tres" id="1_w2fd8"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_sac5j"]
+[ext_resource type="PackedScene" uid="uid://ctxcv6ur3cmvm" path="res://Scenes/Weapons/BULLETS/bullet_pistol.tscn" id="4_xltdi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jljga"]
 radius = 6.08276
@@ -22,12 +23,15 @@ texture_filter = 1
 position = Vector2(11, -4)
 texture = ExtResource("1_w2fd8")
 
-[node name="ShootingPoint" type="Marker2D" parent="Pivot/Sprite2D"]
-position = Vector2(6, 0)
-
 [node name="Left" type="Sprite2D" parent="Pivot"]
 texture_filter = 1
 position = Vector2(6, -1)
 texture = ExtResource("2_sac5j")
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot"]
+position = Vector2(17, -7)
+
+[node name="Bullet_pistol" parent="Pivot/ShootingPoint" instance=ExtResource("4_xltdi")]
+position = Vector2(-1, -3)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

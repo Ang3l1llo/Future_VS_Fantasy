@@ -29,3 +29,28 @@ func _equip_weapon(body):
 
 	# Guardar la referencia
 	body.weapon_reference = self
+
+#Función para disparar
+func shoot():
+	const BULLET = preload("res://Scenes/Weapons/BULLETS/bullet_pistol.tscn")
+	var new_bullet = BULLET.instantiate()
+
+	# Base de disparo
+	var shooting_position = $Pivot/ShootingPoint.global_position
+
+	# Para comprobar si el arma esta invertida
+	var is_flipped = scale.y == -1
+
+	# offset solo cuando el arma esté invertida
+	var offset = Vector2.ZERO
+	if is_flipped:
+		offset = Vector2(0, -5)  # Básicamente para que al rotar el arma, el pryectil salga desde la posición correcta
+
+	offset = offset.rotated(rotation)
+
+	# Posición final con ajuste solo si está invertida
+	new_bullet.global_position = shooting_position + offset
+
+	new_bullet.rotation = rotation
+
+	get_tree().current_scene.add_child(new_bullet)

@@ -37,7 +37,7 @@ func _equip_weapon(body):
 	
 #Función para disparar
 func shoot():
-	const BULLET = preload("res://Scenes/Weapons/BULLETS/bullet_shotgun.tscn")
+	const BULLET = preload("res://Scenes/Weapons/BULLETS/bullet_supergun.tscn")
 	var shooting_position = $Pivot/ShootingPoint.global_position
 	var is_flipped = scale.y == -1
 

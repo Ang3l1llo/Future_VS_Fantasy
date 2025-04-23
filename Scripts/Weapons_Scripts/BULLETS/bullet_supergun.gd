@@ -1,0 +1,15 @@
+extends Area2D
+
+var speed = 400.0
+var direction = Vector2.ZERO
+
+func _ready():
+	direction = Vector2.RIGHT.rotated(rotation)
+
+func _physics_process(delta):
+	position += direction * speed * delta
+
+func _on_body_entered(body):
+	queue_free()
+	if body.has_method("take damage"):
+		body.take_damage()

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7lcbqv01mlk8"]
+
+[ext_resource type="Texture2D" uid="uid://bmsjx8xb1wrcf" path="res://Scenes/Weapons/ATLAS/Bullet_supergun.tres" id="1_2rgje"]
+[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/BULLETS/bullet_supergun.gd" id="1_7um3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16pd2"]
+size = Vector2(10, 5.6)
+
+[node name="Bullet_Supergun" type="Area2D"]
+script = ExtResource("1_7um3j")
+
+[node name="BulletSupergun" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 1)
+texture = ExtResource("1_2rgje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_16pd2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bdx2rfm3j5jmn"]
+[gd_scene load_steps=20 format=4 uid="uid://bdx2rfm3j5jmn"]
 
 [ext_resource type="Texture2D" uid="uid://kfrkqukls7a7" path="res://Assets/MeadowLands/Ground/Tilemap_Elevation.png" id="1_g6bia"]
 [ext_resource type="Texture2D" uid="uid://p3xk4r8yrbvx" path="res://Assets/MeadowLands/Ground/Tilemap_Flat.png" id="2_o87mg"]
@@ -7,10 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://c6m5fo2opao7n" path="res://Assets/MeadowLands/Water/Water.png" id="5_bjyh5"]
 [ext_resource type="Texture2D" uid="uid://b4qm4r8ddnbw7" path="res://Assets/MeadowLands/Water/Foam/Foam.png" id="6_5mb5t"]
 [ext_resource type="PackedScene" uid="uid://d2w5rpy4ceoe2" path="res://Scenes/player.tscn" id="7_w8ow7"]
-[ext_resource type="PackedScene" uid="uid://ddqhf0ymj7ym2" path="res://Scenes/Enemies/Orc.tscn" id="8_lkvki"]
-[ext_resource type="PackedScene" uid="uid://bdjn1iculqnbk" path="res://Scenes/Weapons/Rifle3.tscn" id="11_32j8t"]
-[ext_resource type="PackedScene" uid="uid://c1c3obdmxhvlq" path="res://Scenes/Weapons/Pistol3.tscn" id="12_5hlqu"]
-[ext_resource type="PackedScene" uid="uid://csr2x7ocgujkv" path="res://Scenes/Weapons/Bat.tscn" id="14_47v5e"]
+[ext_resource type="PackedScene" uid="uid://7o081iv42rgm" path="res://Scenes/Weapons/Shotgun.tscn" id="8_1q8kx"]
+[ext_resource type="PackedScene" uid="uid://bkhhlle7x3q4l" path="res://Scenes/Weapons/Shotgun2.tscn" id="9_p6khy"]
+[ext_resource type="PackedScene" uid="uid://d0eo44glvsiv4" path="res://Scenes/Weapons/Shotgun3.tscn" id="10_3v310"]
+[ext_resource type="PackedScene" uid="uid://d4i6ls77h0m23" path="res://Scenes/Weapons/Supergun.tscn" id="11_vwf17"]
+[ext_resource type="PackedScene" uid="uid://blkol8fk3vevx" path="res://Scenes/Weapons/Rifle6.tscn" id="12_b3ccd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l16i6"]
 texture = ExtResource("1_g6bia")
@@ -1833,16 +1834,19 @@ position_smoothing_enabled = true
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Orc" parent="Enemies" instance=ExtResource("8_lkvki")]
-position = Vector2(547, 206)
-
 [node name="Weapons" type="Node2D" parent="."]
 
-[node name="Bat" parent="Weapons" instance=ExtResource("14_47v5e")]
-position = Vector2(304, 232)
+[node name="Shotgun" parent="." instance=ExtResource("8_1q8kx")]
+position = Vector2(389, 264)
 
-[node name="Rifle3" parent="Weapons" instance=ExtResource("11_32j8t")]
-position = Vector2(327, 274)
+[node name="Shotgun2" parent="." instance=ExtResource("9_p6khy")]
+position = Vector2(462, 265)
 
-[node name="Pistol3" parent="Weapons" instance=ExtResource("12_5hlqu")]
-position = Vector2(388, 203)
+[node name="Shotgun3" parent="." instance=ExtResource("10_3v310")]
+position = Vector2(527, 264)
+
+[node name="Supergun" parent="." instance=ExtResource("11_vwf17")]
+position = Vector2(593, 270)
+
+[node name="Rifle6" parent="." instance=ExtResource("12_b3ccd")]
+position = Vector2(454, 206)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ckcotg4nilu6s" path="res://Scenes/Weapons/ATLAS/Bullet_rifle.tres" id="1_vwf73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66hp1"]
-size = Vector2(6, 3)
+size = Vector2(8, 3)
 
 [node name="Bullet_rifle" type="Area2D"]
 script = ExtResource("1_8cyej")
