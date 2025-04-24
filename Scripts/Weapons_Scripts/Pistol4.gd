@@ -1,5 +1,7 @@
 extends Area2D
 
+var damage = 20
+
 func _ready():
 	if $Pivot.has_node("Left"):
 		$Pivot/Left.visible = false
@@ -18,7 +20,6 @@ func _equip_weapon(body):
 	if $Pivot.has_node("Left"):
 		$Pivot/Left.visible = true
 
-	self.name = "ArmaEquipada"
 	$Pivot.position = Vector2(5, 0)
 
 
@@ -44,13 +45,14 @@ func shoot():
 	# offset solo cuando el arma esté invertida
 	var offset = Vector2.ZERO
 	if is_flipped:
-		offset = Vector2(0, -5)  # Básicamente para que al rotar el arma, el pryectil salga desde la posición correcta
+		offset = Vector2(0, -4)  # Básicamente para que al rotar el arma, el pryectil salga desde la posición correcta
 
 	offset = offset.rotated(rotation)
 
 	# Posición final con ajuste solo si está invertida
 	new_bullet.global_position = shooting_position + offset
-
 	new_bullet.rotation = rotation
+	
+	new_bullet.damage = damage
 
 	get_tree().current_scene.add_child(new_bullet)

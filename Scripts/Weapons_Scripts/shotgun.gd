@@ -1,5 +1,7 @@
 extends Area2D
 
+var damage = 20
+
 func _ready():
 	if $Pivot.has_node("Left"):
 		$Pivot/Left.visible = false
@@ -59,5 +61,7 @@ func shoot():
 		# Posición de cada proyectil
 		pellet.global_position = shooting_position + base_offset
 		pellet.rotation = final_rotation
+		
+		pellet.damage = damage
 
 		get_tree().current_scene.add_child(pellet)

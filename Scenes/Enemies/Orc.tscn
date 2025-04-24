@@ -140,7 +140,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4vsgd")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK1",
 "speed": 10.0
 }, {
@@ -163,7 +163,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7fvog")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK2",
 "speed": 10.0
 }, {
@@ -180,7 +180,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7mtow")
 }],
-"loop": true,
+"loop": false,
 "name": &"DEATH",
 "speed": 7.0
 }, {
@@ -197,7 +197,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yicvj")
 }],
-"loop": true,
+"loop": false,
 "name": &"HURT",
 "speed": 7.0
 }, {
@@ -238,9 +238,11 @@ radius = 8.0
 size = Vector2(15, 26)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nem4e"]
-radius = 16.0312
+radius = 15.0333
 
 [node name="Orc" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 platform_floor_layers = 4294901760
 script = ExtResource("1_sinis")
 
@@ -248,9 +250,7 @@ script = ExtResource("1_sinis")
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"ATTACK2"
-frame = 1
-frame_progress = 0.952131
+animation = &"ATTACK1"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(35, 29)
@@ -272,3 +272,5 @@ polygon = PackedVector2Array(1.0704, -9.37202, 6.95763, -4.96166, 6.95763, 0, -0
 [node name="DetectShape" type="CollisionShape2D" parent="DetectZone"]
 position = Vector2(35, 29)
 shape = SubResource("CircleShape2D_nem4e")
+
+[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]

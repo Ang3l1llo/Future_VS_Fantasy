@@ -1,9 +1,17 @@
 extends CharacterBody2D
 
+@onready var sprite = $AnimatedSprite2D
 var movement_speed = 60.0
 var weapon_reference = null  
+var max_health = 100
+var current_health = max_health
+var is_dead = false
+
 
 func _physics_process(_delta):
+	if is_dead:
+		return
+		
 	movement()
 	aim_weapon()
 	handle_shooting()
@@ -19,13 +27,13 @@ func movement():
 	move_and_slide()
 	
 	if mov.length() > 0:
-		$AnimatedSprite2D.play("RUN")
+		sprite.play("RUN")
 	else:
-		$AnimatedSprite2D.play("IDLE")
+		sprite.play("IDLE")
 
 	#Para rotar al personaje si mira hacia un lado u otro
 	if x_mov != 0:
-		$AnimatedSprite2D.scale.x = 1 if x_mov > 0 else -1
+		sprite.scale.x = 1 if x_mov > 0 else -1
 
 
 #Función para apuntar 
@@ -46,3 +54,22 @@ func aim_weapon():
 func handle_shooting():
 	if Input.is_action_just_pressed("shoot") and weapon_reference:
 		weapon_reference.shoot()
+
+#Función para recibir daño de los enemigos
+func take_damage(amount):
+	current_health -= amount
+	print("¡El jugador ha recibido daño! Vida actual:", current_health)
+
+	if current_health <= 0:
+		die()
+
+func die():
+	if is_dead:
+		return
+	is_dead = true
+
+	velocity = Vector2.ZERO
+	sprite.play("DEATH")
+	print("¡Game Over!")
+
+	await sprite.animation_finished

@@ -1,5 +1,7 @@
 extends Area2D
 
+var damage = 20
+
 func _ready():
 	if $Pivot.has_node("Left"):
 		$Pivot/Left.visible = false
@@ -37,7 +39,7 @@ func _equip_weapon(body):
 	
 #Función para disparar
 func shoot():
-	const BULLET = preload("res://Scenes/Weapons/BULLETS/bullet_supergun.tscn")
+	const BULLET = preload("res://Scenes/Weapons/BULLETS/bullet_rifle.tscn")
 	var new_bullet = BULLET.instantiate()
 
 	# Base de disparo
@@ -57,5 +59,7 @@ func shoot():
 	new_bullet.global_position = shooting_position + offset
 
 	new_bullet.rotation = rotation
+	
+	new_bullet.damage = damage
 
 	get_tree().current_scene.add_child(new_bullet)
