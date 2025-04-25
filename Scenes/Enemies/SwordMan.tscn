@@ -1,5 +1,6 @@
-[gd_scene load_steps=61 format=3 uid="uid://dseuubdy11ry0"]
+[gd_scene load_steps=63 format=3 uid="uid://dseuubdy11ry0"]
 
+[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/sword_man.gd" id="1_0c2v2"]
 [ext_resource type="Texture2D" uid="uid://btkwfvw73gsqp" path="res://Assets/Enemies/SwordMan/Swordsman-Attack01.png" id="1_x1w1h"]
 [ext_resource type="Texture2D" uid="uid://dlh3qk1l1nqh7" path="res://Assets/Enemies/SwordMan/Swordsman-Attack02.png" id="2_g75ly"]
 [ext_resource type="Texture2D" uid="uid://bpv27n18rett" path="res://Assets/Enemies/SwordMan/Swordsman-Attack3.png" id="3_q0tlj"]
@@ -235,7 +236,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sr773")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK1",
 "speed": 10.0
 }, {
@@ -285,7 +286,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_441pw")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK2",
 "speed": 10.0
 }, {
@@ -326,7 +327,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s0hn8")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK3",
 "speed": 10.0
 }, {
@@ -343,7 +344,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dqkmu")
 }],
-"loop": true,
+"loop": false,
 "name": &"DEATH",
 "speed": 7.0
 }, {
@@ -363,7 +364,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xv76l")
 }],
-"loop": true,
+"loop": false,
 "name": &"HURT",
 "speed": 7.0
 }, {
@@ -403,16 +404,18 @@ radius = 9.05539
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p34hb"]
 size = Vector2(30, 17)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfkyc"]
+radius = 17.0294
+
 [node name="SwordMan" type="CharacterBody2D"]
 platform_floor_layers = 4294901760
+script = ExtResource("1_0c2v2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"WALK"
-frame = 3
-frame_progress = 0.710263
+animation = &"HURT"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(34, 29)
@@ -432,3 +435,11 @@ polygon = PackedVector2Array(-3.21122, -7.71813, 5.88723, -9.92332, 12.3097, -3.
 [node name="Attack3" type="CollisionShape2D" parent="AttackZone"]
 position = Vector2(56, 28.5)
 shape = SubResource("RectangleShape2D_p34hb")
+
+[node name="DetectZone" type="Area2D" parent="."]
+
+[node name="DetectShape" type="CollisionShape2D" parent="DetectZone"]
+position = Vector2(35, 29)
+shape = SubResource("CircleShape2D_yfkyc")
+
+[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]

@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var attack_zone = $AttackZone
 @onready var attack_shape1 = attack_zone.get_node("Attack1")
 @onready var attack_shape2 = attack_zone.get_node("Attack2")
+@onready var attack_shape3 = attack_zone.get_node("Attack3")
 @onready var detect_zone = $DetectZone
 
 
@@ -62,20 +63,30 @@ func attack_if_possible():
 	is_attacking = true
 	can_attack = false
 	
-	# Ataque aleatorio 
-	var attack_type = randi() % 2
+	# Ataque aleatorio (tipo 0 o tipo 1)
+	var attack_type = randi() % 3
 	
 	if attack_type == 0:
 		attack_shape1.disabled = false
 		attack_shape2.disabled = true
+		attack_shape3.disabled = true
 		await play_and_wait("ATTACK1")
-	else:
+		
+	if attack_type == 1:
 		attack_shape1.disabled = true
 		attack_shape2.disabled = false
+		attack_shape3.disabled = true
 		await play_and_wait("ATTACK2")
+		
+	else:
+		attack_shape1.disabled = true
+		attack_shape2.disabled = true
+		attack_shape3.disabled = false
+		await play_and_wait("ATTACK3")
 	
 	attack_shape1.disabled = true
 	attack_shape2.disabled = true
+	attack_shape3.disabled = true
 	
 
 	can_attack = true
@@ -93,6 +104,7 @@ func take_damage(damage_amount: int):
 	velocity = Vector2.ZERO
 	move_and_slide()
 	
+	# Reproducción de animación HURT
 	await play_and_wait("HURT")
 	
 	is_hurt = false
@@ -109,12 +121,10 @@ func die():
 	await play_and_wait("DEATH")
 	queue_free()
 
-#Función para usar de forma recurrente el await
 func play_and_wait(animation_name: String) -> void:
 	sprite.play(animation_name)
 	await sprite.animation_finished
 
-#Función para atacar al jugador
 func _on_attack_zone_body_entered(body):
 	if body.name == "Player" and (not attack_shape1.disabled or not attack_shape2.disabled):
 		body.take_damage(damage)

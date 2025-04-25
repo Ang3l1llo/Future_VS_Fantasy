@@ -1,6 +1,7 @@
-[gd_scene load_steps=51 format=3 uid="uid://bafasmuo1m1e4"]
+[gd_scene load_steps=53 format=3 uid="uid://bafasmuo1m1e4"]
 
 [ext_resource type="Texture2D" uid="uid://dnyptimlimffu" path="res://Assets/Enemies/Lancer/Lancer-Attack01.png" id="1_aeyb8"]
+[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/lancer.gd" id="1_rm76y"]
 [ext_resource type="Texture2D" uid="uid://craytepudcx58" path="res://Assets/Enemies/Lancer/Lancer-Attack02.png" id="2_2axak"]
 [ext_resource type="Texture2D" uid="uid://b4tivi3m5dqra" path="res://Assets/Enemies/Lancer/Lancer-Attack03.png" id="3_85sgx"]
 [ext_resource type="Texture2D" uid="uid://bsth6gp4qcs83" path="res://Assets/Enemies/Lancer/Lancer-Death.png" id="4_idw7n"]
@@ -184,7 +185,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dy87u")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK1",
 "speed": 10.0
 }, {
@@ -216,7 +217,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b8iap")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK2",
 "speed": 10.0
 }, {
@@ -245,7 +246,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rgoka")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK3",
 "speed": 10.0
 }, {
@@ -262,7 +263,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vqiwl")
 }],
-"loop": true,
+"loop": false,
 "name": &"DEATH",
 "speed": 7.0
 }, {
@@ -279,7 +280,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2mro6")
 }],
-"loop": true,
+"loop": false,
 "name": &"HURT",
 "speed": 7.0
 }, {
@@ -326,15 +327,18 @@ size = Vector2(16.0139, 9.37204)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p34hb"]
 size = Vector2(23, 14)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jaqb8"]
+radius = 21.0238
+
 [node name="Lancer" type="CharacterBody2D"]
 platform_floor_layers = 4294901760
+script = ExtResource("1_rm76y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"WALK"
-frame_progress = 0.904016
+animation = &"HURT"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(35, 24)
@@ -354,3 +358,11 @@ shape = SubResource("RectangleShape2D_xmp8r")
 [node name="Attack3" type="CollisionShape2D" parent="AttackZone"]
 position = Vector2(58.5, 24)
 shape = SubResource("RectangleShape2D_p34hb")
+
+[node name="DetectZone" type="Area2D" parent="."]
+
+[node name="DetectShape" type="CollisionShape2D" parent="DetectZone"]
+position = Vector2(34, 25)
+shape = SubResource("CircleShape2D_jaqb8")
+
+[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://tovl0mp1e3ry"]
+[gd_scene load_steps=41 format=3 uid="uid://tovl0mp1e3ry"]
 
 [ext_resource type="Texture2D" uid="uid://de8w8kjiru8yp" path="res://Assets/Enemies/Skeleton/Skeleton-Attack01.png" id="1_0k5q6"]
+[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/skeleton.gd" id="1_a55cs"]
 [ext_resource type="Texture2D" uid="uid://2tusqdllhsqh" path="res://Assets/Enemies/Skeleton/Skeleton-Attack02.png" id="2_70e3l"]
 [ext_resource type="Texture2D" uid="uid://bqkmgm85fc2mq" path="res://Assets/Enemies/Skeleton/Skeleton-Death.png" id="3_i81dm"]
 [ext_resource type="Texture2D" uid="uid://2xtfqsix8yni" path="res://Assets/Enemies/Skeleton/Skeleton-Hurt.png" id="4_ynqof"]
@@ -143,7 +144,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_skjlq")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK1",
 "speed": 10.0
 }, {
@@ -169,7 +170,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bdb4v")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK2",
 "speed": 10.0
 }, {
@@ -186,7 +187,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p3eqg")
 }],
-"loop": true,
+"loop": false,
 "name": &"DEATH",
 "speed": 7.0
 }, {
@@ -203,7 +204,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s0i4y")
 }],
-"loop": true,
+"loop": false,
 "name": &"HURT",
 "speed": 7.0
 }, {
@@ -246,15 +247,18 @@ size = Vector2(15, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmp8r"]
 size = Vector2(19.8025, 7.16684)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6xdn"]
+radius = 14.0
+
 [node name="Skeleton" type="CharacterBody2D"]
 platform_floor_layers = 4294901760
+script = ExtResource("1_a55cs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"ATTACK2"
-frame_progress = 0.218631
+animation = &"HURT"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(36, 29)
@@ -270,3 +274,11 @@ shape = SubResource("RectangleShape2D_u1iga")
 position = Vector2(43.5, 33.5)
 scale = Vector2(1.86845, 1.81391)
 shape = SubResource("RectangleShape2D_xmp8r")
+
+[node name="DetectZone" type="Area2D" parent="."]
+
+[node name="DetectShape" type="CollisionShape2D" parent="DetectZone"]
+position = Vector2(35, 29)
+shape = SubResource("CircleShape2D_c6xdn")
+
+[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]

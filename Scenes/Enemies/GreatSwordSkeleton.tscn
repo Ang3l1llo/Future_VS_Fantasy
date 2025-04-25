@@ -1,5 +1,6 @@
-[gd_scene load_steps=56 format=3 uid="uid://ulnu6j7gkd3f"]
+[gd_scene load_steps=58 format=3 uid="uid://ulnu6j7gkd3f"]
 
+[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/great_sword_skeleton.gd" id="1_2h6od"]
 [ext_resource type="Texture2D" uid="uid://csm0h3dr580qa" path="res://Assets/Enemies/GreatSword Skeleton/Greatsword Skeleton-Attack01.png" id="1_5dkbj"]
 [ext_resource type="Texture2D" uid="uid://cfh00jqd2pqo5" path="res://Assets/Enemies/GreatSword Skeleton/Greatsword Skeleton-Attack02.png" id="2_nttek"]
 [ext_resource type="Texture2D" uid="uid://0503xnq8he5p" path="res://Assets/Enemies/GreatSword Skeleton/Greatsword Skeleton-Attack03.png" id="3_otha6"]
@@ -221,7 +222,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g1dgv")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK1",
 "speed": 10.0
 }, {
@@ -262,7 +263,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q6nyy")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK2",
 "speed": 10.0
 }, {
@@ -291,7 +292,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_owgys")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK3",
 "speed": 10.0
 }, {
@@ -308,7 +309,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5j836")
 }],
-"loop": true,
+"loop": false,
 "name": &"DEATH",
 "speed": 7.0
 }, {
@@ -325,7 +326,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c42kf")
 }],
-"loop": true,
+"loop": false,
 "name": &"HURT",
 "speed": 7.0
 }, {
@@ -368,15 +369,20 @@ radius = 9.05539
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p34hb"]
 size = Vector2(26, 11)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xpk3s"]
+radius = 19.0
+
 [node name="GreatSwordSkeleton" type="CharacterBody2D"]
 platform_floor_layers = 4294901760
+script = ExtResource("1_2h6od")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
 animation = &"WALK"
-frame_progress = 0.247793
+frame = 7
+frame_progress = 0.446858
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(37, 28)
@@ -396,3 +402,11 @@ polygon = PackedVector2Array(-7.53506, -10.4746, 4.77461, -7.71813, 9.05623, -0.
 [node name="Attack3" type="CollisionShape2D" parent="AttackZone"]
 position = Vector2(54, 32)
 shape = SubResource("RectangleShape2D_p34hb")
+
+[node name="DetectZone" type="Area2D" parent="."]
+
+[node name="DetectShape" type="CollisionShape2D" parent="DetectZone"]
+position = Vector2(37, 27)
+shape = SubResource("CircleShape2D_xpk3s")
+
+[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]

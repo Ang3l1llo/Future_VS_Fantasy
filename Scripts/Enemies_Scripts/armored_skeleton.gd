@@ -62,7 +62,7 @@ func attack_if_possible():
 	is_attacking = true
 	can_attack = false
 	
-	# Ataque aleatorio 
+	# Ataque aleatorio (tipo 0 o tipo 1)
 	var attack_type = randi() % 2
 	
 	if attack_type == 0:
@@ -93,6 +93,7 @@ func take_damage(damage_amount: int):
 	velocity = Vector2.ZERO
 	move_and_slide()
 	
+	# Reproducción de animación HURT
 	await play_and_wait("HURT")
 	
 	is_hurt = false
@@ -109,12 +110,10 @@ func die():
 	await play_and_wait("DEATH")
 	queue_free()
 
-#Función para usar de forma recurrente el await
 func play_and_wait(animation_name: String) -> void:
 	sprite.play(animation_name)
 	await sprite.animation_finished
 
-#Función para atacar al jugador
 func _on_attack_zone_body_entered(body):
 	if body.name == "Player" and (not attack_shape1.disabled or not attack_shape2.disabled):
 		body.take_damage(damage)

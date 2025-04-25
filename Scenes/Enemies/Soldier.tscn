@@ -1,6 +1,7 @@
-[gd_scene load_steps=48 format=3 uid="uid://bdqtf42pp24xn"]
+[gd_scene load_steps=50 format=3 uid="uid://bdqtf42pp24xn"]
 
 [ext_resource type="Texture2D" uid="uid://dxrocqs264gv4" path="res://Assets/Enemies/Soldier/Soldier-Attack01.png" id="1_13ysu"]
+[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/soldier.gd" id="1_f321m"]
 [ext_resource type="Texture2D" uid="uid://bqg531gc2b1jn" path="res://Assets/Enemies/Soldier/Soldier-Attack02.png" id="2_pu2lm"]
 [ext_resource type="Texture2D" uid="uid://hd28pn2vvddh" path="res://Assets/Enemies/Soldier/Soldier-Attack03.png" id="3_7q8uc"]
 [ext_resource type="Texture2D" uid="uid://d3o3aw17o57wm" path="res://Assets/Enemies/Soldier/Soldier-Death.png" id="4_cni1m"]
@@ -176,7 +177,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rq2nh")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK1",
 "speed": 10.0
 }, {
@@ -199,7 +200,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j0xo2")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK2",
 "speed": 10.0
 }, {
@@ -231,7 +232,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eqtsp")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK3",
 "speed": 10.0
 }, {
@@ -248,7 +249,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mmpml")
 }],
-"loop": true,
+"loop": false,
 "name": &"DEATH",
 "speed": 7.0
 }, {
@@ -265,7 +266,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5u20e")
 }],
-"loop": true,
+"loop": false,
 "name": &"HURT",
 "speed": 7.0
 }, {
@@ -308,15 +309,18 @@ size = Vector2(6.11262, 11.5772)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p34hb"]
 size = Vector2(18, 15)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xfyi7"]
+radius = 65.4905
+
 [node name="Soldier" type="CharacterBody2D"]
 platform_floor_layers = 4294901760
+script = ExtResource("1_f321m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(33, 30)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"WALK"
-frame_progress = 0.696716
+animation = &"ATTACK1"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(34, 29)
@@ -336,3 +340,11 @@ shape = SubResource("RectangleShape2D_xmp8r")
 [node name="Attack3" type="CollisionShape2D" parent="AttackZone"]
 position = Vector2(86, 35)
 shape = SubResource("RectangleShape2D_p34hb")
+
+[node name="DetectZone" type="Area2D" parent="."]
+
+[node name="DetectShape" type="CollisionShape2D" parent="DetectZone"]
+position = Vector2(35, 29)
+shape = SubResource("CircleShape2D_xfyi7")
+
+[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]

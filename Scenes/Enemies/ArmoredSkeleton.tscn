@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://bp3jfb25t3n1q"]
+[gd_scene load_steps=45 format=3 uid="uid://bp3jfb25t3n1q"]
 
 [ext_resource type="Texture2D" uid="uid://m3on638fq3y2" path="res://Assets/Enemies/Armored Skeleton/Armored Skeleton-Attack01.png" id="1_8su0i"]
+[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/armored_skeleton.gd" id="1_86xnu"]
 [ext_resource type="Texture2D" uid="uid://h2ys4mhxxc81" path="res://Assets/Enemies/Armored Skeleton/Armored Skeleton-Attack02.png" id="2_neaqf"]
 [ext_resource type="Texture2D" uid="uid://6pgilu5wvx02" path="res://Assets/Enemies/Armored Skeleton/Armored Skeleton-Death.png" id="3_3n8s0"]
 [ext_resource type="Texture2D" uid="uid://bq3evc0icwgml" path="res://Assets/Enemies/Armored Skeleton/Armored Skeleton-Hurt.png" id="4_gwmx1"]
@@ -165,7 +166,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ba7dd")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK1",
 "speed": 10.0
 }, {
@@ -197,7 +198,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3u6un")
 }],
-"loop": true,
+"loop": false,
 "name": &"ATTACK2",
 "speed": 10.0
 }, {
@@ -214,7 +215,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_86g2i")
 }],
-"loop": true,
+"loop": false,
 "name": &"DEATH",
 "speed": 7.0
 }, {
@@ -231,7 +232,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cp752")
 }],
-"loop": true,
+"loop": false,
 "name": &"HURT",
 "speed": 7.0
 }, {
@@ -274,16 +275,18 @@ size = Vector2(28, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmp8r"]
 size = Vector2(17.6617, 18.1927)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5tp3"]
+radius = 12.0
+
 [node name="ArmoredSkeleton" type="CharacterBody2D"]
 platform_floor_layers = 4294901760
+script = ExtResource("1_86xnu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"WALK"
-frame = 7
-frame_progress = 0.902247
+animation = &"HURT"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(36, 28)
@@ -299,3 +302,11 @@ shape = SubResource("RectangleShape2D_u1iga")
 position = Vector2(38.5, 28.5)
 scale = Vector2(1.86845, 1.81391)
 shape = SubResource("RectangleShape2D_xmp8r")
+
+[node name="DetectZone" type="Area2D" parent="."]
+
+[node name="DetectShape" type="CollisionShape2D" parent="DetectZone"]
+position = Vector2(35, 28)
+shape = SubResource("CircleShape2D_b5tp3")
+
+[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]
