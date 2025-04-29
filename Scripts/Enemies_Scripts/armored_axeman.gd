@@ -47,13 +47,16 @@ func movement():
 			if sprite.scale.x > 0:
 				# Si está mirando hacia la derecha
 				attack_shape1.position = Vector2(49, attack_shape1.position.y)  
-				attack_shape2.position = Vector2(49, attack_shape2.position.y) 
+				attack_shape2.position = Vector2(49, attack_shape2.position.y)
+				attack_shape3.position = Vector2(49, attack_shape3.position.y) 
 			else:
 				# Si está mirando hacia la izquierda
 				attack_shape1.scale.x = -1
 				attack_shape2.scale.x = -1
+				attack_shape3.scale.x = -1
 				attack_shape1.position = Vector2(20, attack_shape1.position.y)  
 				attack_shape2.position = Vector2(20, attack_shape2.position.y)  
+				attack_shape3.position = Vector2(20, attack_shape2.position.y) 
 
 
 func attack_if_possible():
@@ -126,5 +129,5 @@ func play_and_wait(animation_name: String) -> void:
 	await sprite.animation_finished
 
 func _on_attack_zone_body_entered(body):
-	if body.name == "Player" and (not attack_shape1.disabled or not attack_shape2.disabled):
+	if body.name == "Player" and not (attack_shape1.disabled and attack_shape2.disabled and attack_shape3.disabled):
 		body.take_damage(damage)

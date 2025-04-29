@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ci0q28xhsmudd"]
+
+[ext_resource type="Texture2D" uid="uid://csxjhihq2up2f" path="res://Assets/Enemies/Wizard/Wizard-Attack01_Effect.png" id="1_1cch3"]
+
+[resource]
+atlas = ExtResource("1_1cch3")
+region = Rect2(531.197, 26, 47, 48)

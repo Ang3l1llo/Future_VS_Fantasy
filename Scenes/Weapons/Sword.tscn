@@ -10,6 +10,7 @@ size = Vector2(20, 7)
 [node name="Sword" type="Area2D"]
 texture_filter = 1
 position = Vector2(33, 15)
+collision_layer = 8
 script = ExtResource("1_2nu4n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

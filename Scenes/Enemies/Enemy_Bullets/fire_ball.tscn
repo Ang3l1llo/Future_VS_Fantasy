@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://4manxit6mtt0"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/Enemy_Bullets/fire_ball.gd" id="1_svag0"]
+[ext_resource type="Texture2D" uid="uid://hr7xatwb2q2r" path="res://Scenes/Weapons/ATLAS/FireBall.tres" id="2_gae5l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0rxyr"]
+radius = 11.0454
+
+[node name="FireBall" type="Area2D"]
+script = ExtResource("1_svag0")
+
+[node name="FireBall" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_gae5l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.3, -0.5)
+shape = SubResource("CircleShape2D_0rxyr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

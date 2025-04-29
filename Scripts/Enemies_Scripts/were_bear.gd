@@ -126,5 +126,5 @@ func play_and_wait(animation_name: String) -> void:
 	await sprite.animation_finished
 
 func _on_attack_zone_body_entered(body):
-	if body.name == "Player" and (not attack_shape1.disabled or not attack_shape2.disabled):
+	if body.name == "Player" and not (attack_shape1.disabled and attack_shape2.disabled and attack_shape3.disabled):
 		body.take_damage(damage)

@@ -9,6 +9,7 @@
 size = Vector2(26, 9)
 
 [node name="Shotgun" type="Area2D"]
+collision_layer = 8
 script = ExtResource("1_ufvhg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

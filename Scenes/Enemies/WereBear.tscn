@@ -386,6 +386,8 @@ size = Vector2(61, 20)
 radius = 16.0
 
 [node name="WereBear" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 platform_floor_layers = 4294901760
 script = ExtResource("1_4501c")
 

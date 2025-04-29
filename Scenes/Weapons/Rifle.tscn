@@ -9,6 +9,7 @@
 size = Vector2(20, 10)
 
 [node name="Rifle" type="Area2D"]
+collision_layer = 8
 script = ExtResource("1_r5uac")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

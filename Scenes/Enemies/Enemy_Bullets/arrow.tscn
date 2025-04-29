@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2ldpxjyyychj"]
+
+[ext_resource type="Texture2D" uid="uid://b4sw1jnjhvrs8" path="res://Assets/Enemies/Archer/Arrow02(100x100).png" id="1_2mjki"]
+[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/Enemy_Bullets/arrow.gd" id="1_lx56h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7bao"]
+size = Vector2(18, 5)
+
+[node name="Arrow" type="Area2D"]
+scale = Vector2(0.8, 0.8)
+collision_layer = 16
+script = ExtResource("1_lx56h")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_2mjki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_u7bao")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

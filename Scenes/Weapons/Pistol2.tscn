@@ -9,6 +9,7 @@
 radius = 5.09902
 
 [node name="Pistol2" type="Area2D"]
+collision_layer = 8
 script = ExtResource("1_21p6w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

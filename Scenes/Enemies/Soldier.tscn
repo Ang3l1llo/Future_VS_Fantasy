@@ -313,6 +313,8 @@ size = Vector2(18, 15)
 radius = 65.4905
 
 [node name="Soldier" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 platform_floor_layers = 4294901760
 script = ExtResource("1_f321m")
 
@@ -320,7 +322,9 @@ script = ExtResource("1_f321m")
 texture_filter = 1
 position = Vector2(33, 30)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"ATTACK1"
+animation = &"ATTACK3"
+frame = 8
+frame_progress = 1.0
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(34, 29)

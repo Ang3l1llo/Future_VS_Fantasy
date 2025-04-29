@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ct51ekffiudud" path="res://Assets/Enemies/Wizard/Wizard.png" id="1_5jk45"]
 [ext_resource type="Script" path="res://Scripts/Enemies_Scripts/wizard.gd" id="1_qf0q8"]
+[ext_resource type="PackedScene" uid="uid://4manxit6mtt0" path="res://Scenes/Enemies/Enemy_Bullets/fire_ball.tscn" id="2_7f2lw"]
+[ext_resource type="PackedScene" uid="uid://cp37ks2ycty0p" path="res://Scenes/Enemies/Enemy_Bullets/ice_ball.tscn" id="3_en2y8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_teg3b"]
 atlas = ExtResource("1_5jk45")
@@ -335,39 +337,28 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_or08a"]
 radius = 9.05539
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1iga"]
-size = Vector2(13, 22)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmp8r"]
-size = Vector2(10.5352, 15.4363)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_2w6jl"]
 radius = 95.0053
 
 [node name="Wizard" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 platform_floor_layers = 4294901760
 script = ExtResource("1_qf0q8")
+fireball_scene = ExtResource("2_7f2lw")
+iceball_scene = ExtResource("3_en2y8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"HURT"
+animation = &"ATTACK1"
+frame = 14
+frame_progress = 1.0
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(35, 29)
 shape = SubResource("CircleShape2D_or08a")
-
-[node name="AttackZone" type="Area2D" parent="."]
-
-[node name="Attack1" type="CollisionShape2D" parent="AttackZone"]
-position = Vector2(126, 41)
-shape = SubResource("RectangleShape2D_u1iga")
-
-[node name="Attack2" type="CollisionShape2D" parent="AttackZone"]
-position = Vector2(76, 66)
-scale = Vector2(1.86845, 1.81391)
-shape = SubResource("RectangleShape2D_xmp8r")
 
 [node name="DetectZone" type="Area2D" parent="."]
 
@@ -375,4 +366,5 @@ shape = SubResource("RectangleShape2D_xmp8r")
 position = Vector2(35, 29)
 shape = SubResource("CircleShape2D_2w6jl")
 
-[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]
+[node name="MagicSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(68, 31)

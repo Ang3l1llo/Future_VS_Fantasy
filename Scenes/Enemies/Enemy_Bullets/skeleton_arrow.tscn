@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqi800tm2lq6p"]
+
+[ext_resource type="Texture2D" uid="uid://bi2ug3t2fha5" path="res://Assets/Enemies/Skeleton Archer/Arrow03(32x32).png" id="1_bvgc8"]
+[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/Enemy_Bullets/skeleton_arrow.gd" id="1_oi867"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boxls"]
+
+[node name="SkeletonArrow" type="Area2D"]
+scale = Vector2(0.8, 0.8)
+collision_layer = 16
+script = ExtResource("1_oi867")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_bvgc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_boxls")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

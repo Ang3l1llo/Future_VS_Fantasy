@@ -8,6 +8,7 @@
 size = Vector2(16, 5)
 
 [node name="Knife" type="Area2D"]
+collision_layer = 8
 script = ExtResource("1_vnqum")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0vig4i8ictgx"]
+[gd_scene load_steps=6 format=3 uid="uid://d0vig4i8ictgx"]
 
 [ext_resource type="Texture2D" uid="uid://du42f7wmfdn37" path="res://Scenes/Weapons/ATLAS/Atlas_subfusil2.tres" id="1_l0p1g"]
 [ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Subfusil2.gd" id="1_ml2ly"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_10bbw"]
+[ext_resource type="PackedScene" uid="uid://ctxcv6ur3cmvm" path="res://Scenes/Weapons/BULLETS/bullet_pistol.tscn" id="4_hibgf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_deylt"]
 size = Vector2(22, 11)
 
 [node name="Subfusil2" type="Area2D"]
 position = Vector2(39, 24)
+collision_layer = 8
 script = ExtResource("1_ml2ly")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -23,9 +25,6 @@ texture_filter = 1
 position = Vector2(9, -3.5)
 texture = ExtResource("1_l0p1g")
 
-[node name="ShootingPoint" type="Marker2D" parent="Pivot/Sprite2D"]
-position = Vector2(10, 0)
-
 [node name="Right" type="Sprite2D" parent="Pivot"]
 texture_filter = 1
 position = Vector2(3, -0.5)
@@ -35,5 +34,11 @@ texture = ExtResource("2_10bbw")
 texture_filter = 1
 position = Vector2(13, -0.5)
 texture = ExtResource("2_10bbw")
+
+[node name="ShootingPoint" type="Marker2D" parent="Pivot"]
+position = Vector2(19, -6)
+
+[node name="Bullet_pistol" parent="Pivot/ShootingPoint" instance=ExtResource("4_hibgf")]
+position = Vector2(0, -3.5)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

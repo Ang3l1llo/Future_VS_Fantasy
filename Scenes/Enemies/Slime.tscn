@@ -269,6 +269,8 @@ size = Vector2(25.75, 11)
 radius = 22.0227
 
 [node name="Slime" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 platform_floor_layers = 4294901760
 script = ExtResource("1_lai2p")
 
@@ -276,9 +278,7 @@ script = ExtResource("1_lai2p")
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"ATTACK2"
-frame = 11
-frame_progress = 1.0
+animation = &"WALK"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(33, 31)

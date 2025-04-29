@@ -2,11 +2,10 @@ extends CharacterBody2D
 
 @onready var player = get_node("/root/Map1/Player")
 @onready var sprite = $AnimatedSprite2D
-@onready var attack_zone = $AttackZone
-@onready var attack_shape1 = attack_zone.get_node("Attack1")
-@onready var attack_shape2 = attack_zone.get_node("Attack2")
 @onready var detect_zone = $DetectZone
-
+@onready var magic_spawn = $MagicSpawnPoint
+@export var fireball_scene: PackedScene
+@export var iceball_scene: PackedScene
 
 var can_attack = true
 var is_attacking = false
@@ -15,13 +14,13 @@ var max_health = 100
 var current_health = max_health
 var damage = 20
 
+# Este valor determinará qué proyectil instanciar tras la animación
+var pending_projectile_scene: PackedScene = null
 
 func _physics_process(_delta):
-	# Movimiento SIEMPRE, no solo cuando detecta al jugador
 	if current_health <= 0:
-		return  # No hace nada si está muerto
+		return
 	
-	# Si el enemigo detecta al jugador, y no está atacando ni recibiendo daño, ataca
 	if detect_zone.overlaps_body(player) and not is_attacking and not is_hurt:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -31,7 +30,7 @@ func _physics_process(_delta):
 
 func movement():
 	if is_attacking or is_hurt:
-		return  # No se mueve si está atacando o recibiendo daño
+		return
 	
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * 50
@@ -39,47 +38,56 @@ func movement():
 
 	if velocity.length() > 0:
 		sprite.play("WALK")
+
 		if velocity.x != 0:
-			# Invertir el sprite
-			sprite.scale.x = 1 if velocity.x > 0 else -1
-			
-			if sprite.scale.x > 0:
-				# Si está mirando hacia la derecha
-				attack_shape1.position = Vector2(49, attack_shape1.position.y)  
-				attack_shape2.position = Vector2(49, attack_shape2.position.y) 
+			var facing_right = velocity.x > 0
+			sprite.scale.x = 1 if facing_right else -1
+
+			# Solo ajustamos si mira a la izquierda
+			if not facing_right:
+				magic_spawn.position = Vector2(0, 30)  # ajustar a mano cuando rota..
 			else:
-				# Si está mirando hacia la izquierda
-				attack_shape1.scale.x = -1
-				attack_shape2.scale.x = -1
-				attack_shape1.position = Vector2(20, attack_shape1.position.y)  
-				attack_shape2.position = Vector2(20, attack_shape2.position.y)  
+				magic_spawn.position = Vector2(68, 31)   
 
 
 func attack_if_possible():
 	if not can_attack:
 		return
-	
+
 	is_attacking = true
 	can_attack = false
-	
-	# Ataque aleatorio 
-	var attack_type = randi() % 2
-	
-	if attack_type == 0:
-		attack_shape1.disabled = false
-		attack_shape2.disabled = true
-		await play_and_wait("ATTACK1")
+
+	var attack_type = ""
+	if randi() % 2 == 0:
+		attack_type = "ATTACK1"  # Hielo
 	else:
-		attack_shape1.disabled = true
-		attack_shape2.disabled = false
-		await play_and_wait("ATTACK2")
-	
-	attack_shape1.disabled = true
-	attack_shape2.disabled = true
-	
+		attack_type = "ATTACK2"  # Fuego
+
+	await play_and_wait(attack_type)
+	shoot_projectile(attack_type)
 
 	can_attack = true
-	is_attacking = false  # Resetear el estado de ataque después de la animación
+	is_attacking = false
+
+
+func shoot_projectile(attack_type: String):
+	var projectile
+
+	if attack_type == "ATTACK1":
+		projectile = iceball_scene.instantiate()
+	elif attack_type == "ATTACK2":
+		projectile = fireball_scene.instantiate()
+	else:
+		return  # Por seguridad
+
+	get_tree().current_scene.add_child(projectile)
+	projectile.global_position = magic_spawn.global_position
+
+	var dir = (player.global_position - global_position).normalized()
+	projectile.direction = dir
+	# Si no quieres que se roten visualmente (como en la bola de hielo), no les apliques rotación
+
+
 
 func take_damage(damage_amount: int):
 	if current_health <= 0:
@@ -88,7 +96,6 @@ func take_damage(damage_amount: int):
 	current_health -= damage_amount
 	print("Enemigo recibe daño. Vida restante:", current_health)
 	
-	# Detener el movimiento y reproducir animación de daño
 	is_hurt = true
 	velocity = Vector2.ZERO
 	move_and_slide()
@@ -97,7 +104,6 @@ func take_damage(damage_amount: int):
 	
 	is_hurt = false
 	
-	# Verificar si el enemigo muere
 	if current_health <= 0:
 		await die()
 
@@ -109,12 +115,6 @@ func die():
 	await play_and_wait("DEATH")
 	queue_free()
 
-#Función para usar de forma recurrente el await
 func play_and_wait(animation_name: String) -> void:
 	sprite.play(animation_name)
 	await sprite.animation_finished
-
-#Función para atacar al jugador
-func _on_attack_zone_body_entered(body):
-	if body.name == "Player" and (not attack_shape1.disabled or not attack_shape2.disabled):
-		body.take_damage(damage)

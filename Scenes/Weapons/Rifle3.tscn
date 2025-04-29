@@ -9,6 +9,7 @@
 size = Vector2(23, 9)
 
 [node name="Rifle3" type="Area2D"]
+collision_layer = 8
 script = ExtResource("1_fgvyg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

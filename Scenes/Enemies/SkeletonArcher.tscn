@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://e5cdh3us7ws3" path="res://Assets/Enemies/Skeleton Archer/Skeleton Archer-Attack.png" id="1_c23kj"]
 [ext_resource type="Script" path="res://Scripts/Enemies_Scripts/skeleton_archer.gd" id="1_f8aoo"]
 [ext_resource type="Texture2D" uid="uid://d1hh7ktnod0em" path="res://Assets/Enemies/Skeleton Archer/Skeleton Archer-Death.png" id="2_6ymig"]
+[ext_resource type="PackedScene" uid="uid://bqi800tm2lq6p" path="res://Scenes/Enemies/Enemy_Bullets/skeleton_arrow.tscn" id="2_dqje8"]
 [ext_resource type="Texture2D" uid="uid://iewciabtkr03" path="res://Assets/Enemies/Skeleton Archer/Skeleton Archer-Hurt.png" id="3_c5at0"]
 [ext_resource type="Texture2D" uid="uid://bto6xc3nli0wo" path="res://Assets/Enemies/Skeleton Archer/Skeleton Archer-Walk.png" id="4_b6aqi"]
 
@@ -207,15 +208,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_or08a"]
 radius = 9.05539
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1iga"]
-size = Vector2(13, 7)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_8bheu"]
-radius = 79.3095
+radius = 107.0
 
 [node name="SkeletonArcher" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 platform_floor_layers = 4294901760
 script = ExtResource("1_f8aoo")
+arrow_scene = ExtResource("2_dqje8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -229,16 +230,11 @@ frame_progress = 1.0
 position = Vector2(36, 29)
 shape = SubResource("CircleShape2D_or08a")
 
-[node name="AttackZone" type="Area2D" parent="."]
-
-[node name="Attack1" type="CollisionShape2D" parent="AttackZone"]
-position = Vector2(53, 28.5)
-shape = SubResource("RectangleShape2D_u1iga")
-
 [node name="DetectZone" type="Area2D" parent="."]
 
 [node name="DetectShape" type="CollisionShape2D" parent="DetectZone"]
-position = Vector2(35, 29)
+position = Vector2(36, 30)
 shape = SubResource("CircleShape2D_8bheu")
 
-[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]
+[node name="ArrowSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(39, 31)

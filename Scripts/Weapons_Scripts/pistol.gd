@@ -1,7 +1,13 @@
 extends Area2D
 
 var damage = 20
+var fire_rate := 0.4
+var cooldown_timer := 0.0
 
+func _physics_process(delta):
+	if cooldown_timer > 0.0:
+		cooldown_timer -= delta
+		
 func _ready():
 	if $Pivot.has_node("Left"):
 		$Pivot/Left.visible = false
@@ -33,6 +39,11 @@ func _equip_weapon(body):
 
 #Función para disparar
 func shoot():
+	if cooldown_timer > 0.0:
+		return
+		
+	cooldown_timer = fire_rate
+	
 	const BULLET = preload("res://Scenes/Weapons/BULLETS/bullet_pistol.tscn")
 	var new_bullet = BULLET.instantiate()
 
@@ -54,5 +65,7 @@ func shoot():
 	new_bullet.rotation = rotation
 	
 	new_bullet.damage = damage
-
+	
 	get_tree().current_scene.add_child(new_bullet)
+	
+	new_bullet.activate_shooting()

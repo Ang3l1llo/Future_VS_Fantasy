@@ -9,6 +9,7 @@
 size = Vector2(27, 12)
 
 [node name="Rifle5" type="Area2D"]
+collision_layer = 8
 script = ExtResource("1_htx5v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

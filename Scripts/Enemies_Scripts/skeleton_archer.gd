@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @onready var player = get_node("/root/Map1/Player")
 @onready var sprite = $AnimatedSprite2D
-@onready var attack_zone = $AttackZone
-@onready var attack_shape = attack_zone.get_node("Attack1") 
 @onready var detect_zone = $DetectZone
+@onready var arrow_spawn = $ArrowSpawnPoint
+@export var arrow_scene: PackedScene
 
 var can_attack = true
 var is_attacking = false
@@ -12,7 +12,6 @@ var is_hurt = false
 var max_health = 100
 var current_health = max_health
 var damage = 20
-
 
 func _physics_process(_delta):
 	if current_health <= 0:
@@ -37,16 +36,6 @@ func movement():
 		sprite.play("WALK")
 		if velocity.x != 0:
 			sprite.scale.x = 1 if velocity.x > 0 else -1
-			
-			if sprite.scale.x > 0:
-				# Mirando a la derecha
-				attack_shape.position = Vector2(49, attack_shape.position.y)
-				attack_shape.scale.x = 1
-			else:
-				# Mirando a la izquierda
-				attack_shape.position = Vector2(20, attack_shape.position.y)
-				attack_shape.scale.x = -1
-
 
 func attack_if_possible():
 	if not can_attack:
@@ -55,12 +44,24 @@ func attack_if_possible():
 	is_attacking = true
 	can_attack = false
 	
-	attack_shape.disabled = false
 	await play_and_wait("ATTACK1")
-	attack_shape.disabled = true
 	
+	shoot_projectile()
 	can_attack = true
 	is_attacking = false
+
+func shoot_projectile():
+	var arrow = arrow_scene.instantiate()
+	get_tree().current_scene.add_child(arrow)
+	
+	# Sale desde el arquero
+	arrow.global_position = arrow_spawn.global_position
+	
+	# Dirección hacia el jugador
+	var dir = (player.global_position - global_position).normalized()
+	arrow.direction = dir
+	
+	arrow.rotation = dir.angle()
 
 func take_damage(damage_amount: int):
 	if current_health <= 0:
@@ -74,6 +75,7 @@ func take_damage(damage_amount: int):
 	move_and_slide()
 	
 	await play_and_wait("HURT")
+	
 	is_hurt = false
 	
 	if current_health <= 0:
@@ -90,7 +92,3 @@ func die():
 func play_and_wait(animation_name: String) -> void:
 	sprite.play(animation_name)
 	await sprite.animation_finished
-
-func _on_attack_zone_body_entered(body):
-	if body.name == "Player" and not attack_shape.disabled:
-		body.take_damage(damage)

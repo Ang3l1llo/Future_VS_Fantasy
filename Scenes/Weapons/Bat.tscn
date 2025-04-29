@@ -9,6 +9,7 @@ size = Vector2(23, 6.75)
 
 [node name="Bat" type="Area2D"]
 position = Vector2(4, 3)
+collision_layer = 8
 script = ExtResource("1_k6xon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

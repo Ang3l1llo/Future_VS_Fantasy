@@ -408,6 +408,8 @@ size = Vector2(30, 17)
 radius = 17.0294
 
 [node name="SwordMan" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 platform_floor_layers = 4294901760
 script = ExtResource("1_0c2v2")
 

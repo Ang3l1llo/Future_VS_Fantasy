@@ -2,11 +2,9 @@ extends CharacterBody2D
 
 @onready var player = get_node("/root/Map1/Player")
 @onready var sprite = $AnimatedSprite2D
-@onready var attack_zone = $AttackZone
-@onready var attack_shape1 = attack_zone.get_node("Attack1")
-@onready var attack_shape2 = attack_zone.get_node("Attack2")
 @onready var detect_zone = $DetectZone
-
+@onready var arrow_spawn = $ArrowSpawnPoint
+@export var arrow_scene: PackedScene
 
 var can_attack = true
 var is_attacking = false
@@ -15,13 +13,10 @@ var max_health = 100
 var current_health = max_health
 var damage = 20
 
-
 func _physics_process(_delta):
-	# Movimiento SIEMPRE, no solo cuando detecta al jugador
 	if current_health <= 0:
-		return  # No hace nada si está muerto
+		return
 	
-	# Si el enemigo detecta al jugador, y no está atacando ni recibiendo daño, ataca
 	if detect_zone.overlaps_body(player) and not is_attacking and not is_hurt:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -31,7 +26,7 @@ func _physics_process(_delta):
 
 func movement():
 	if is_attacking or is_hurt:
-		return  # No se mueve si está atacando o recibiendo daño
+		return
 	
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * 50
@@ -40,20 +35,7 @@ func movement():
 	if velocity.length() > 0:
 		sprite.play("WALK")
 		if velocity.x != 0:
-			# Invertir el sprite
 			sprite.scale.x = 1 if velocity.x > 0 else -1
-			
-			if sprite.scale.x > 0:
-				# Si está mirando hacia la derecha
-				attack_shape1.position = Vector2(49, attack_shape1.position.y)  
-				attack_shape2.position = Vector2(49, attack_shape2.position.y) 
-			else:
-				# Si está mirando hacia la izquierda
-				attack_shape1.scale.x = -1
-				attack_shape2.scale.x = -1
-				attack_shape1.position = Vector2(20, attack_shape1.position.y)  
-				attack_shape2.position = Vector2(20, attack_shape2.position.y)  
-
 
 func attack_if_possible():
 	if not can_attack:
@@ -62,24 +44,24 @@ func attack_if_possible():
 	is_attacking = true
 	can_attack = false
 	
-	# Ataque aleatorio 
-	var attack_type = randi() % 2
+	await play_and_wait("ATTACK1")
 	
-	if attack_type == 0:
-		attack_shape1.disabled = false
-		attack_shape2.disabled = true
-		await play_and_wait("ATTACK1")
-	else:
-		attack_shape1.disabled = true
-		attack_shape2.disabled = false
-		await play_and_wait("ATTACK2")
-	
-	attack_shape1.disabled = true
-	attack_shape2.disabled = true
-	
-
+	shoot_projectile()
 	can_attack = true
-	is_attacking = false  # Resetear el estado de ataque después de la animación
+	is_attacking = false
+
+func shoot_projectile():
+	var arrow = arrow_scene.instantiate()
+	get_tree().current_scene.add_child(arrow)
+	
+	# Sale desde el arquero
+	arrow.global_position = arrow_spawn.global_position
+	
+	# Dirección hacia el jugador
+	var dir = (player.global_position - global_position).normalized()
+	arrow.direction = dir
+	
+	arrow.rotation = dir.angle()
 
 func take_damage(damage_amount: int):
 	if current_health <= 0:
@@ -88,7 +70,6 @@ func take_damage(damage_amount: int):
 	current_health -= damage_amount
 	print("Enemigo recibe daño. Vida restante:", current_health)
 	
-	# Detener el movimiento y reproducir animación de daño
 	is_hurt = true
 	velocity = Vector2.ZERO
 	move_and_slide()
@@ -97,7 +78,6 @@ func take_damage(damage_amount: int):
 	
 	is_hurt = false
 	
-	# Verificar si el enemigo muere
 	if current_health <= 0:
 		await die()
 
@@ -109,12 +89,6 @@ func die():
 	await play_and_wait("DEATH")
 	queue_free()
 
-#Función para usar de forma recurrente el await
 func play_and_wait(animation_name: String) -> void:
 	sprite.play(animation_name)
 	await sprite.animation_finished
-
-#Función para atacar al jugador
-func _on_attack_zone_body_entered(body):
-	if body.name == "Player" and (not attack_shape1.disabled or not attack_shape2.disabled):
-		body.take_damage(damage)

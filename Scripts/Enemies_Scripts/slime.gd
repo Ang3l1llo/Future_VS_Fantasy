@@ -14,6 +14,7 @@ var is_hurt = false
 var max_health = 100
 var current_health = max_health
 var damage = 20
+var speed = 50
 
 
 func _physics_process(_delta):
@@ -34,25 +35,29 @@ func movement():
 		return  # No se mueve si está atacando o recibiendo daño
 	
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * 50
+	velocity = direction * speed
 	move_and_slide()
 
 	if velocity.length() > 0:
 		sprite.play("WALK")
 		if velocity.x != 0:
-			# Invertir el sprite
-			sprite.scale.x = 1 if velocity.x > 0 else -1
-			
-			if sprite.scale.x > 0:
-				# Si está mirando hacia la derecha
-				attack_shape1.position = Vector2(49, attack_shape1.position.y)  
-				attack_shape2.position = Vector2(49, attack_shape2.position.y) 
+			var facing_right = velocity.x > 0
+			sprite.scale.x = 1 if facing_right else -1
+	
+			if facing_right:
+				# Restaurar escala y posición originales para evitar colisiones mal colocadas
+				attack_shape1.scale.x = 1
+				attack_shape2.scale.x = 1
+				attack_shape1.position = Vector2(49, attack_shape1.position.y)
+				attack_shape2.position = Vector2(49, attack_shape2.position.y)
+				
 			else:
-				# Si está mirando hacia la izquierda
+				# Invertir escala y ajustar posición para ataques a la izquierda
 				attack_shape1.scale.x = -1
 				attack_shape2.scale.x = -1
 				attack_shape1.position = Vector2(20, attack_shape1.position.y)  
-				attack_shape2.position = Vector2(20, attack_shape2.position.y)  
+				attack_shape2.position = Vector2(20, attack_shape2.position.y)
+  
 
 
 func attack_if_possible():
