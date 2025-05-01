@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage = 20
+var damage = 50
 var fire_rate := 0.2
 var cooldown_timer := 0.0
 

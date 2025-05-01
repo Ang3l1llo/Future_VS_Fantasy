@@ -273,14 +273,14 @@ radius = 9.05539
 size = Vector2(28, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmp8r"]
-size = Vector2(17.6617, 18.1927)
+size = Vector2(32.0388, 31)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5tp3"]
-radius = 12.0
+radius = 11.0
 
 [node name="ArmoredSkeleton" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 23
 platform_floor_layers = 4294901760
 script = ExtResource("1_86xnu")
 
@@ -288,10 +288,12 @@ script = ExtResource("1_86xnu")
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"HURT"
+animation = &"ATTACK2"
+frame = 8
+frame_progress = 1.0
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
-position = Vector2(36, 28)
+position = Vector2(35, 28)
 shape = SubResource("CircleShape2D_or08a")
 
 [node name="AttackZone" type="Area2D" parent="."]
@@ -301,8 +303,8 @@ position = Vector2(55, 31.5)
 shape = SubResource("RectangleShape2D_u1iga")
 
 [node name="Attack2" type="CollisionShape2D" parent="AttackZone"]
-position = Vector2(38.5, 28.5)
-scale = Vector2(1.86845, 1.81391)
+position = Vector2(39.5, 28.5)
+scale = Vector2(1.03, 1)
 shape = SubResource("RectangleShape2D_xmp8r")
 
 [node name="DetectZone" type="Area2D" parent="."]

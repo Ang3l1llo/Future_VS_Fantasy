@@ -7,6 +7,8 @@
 radius = 11.0454
 
 [node name="FireBall" type="Area2D"]
+collision_layer = 32
+collision_mask = 17
 script = ExtResource("1_svag0")
 
 [node name="FireBall" type="Sprite2D" parent="."]

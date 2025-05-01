@@ -238,6 +238,8 @@ radius = 8.0
 radius = 13.0
 
 [node name="Orc" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 23
 script = ExtResource("1_bim8a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

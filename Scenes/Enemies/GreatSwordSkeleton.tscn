@@ -370,11 +370,11 @@ radius = 9.05539
 size = Vector2(26, 11)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xpk3s"]
-radius = 19.0
+radius = 15.0333
 
 [node name="GreatSwordSkeleton" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 23
 platform_floor_layers = 4294901760
 script = ExtResource("1_2h6od")
 
@@ -382,9 +382,9 @@ script = ExtResource("1_2h6od")
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"WALK"
-frame = 7
-frame_progress = 0.446858
+animation = &"ATTACK1"
+frame = 8
+frame_progress = 1.0
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(37, 28)
@@ -398,8 +398,8 @@ polygon = PackedVector2Array(-2.5, -1, 13.5, -7, 23.5, -2, 25.5, 6, 13.5, 15, 2.
 
 [node name="Attack2" type="CollisionPolygon2D" parent="AttackZone"]
 position = Vector2(59.0789, 22)
-scale = Vector2(1.86845, 1.81391)
-polygon = PackedVector2Array(-7.53506, -10.4746, 4.77461, -7.71813, 9.05623, -0.551295, 10.1266, 7.71813, -9.67587, 8.26943)
+scale = Vector2(1, 0.971)
+polygon = PackedVector2Array(-12.3519, -9.37202, -3.78865, -9.92332, 4.77461, -7.71813, 9.05623, -0.551295, 10.1266, 7.71813, -9.67587, 8.26943)
 
 [node name="Attack3" type="CollisionShape2D" parent="AttackZone"]
 position = Vector2(54, 32)

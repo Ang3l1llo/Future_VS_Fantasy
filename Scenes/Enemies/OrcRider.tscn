@@ -354,17 +354,17 @@ radius = 12.0
 height = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1iga"]
-size = Vector2(21.25, 19.5)
+size = Vector2(30, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p34hb"]
-size = Vector2(82, 26)
+size = Vector2(82, 31)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vabq0"]
-radius = 27.0185
+radius = 15.0
 
 [node name="OrcRider" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 23
 platform_floor_layers = 4294901760
 script = ExtResource("1_w40ma")
 
@@ -372,7 +372,7 @@ script = ExtResource("1_w40ma")
 texture_filter = 1
 position = Vector2(34, 29)
 sprite_frames = SubResource("SpriteFrames_tvokx")
-animation = &"HURT"
+animation = &"ATTACK3"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(35, 24)
@@ -381,16 +381,16 @@ shape = SubResource("CapsuleShape2D_odydm")
 [node name="AttackZone" type="Area2D" parent="."]
 
 [node name="Attack1" type="CollisionShape2D" parent="AttackZone"]
-position = Vector2(52.375, 27.75)
+position = Vector2(48, 28.5)
 shape = SubResource("RectangleShape2D_u1iga")
 
 [node name="Attack2" type="CollisionPolygon2D" parent="AttackZone"]
 position = Vector2(46, 24)
-scale = Vector2(1.86845, 1.81391)
-polygon = PackedVector2Array(-3.21122, -19.2953, 8.02804, -17.6414, 13.9153, -8.26943, 16.5913, 0, 17.1265, 7.16684, 11.7745, 13.2311, -1.07041, 3.30777)
+scale = Vector2(1, 0.971)
+polygon = PackedVector2Array(-19, -27.8064, 4, -37.0752, 24, -22.6571, 32, 4.11946, 32, 16.4779, 28, 22.6571, 18, 27.8064, -1.07041, 3.30777)
 
 [node name="Attack3" type="CollisionShape2D" parent="AttackZone"]
-position = Vector2(36, 22)
+position = Vector2(36, 19.5)
 shape = SubResource("RectangleShape2D_p34hb")
 
 [node name="DetectZone" type="Area2D" parent="."]

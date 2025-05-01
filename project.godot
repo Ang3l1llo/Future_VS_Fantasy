@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TFG"
-run/main_scene="res://Scenes/Levels/Map1.tscn"
+run/main_scene="res://Scenes/Levels/MeadowLands.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 
 [dotnet]
@@ -81,8 +81,9 @@ shoot={
 
 [layer_names]
 
-2d_render/layer_2="Enemy"
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Proyectil"
 2d_physics/layer_4="Pickup"
+2d_physics/layer_5="Trees"
+2d_physics/layer_6="EnemyBullets"

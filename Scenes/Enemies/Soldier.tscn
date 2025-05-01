@@ -314,7 +314,7 @@ radius = 65.4905
 
 [node name="Soldier" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 23
 platform_floor_layers = 4294901760
 script = ExtResource("1_f321m")
 
@@ -338,7 +338,7 @@ polygon = PackedVector2Array(-7.5, -8, 5.5, -1, 4.5, 13, -14.5, 15, -28.5, 8, -5
 
 [node name="Attack2" type="CollisionShape2D" parent="AttackZone"]
 position = Vector2(46.2894, 26)
-scale = Vector2(1.86845, 1.81391)
+scale = Vector2(1, 0.971)
 shape = SubResource("RectangleShape2D_xmp8r")
 
 [node name="Attack3" type="CollisionShape2D" parent="AttackZone"]

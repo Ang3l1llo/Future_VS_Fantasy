@@ -17,6 +17,11 @@ var damage = 20
 var speed = 50
 
 
+func _ready():
+	attack_shape1.disabled = true
+	attack_shape2.disabled = true
+
+	
 func _physics_process(_delta):
 	# Movimiento SIEMPRE, no solo cuando detecta al jugador
 	if current_health <= 0:

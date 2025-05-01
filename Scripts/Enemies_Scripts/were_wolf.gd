@@ -16,7 +16,11 @@ var current_health = max_health
 var damage = 20
 var speed = 50
 
+func _ready():
+	attack_shape1.disabled = true
+	attack_shape2.disabled = true
 
+	
 func _physics_process(_delta):
 	# Movimiento SIEMPRE, no solo cuando detecta al jugador
 	if current_health <= 0:
@@ -49,14 +53,14 @@ func movement():
 				attack_shape1.scale.x = 1
 				attack_shape2.scale.x = 1
 				attack_shape1.position = Vector2(49, attack_shape1.position.y)
-				attack_shape2.position = Vector2(49, attack_shape2.position.y)
+				attack_shape2.position = Vector2(51.5, attack_shape2.position.y)
 				
 			else:
 				# Invertir escala y ajustar posición para ataques a la izquierda
 				attack_shape1.scale.x = -1
 				attack_shape2.scale.x = -1
-				attack_shape1.position = Vector2(20, attack_shape1.position.y)  
-				attack_shape2.position = Vector2(20, attack_shape2.position.y)
+				attack_shape1.position = Vector2(19, attack_shape1.position.y)  
+				attack_shape2.position = Vector2(16.5, attack_shape2.position.y)
   
 
 

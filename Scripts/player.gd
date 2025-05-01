@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
-var movement_speed = 60.0
+var movement_speed = 200.0
 var weapon_reference = null  
 var max_health = 100
 var current_health = max_health

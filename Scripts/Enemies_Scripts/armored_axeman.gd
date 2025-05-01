@@ -15,8 +15,14 @@ var is_hurt = false
 var max_health = 100
 var current_health = max_health
 var damage = 20
+var speed = 50
 
 
+func _ready():
+	attack_shape1.disabled = true
+	attack_shape2.disabled = true
+	attack_shape3.disabled = true
+	
 func _physics_process(_delta):
 	# Movimiento SIEMPRE, no solo cuando detecta al jugador
 	if current_health <= 0:
@@ -29,6 +35,7 @@ func _physics_process(_delta):
 		await attack_if_possible()
 	else:
 		movement()
+		
 
 func movement():
 	if is_attacking or is_hurt:
@@ -41,22 +48,26 @@ func movement():
 	if velocity.length() > 0:
 		sprite.play("WALK")
 		if velocity.x != 0:
-			# Invertir el sprite
-			sprite.scale.x = 1 if velocity.x > 0 else -1
+			var facing_right = velocity.x > 0
+			sprite.scale.x = 1 if facing_right else -1
 			
-			if sprite.scale.x > 0:
-				# Si está mirando hacia la derecha
-				attack_shape1.position = Vector2(49, attack_shape1.position.y)  
-				attack_shape2.position = Vector2(49, attack_shape2.position.y)
-				attack_shape3.position = Vector2(49, attack_shape3.position.y) 
+			if facing_right:
+				# Restaurar escala y posición originales para evitar colisiones mal colocadas
+				attack_shape1.scale.x = 1
+				attack_shape2.scale.x = 1
+				attack_shape3.scale.x = 1
+				attack_shape1.position = Vector2(49.5, attack_shape1.position.y)
+				attack_shape2.position = Vector2(38.5, attack_shape2.position.y)
+				attack_shape3.position = Vector2(36, attack_shape3.position.y)
+				
 			else:
-				# Si está mirando hacia la izquierda
+				# Invertir escala y ajustar posición para ataques a la izquierda
 				attack_shape1.scale.x = -1
 				attack_shape2.scale.x = -1
 				attack_shape3.scale.x = -1
-				attack_shape1.position = Vector2(20, attack_shape1.position.y)  
-				attack_shape2.position = Vector2(20, attack_shape2.position.y)  
-				attack_shape3.position = Vector2(20, attack_shape2.position.y) 
+				attack_shape1.position = Vector2(20.5, attack_shape1.position.y)  
+				attack_shape2.position = Vector2(31.5, attack_shape2.position.y) 
+				attack_shape3.position = Vector2(34, attack_shape3.position.y)
 
 
 func attack_if_possible():
@@ -66,7 +77,7 @@ func attack_if_possible():
 	is_attacking = true
 	can_attack = false
 	
-	# Ataque aleatorio (tipo 0 o tipo 1)
+	# Ataque aleatorio 
 	var attack_type = randi() % 3
 	
 	if attack_type == 0:
@@ -107,7 +118,6 @@ func take_damage(damage_amount: int):
 	velocity = Vector2.ZERO
 	move_and_slide()
 	
-	# Reproducción de animación HURT
 	await play_and_wait("HURT")
 	
 	is_hurt = false
@@ -124,10 +134,13 @@ func die():
 	await play_and_wait("DEATH")
 	queue_free()
 
+#Función para usar de forma recurrente el await
 func play_and_wait(animation_name: String) -> void:
 	sprite.play(animation_name)
 	await sprite.animation_finished
 
+#Función para atacar al jugador
 func _on_attack_zone_body_entered(body):
 	if body.name == "Player" and not (attack_shape1.disabled and attack_shape2.disabled and attack_shape3.disabled):
 		body.take_damage(damage)
+		
