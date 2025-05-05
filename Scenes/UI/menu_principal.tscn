@@ -1,23 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://d13cfthkk6gya"]
+[gd_scene load_steps=3 format=3 uid="uid://d13cfthkk6gya"]
 
 [ext_resource type="Script" path="res://Scripts/UI_Scripts/menu_principal.gd" id="1_lvdj3"]
+[ext_resource type="Texture2D" uid="uid://ckf47iiqmuhst" path="res://Assets/Utils/Menú_principal.png" id="2_fce8u"]
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
-anchors_preset = 15
+anchor_left = 0.002
+anchor_top = 0.004
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.162
+offset_left = -0.84
+offset_top = -0.32
+offset_right = 1.0
+offset_bottom = -176.96
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lvdj3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Imagen" type="TextureRect" parent="."]
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_left = -5.0
+offset_top = -5.0
+offset_right = -3.0
+offset_bottom = -0.0740967
+mouse_filter = 2
+texture = ExtResource("2_fce8u")
+
+[node name="Bt_start" type="Button" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 567.0
+offset_top = 218.0
+offset_right = 1345.0
+offset_bottom = 359.0
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Bt_settings" type="Button" parent="."]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 417.0
+offset_right = 1345.0
+offset_bottom = 555.0
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Bt_quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 572.0
+offset_top = 611.0
+offset_right = 1345.0
+offset_bottom = 747.0
+
+[connection signal="pressed" from="Bt_start" to="." method="_on_bt_start_pressed"]
+[connection signal="pressed" from="Bt_settings" to="." method="_on_bt_settings_pressed"]
+[connection signal="pressed" from="Bt_quit" to="." method="_on_bt_quit_pressed"]

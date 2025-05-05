@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bdx2rfm3j5jmn"]
+[gd_scene load_steps=20 format=4 uid="uid://bdx2rfm3j5jmn"]
 
 [ext_resource type="Texture2D" uid="uid://c6m5fo2opao7n" path="res://Assets/MeadowLands/Water/Water.png" id="1_3y06x"]
 [ext_resource type="Texture2D" uid="uid://8tbaqpu3gesd" path="res://Assets/MeadowLands/Water/Rocks/Rocks_04.png" id="2_0uwpk"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://p3xk4r8yrbvx" path="res://Assets/MeadowLands/Ground/Tilemap_Flat.png" id="5_76iew"]
 [ext_resource type="Texture2D" uid="uid://cr0ofnparo6ic" path="res://Assets/MeadowLands/Tree.png" id="6_7mq67"]
 [ext_resource type="PackedScene" uid="uid://d2w5rpy4ceoe2" path="res://Scenes/player.tscn" id="7_snsdn"]
+[ext_resource type="PackedScene" uid="uid://b2dloy4fbgjby" path="res://Scenes/UI/menu_pause.tscn" id="8_kct7r"]
+[ext_resource type="PackedScene" uid="uid://c1c3obdmxhvlq" path="res://Scenes/Weapons/Pistol3.tscn" id="8_x3k6b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iy0ue"]
 texture = ExtResource("1_3y06x")
@@ -1194,9 +1196,24 @@ position = Vector2(-25, -374)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(37, 20)
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="MenuPause" parent="Player/Camera2D" instance=ExtResource("8_kct7r")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -673.0
+offset_top = -173.0
+offset_right = -673.0
+offset_bottom = -173.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Weapons" type="Node2D" parent="."]
+
+[node name="Pistol3" parent="." instance=ExtResource("8_x3k6b")]
+position = Vector2(10, -305)
