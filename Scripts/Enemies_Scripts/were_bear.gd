@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var player = get_node("/root/Map1/Player")
+@onready var player = get_node("/root/FinalZone/Player")
 @onready var sprite = $AnimatedSprite2D
 @onready var attack_zone = $AttackZone
 @onready var attack_shape1 = attack_zone.get_node("Attack1")
@@ -14,8 +14,10 @@ var is_attacking = false
 var is_hurt = false
 var max_health = 100
 var current_health = max_health
-var damage = 20
+var damage = 30
 var speed = 50
+
+signal enemy_died
 
 func _ready():
 	attack_shape1.disabled = true
@@ -131,6 +133,7 @@ func die():
 	velocity = Vector2.ZERO
 	move_and_slide()
 	await play_and_wait("DEATH")
+	emit_signal("enemy_died")
 	queue_free()
 
 #Función para usar de forma recurrente el await

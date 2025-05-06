@@ -6,14 +6,16 @@
 [node name="MenuPause" type="Control"]
 process_mode = 3
 layout_mode = 3
-anchor_right = 0.749
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 0.919922
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 script = ExtResource("1_u7ycb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 535.0
 offset_top = 4.0
 offset_right = 830.0
@@ -22,12 +24,14 @@ texture = ExtResource("2_4vsfk")
 expand_mode = 1
 
 [node name="Bt_restart" type="Button" parent="."]
+layout_mode = 0
 offset_left = 623.0
 offset_top = 155.0
 offset_right = 744.0
 offset_bottom = 188.0
 
 [node name="Bt_exit" type="Button" parent="."]
+layout_mode = 0
 offset_left = 631.0
 offset_top = 196.0
 offset_right = 734.0

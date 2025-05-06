@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var player = get_node("/root/Map1/Player")
+@onready var player = get_node("/root/FinalZone/Player")
 @onready var sprite = $AnimatedSprite2D
 @onready var detect_zone = $DetectZone
 @onready var magic_spawn = $MagicSpawnPoint
@@ -12,7 +12,9 @@ var is_attacking = false
 var is_hurt = false
 var max_health = 100
 var current_health = max_health
-var damage = 20
+var speed = 50
+
+signal enemy_died
 
 # Este valor determinará qué proyectil instanciar tras la animación
 var pending_projectile_scene: PackedScene = null
@@ -33,7 +35,7 @@ func movement():
 		return
 	
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * 50
+	velocity = direction * speed
 	move_and_slide()
 
 	if velocity.length() > 0:
@@ -113,6 +115,7 @@ func die():
 	velocity = Vector2.ZERO
 	move_and_slide()
 	await play_and_wait("DEATH")
+	emit_signal("enemy_died")
 	queue_free()
 
 func play_and_wait(animation_name: String) -> void:
