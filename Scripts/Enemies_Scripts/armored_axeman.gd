@@ -124,7 +124,6 @@ func take_damage(damage_amount: int):
 	
 	is_hurt = false
 	
-	# Verificar si el enemigo muere
 	if current_health <= 0:
 		await die()
 

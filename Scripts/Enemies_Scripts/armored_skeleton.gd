@@ -40,7 +40,7 @@ func movement():
 	if is_attacking or is_hurt:
 		return  # No se mueve si está atacando o recibiendo daño
 	
-	var direction = global_position.direction_to(player.global_position)
+	var direction = global_position.direction_to(player.global_position).normalized()
 	velocity = direction * speed
 	move_and_slide()
 
@@ -108,7 +108,6 @@ func take_damage(damage_amount: int):
 	
 	is_hurt = false
 	
-	# Verificar si el enemigo muere
 	if current_health <= 0:
 		await die()
 

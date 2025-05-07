@@ -17,38 +17,47 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lvdj3")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -27.0
+offset_right = 1976.0
+offset_bottom = 1116.0
+color = Color(0, 0, 0, 1)
+
 [node name="Imagen" type="TextureRect" parent="."]
 texture_repeat = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.001
-offset_left = -5.0
+offset_left = 64.0
 offset_top = -5.0
-offset_right = -3.0
+offset_right = -87.0
 offset_bottom = -0.0740967
 mouse_filter = 2
 texture = ExtResource("2_fce8u")
+expand_mode = 1
 
 [node name="Bt_start" type="Button" parent="."]
 layout_mode = 0
-offset_left = 567.0
-offset_top = 218.0
-offset_right = 1345.0
+offset_left = 598.0
+offset_top = 224.0
+offset_right = 1296.0
 offset_bottom = 359.0
 
 [node name="Bt_settings" type="Button" parent="."]
 layout_mode = 0
-offset_left = 566.0
-offset_top = 417.0
-offset_right = 1345.0
+offset_left = 599.0
+offset_top = 421.0
+offset_right = 1291.0
 offset_bottom = 555.0
 
 [node name="Bt_quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 572.0
-offset_top = 611.0
-offset_right = 1345.0
+offset_left = 605.0
+offset_top = 617.0
+offset_right = 1293.0
 offset_bottom = 747.0
 
 [connection signal="pressed" from="Bt_start" to="." method="_on_bt_start_pressed"]

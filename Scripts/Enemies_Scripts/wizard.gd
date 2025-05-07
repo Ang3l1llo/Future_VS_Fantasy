@@ -16,9 +16,6 @@ var speed = 50
 
 signal enemy_died
 
-# Este valor determinará qué proyectil instanciar tras la animación
-var pending_projectile_scene: PackedScene = null
-
 func _physics_process(_delta):
 	if current_health <= 0:
 		return
@@ -34,7 +31,7 @@ func movement():
 	if is_attacking or is_hurt:
 		return
 	
-	var direction = global_position.direction_to(player.global_position)
+	var direction = global_position.direction_to(player.global_position).normalized()
 	velocity = direction * speed
 	move_and_slide()
 
@@ -45,7 +42,7 @@ func movement():
 			var facing_right = velocity.x > 0
 			sprite.scale.x = 1 if facing_right else -1
 
-			# Solo ajustamos si mira a la izquierda
+			# Solo se ajusta si mira a la izquierda
 			if not facing_right:
 				magic_spawn.position = Vector2(0, 30)  # ajustar a mano cuando rota..
 			else:
@@ -80,16 +77,13 @@ func shoot_projectile(attack_type: String):
 	elif attack_type == "ATTACK2":
 		projectile = fireball_scene.instantiate()
 	else:
-		return  # Por seguridad
+		return  
 
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = magic_spawn.global_position
 
 	var dir = (player.global_position - global_position).normalized()
 	projectile.direction = dir
-	# Si no quieres que se roten visualmente (como en la bola de hielo), no les apliques rotación
-
-
 
 func take_damage(damage_amount: int):
 	if current_health <= 0:
@@ -118,6 +112,6 @@ func die():
 	emit_signal("enemy_died")
 	queue_free()
 
-func play_and_wait(animation_name: String) -> void:
+func play_and_wait(animation_name: String):
 	sprite.play(animation_name)
 	await sprite.animation_finished

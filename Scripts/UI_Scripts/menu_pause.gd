@@ -3,12 +3,14 @@ extends Control
 # Variable para saber si el juego está pausado
 var is_paused = false
 
+var is_dead = false
+
 func _ready():
 	# El menú de pausa empieza oculto
 	visible = false
 
 func _input(event: InputEvent):
-	if event.is_action_pressed("pause"):
+	if not is_dead and event.is_action_pressed("pause"):
 		print("pausado")
 		
 		# Ahora se cambia el estado y estaría pausado
