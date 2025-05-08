@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b875hawwok21f"]
+
+[ext_resource type="Script" path="res://Scripts/Crystal_Scripts/blue_crystal.gd" id="1_6g8cf"]
+[ext_resource type="Texture2D" uid="uid://bjskc5gt732vy" path="res://Assets/Crystal_Animation/Blue/blue_crystal_0000.png" id="1_ucj33"]
+[ext_resource type="Texture2D" uid="uid://cbxjuxymgl2k7" path="res://Assets/Crystal_Animation/Blue/blue_crystal_0001.png" id="2_6g23x"]
+[ext_resource type="Texture2D" uid="uid://cjrsuqpum0ylj" path="res://Assets/Crystal_Animation/Blue/blue_crystal_0002.png" id="3_bknao"]
+[ext_resource type="Texture2D" uid="uid://cc6f57hwxl6wu" path="res://Assets/Crystal_Animation/Blue/blue_crystal_0003.png" id="4_eou2b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_616mv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ucj33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6g23x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bknao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eou2b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="Blue_crystal" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_6g8cf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.231, 0.2)
+sprite_frames = SubResource("SpriteFrames_616mv")
+animation = &"idle"
+frame_progress = 0.522886
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -4, 2, -1, 2, 1, 2, 1, 0, 6, -2.41616, 1.16767, -3, 0)

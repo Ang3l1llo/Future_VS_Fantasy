@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://cptxlatfcu8vr"]
+
+[ext_resource type="Script" path="res://Scripts/UI_Scripts/menu_lvl_up.gd" id="1_iwefw"]
+[ext_resource type="Texture2D" uid="uid://cgdvccia0htyg" path="res://Assets/Utils/Menú_lvlUp.png" id="2_vbutw"]
+
+[node name="menu_lvl_up" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iwefw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1097.0
+offset_top = 247.0
+offset_right = 1620.0
+offset_bottom = 770.0
+texture = ExtResource("2_vbutw")
+expand_mode = 1
+
+[node name="Bt_weapon" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1140.0
+offset_top = 442.0
+offset_right = 1257.0
+offset_bottom = 600.0
+
+[node name="Bt_life" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1302.0
+offset_top = 441.0
+offset_right = 1415.0
+offset_bottom = 599.0
+
+[node name="Bt_speed" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1459.0
+offset_top = 437.0
+offset_right = 1584.0
+offset_bottom = 603.0
+
+[connection signal="pressed" from="Bt_weapon" to="." method="_on_upgrade_weapon"]
+[connection signal="pressed" from="Bt_life" to="." method="_on_increase_health"]
+[connection signal="pressed" from="Bt_speed" to="." method="_on_increase_speed"]

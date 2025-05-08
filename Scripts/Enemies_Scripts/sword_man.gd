@@ -132,6 +132,13 @@ func die():
 	velocity = Vector2.ZERO
 	move_and_slide()
 	await play_and_wait("DEATH")
+	
+	#Drop de cristalito
+	var exp_pickup = preload("res://Scenes/Crystals/green_crystal.tscn").instantiate()
+	exp_pickup.global_position = sprite.global_position
+	get_tree().current_scene.add_child(exp_pickup)
+	
+	
 	emit_signal("enemy_died")
 	queue_free()
 

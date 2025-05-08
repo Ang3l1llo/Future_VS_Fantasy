@@ -19,6 +19,7 @@ func _on_body_entered(body):
 		call_deferred("_equip_weapon", body)
 
 func _equip_weapon(body):
+	body.current_map = "MeadowLands"
 	if body.weapon_reference:
 		body.weapon_reference.queue_free()  # Elimina el arma anterior
 		

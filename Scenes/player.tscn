@@ -191,3 +191,5 @@ shape = SubResource("CircleShape2D_tlh6j")
 
 [node name="WeaponSlot" type="Marker2D" parent="."]
 position = Vector2(39, 27)
+
+[node name="SurvivalTimer" type="Timer" parent="."]

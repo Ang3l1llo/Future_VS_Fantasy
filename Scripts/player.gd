@@ -5,8 +5,41 @@ var movement_speed = 200.0
 var weapon_reference = null  
 var max_health = 100
 var current_health = max_health
+var level = 1
+var experience = 0
+var experience_to_lvl = 100
 var is_dead = false
 
+# Diccionario de armas por mapa, para controlar que equipar al subir de nivel
+var weapons_by_map = {
+	"MeadowLands": [
+		preload("res://Scenes/Weapons/Pistol.tscn"),
+		preload("res://Scenes/Weapons/Pistol2.tscn"),
+		preload("res://Scenes/Weapons/Subfusil.tscn"),
+		preload("res://Scenes/Weapons/Shotgun3.tscn"),
+		preload("res://Scenes/Weapons/Rifle.tscn"),
+		preload("res://Scenes/Weapons/Rifle2.tscn")
+	],
+	"MisteryWoods": [
+		preload("res://Scenes/Weapons/Pistol3.tscn"),
+		preload("res://Scenes/Weapons/Pistol4.tscn"),
+		preload("res://Scenes/Weapons/Subfusil2.tscn"),
+		preload("res://Scenes/Weapons/Shotgun2.tscn"),
+		preload("res://Scenes/Weapons/Rifle3.tscn"),
+		preload("res://Scenes/Weapons/Rifle4.tscn")
+	],
+	"FinalZone": [
+		preload("res://Scenes/Weapons/Pistol5.tscn"),
+		preload("res://Scenes/Weapons/Pistol6.tscn"),
+		preload("res://Scenes/Weapons/Shotgun.tscn"),
+		preload("res://Scenes/Weapons/Rifle5.tscn"),
+		preload("res://Scenes/Weapons/Rifle6.tscn"),
+		preload("res://Scenes/Weapons/Supergun.tscn")
+	]
+}
+
+var current_map = ""  # Para guardar el mapa actual
+var current_weapon_index = 0  # Índice de la arma actual para saber cuál tiene euipada
 
 func _physics_process(_delta):
 	if is_dead:
@@ -17,7 +50,8 @@ func _physics_process(_delta):
 	handle_shooting()
 	#Esto fuerza la posición del jugador a estar en valores enteros de píxeles, evitando lag
 	global_position = global_position.round()
-	
+
+
 #Función que controla el movimiento
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -50,10 +84,12 @@ func aim_weapon():
 		else:
 			weapon_reference.scale.y = 1
 
+
 #Función para manejar el disparo
 func handle_shooting():
 	if Input.is_action_just_pressed("shoot") and weapon_reference:
 		weapon_reference.shoot()
+
 
 #Función para recibir daño de los enemigos
 func take_damage(amount):
@@ -63,6 +99,65 @@ func take_damage(amount):
 	if current_health <= 0:
 		die()
 
+
+#Función para ganar exp
+func gain_experience(amount: int):
+	experience += amount
+	print("Ganaste EXP:", amount, "- Total:", experience)
+	if experience >= experience_to_lvl:
+		level_up()
+
+
+#Función de subida de lvl
+func level_up():
+	level += 1
+	print("Subida de level")
+	experience -= experience_to_lvl
+	experience_to_lvl = int(experience_to_lvl * 1.2) #Ajustar con la dificultad relativa
+	get_tree().paused = true
+	show_menu_lvl_up()
+
+
+#Función para mostrar el menú de subida de lvl
+func show_menu_lvl_up():
+	var menu_scene = preload("res://Scenes/UI/menu_lvl_up.tscn")
+	var menu = menu_scene.instantiate() 
+	var canvas_layer = get_tree().current_scene.get_node("LevelUpLayer")
+	canvas_layer.add_child(menu)
+	menu.show_menu(self)
+
+
+#Función para mejorar arma a la siguiente
+func upgrade_weapon():
+	current_weapon_index += 1
+	
+	if current_weapon_index >= weapons_by_map[current_map].size():
+		current_weapon_index = weapons_by_map[current_map].size() - 1  # Te quedas con la última arma
+		print("Ya tienes el arma más poderosa.")
+		return
+
+	change_weapon(current_map)
+
+
+# Cambiar el arma del jugador según el mapa
+func change_weapon(map_name):    
+	var weapon_scene = weapons_by_map[map_name][current_weapon_index]
+	var weapon = weapon_scene.instantiate()
+
+	if weapon_reference:
+		weapon_reference.queue_free()  # Elimina el arma anterior
+	
+	weapon_reference = weapon
+	add_child(weapon_reference)
+	weapon_reference.position = get_node("WeaponSlot").position  # Coloca el arma en el punto correcto
+	print("Arma equipada:", weapon_reference.name)
+
+
+#Comprobar si es posible mejorar arma
+func can_upgrade_weapon() -> bool:
+	return current_weapon_index < weapons_by_map[current_map].size() - 1
+	
+#Función de muerte
 func die():
 	if is_dead:
 		return
