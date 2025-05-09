@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bdx2rfm3j5jmn"]
+[gd_scene load_steps=29 format=4 uid="uid://bdx2rfm3j5jmn"]
 
 [ext_resource type="Texture2D" uid="uid://c6m5fo2opao7n" path="res://Assets/MeadowLands/Water/Water.png" id="1_3y06x"]
 [ext_resource type="Texture2D" uid="uid://8tbaqpu3gesd" path="res://Assets/MeadowLands/Water/Rocks/Rocks_04.png" id="2_0uwpk"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://df15iofrnqlke" path="res://Scenes/Enemies/knight.tscn" id="14_wa5yl"]
 [ext_resource type="PackedScene" uid="uid://1wbxvr3l36ow" path="res://Scenes/Enemies/knightTemplar.tscn" id="15_eg7xk"]
 [ext_resource type="PackedScene" uid="uid://cptxlatfcu8vr" path="res://Scenes/UI/menu_lvl_up.tscn" id="17_cj87o"]
+[ext_resource type="PackedScene" uid="uid://d3qbalne2pv5f" path="res://Scenes/UI/hud.tscn" id="17_lbgg2"]
 [ext_resource type="PackedScene" uid="uid://bsqp46ibnv27h" path="res://Scenes/Weapons/Pistol.tscn" id="17_rewbf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iy0ue"]
@@ -1204,6 +1205,7 @@ position = Vector2(-35, -248)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(37, 20)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
@@ -1212,7 +1214,7 @@ player_path = NodePath("../Player")
 trees_tilemap_path = NodePath("../Terrains/Trees")
 enemy_scene = Array[PackedScene]([ExtResource("11_u35fm"), ExtResource("12_mmgt8"), ExtResource("12_vue2l"), ExtResource("13_ksug1"), ExtResource("14_wa5yl"), ExtResource("15_eg7xk")])
 spawn_area_rect = Rect2(-1750, -1120, 3730, 1930)
-max_enemies = 5
+max_enemies = 50
 enemies_per_spawn = 5
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
@@ -1238,6 +1240,16 @@ offset_top = 214.0
 offset_right = -416.0
 offset_bottom = 214.0
 size_flags_horizontal = 4
+
+[node name="HudLayer" type="CanvasLayer" parent="."]
+layer = 9
+
+[node name="HUD" parent="HudLayer" instance=ExtResource("17_lbgg2")]
+offset_left = 173.318
+offset_top = 32.6459
+offset_right = 173.318
+offset_bottom = 32.6459
+player_path = NodePath("../../Player")
 
 [node name="Pistol" parent="." instance=ExtResource("17_rewbf")]
 position = Vector2(34, -238)

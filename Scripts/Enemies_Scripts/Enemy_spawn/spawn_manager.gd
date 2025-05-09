@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @export var player_path: NodePath
 @export var trees_tilemap_path: NodePath
@@ -34,9 +34,13 @@ func _process(delta):
 func spawn_enemies():
 	for i in enemies_per_spawn:
 		var _spawned = false
-		for attempt in range(50):
+		for attempt in range(100):
 			var pos = get_random_spawn_position()
+			print("Intento de spawn en:", pos)
+
 			if is_valid_spawn(pos):
+				print("Posición válida encontrada:", pos)
+
 				var enemy = enemy_scene.pick_random().instantiate()
 				enemy.global_position = pos
 				get_parent().add_child(enemy)
@@ -47,6 +51,11 @@ func spawn_enemies():
 
 				_spawned = true
 				break
+
+		if not _spawned:
+			print("No se pudo spawnear enemigo en los 50 intentos")
+
+
 
 # --- POSICIÓN ALEATORIA DENTRO DE ZONA SEGURA Y A CIERTA DISTANCIA DEL JUGADOR ---
 func get_random_spawn_position() -> Vector2:
@@ -70,8 +79,22 @@ func get_random_spawn_position() -> Vector2:
 
 # Para evitar spawn en arbolitos
 func is_valid_spawn(pos: Vector2) -> bool:
-	var tile_pos = trees.local_to_map(pos)
-	return trees.get_cell_source_id(tile_pos) == -1  
+	var test_shape = CircleShape2D.new()
+	test_shape.radius = 5  # Ajustar tamaño
+
+	var query = PhysicsShapeQueryParameters2D.new()
+	query.shape = test_shape
+	query.transform = Transform2D(0, pos)
+	query.collision_mask = 1 << 5  # Solo detectar colisiones con árboles (layer 5)
+
+	var space_state = get_world_2d().direct_space_state
+	var result = space_state.intersect_shape(query)
+
+	if result.size() > 0:
+		print("Colisión detectada en spawn con árboles:", result)
+		return false
+
+	return true
 
 # Conteo de enemigos que mueren
 func _on_enemy_died(enemy):
