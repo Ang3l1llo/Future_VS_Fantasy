@@ -155,5 +155,5 @@ func die():
 	print("¡Game Over!")
 
 	await sprite.animation_finished
-	get_tree().change_scene_to_file("res://Scenes/UI/menu_death.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI/menu_death.tscn") 
 	

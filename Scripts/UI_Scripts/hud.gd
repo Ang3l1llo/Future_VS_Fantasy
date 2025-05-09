@@ -1,4 +1,4 @@
-extends Control
+extends Control 
 
 @export var player_path: NodePath
 @export var life_bar: TextureProgressBar  # Barra de vida
@@ -8,22 +8,27 @@ extends Control
 var timer: float = game_duration
 var is_game_over: bool = false
 
-var player = CharacterBody2D
+var player: CharacterBody2D
 
 func _ready():
-	player = get_node(player_path)
-	life_bar.max_value = player.get("max_health")  
-	life_bar.value = player.get("current_health")  
+	player = get_node(player_path) 
+
+	life_bar.max_value = player.max_health
+	life_bar.value = player.current_health
+	
 	# Establecer el temporizador inicial
 	update_timer_label()
 
 func _process(delta):
 	if is_game_over:
 		return
-		
+
 	# Actualiza la vida del jugador 
-	life_bar.value = player.get("current_health")
-	
+	life_bar.value = player.current_health
+	var percent = clamp(round((float(player.current_health) / float(player.max_health)) * 100), 0, 100)
+	print("VIDA: ", player.current_health, "/", player.max_health, " → ", percent, "%")
+	$"HealthBar/PercentageLabel".text = str(percent) + "%"
+
 	# Reduce el tiempo del temporizador
 	if timer > 0:
 		timer -= delta
@@ -36,6 +41,6 @@ func _process(delta):
 
 func update_timer_label():
 	# Convertir el tiempo restante en minutos y segundos
-	var minutes = int(timer) / 60
+	var minutes = int(float(timer) / 60) # Sino daba error por divisiones enteras
 	var seconds = int(timer) % 60
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
