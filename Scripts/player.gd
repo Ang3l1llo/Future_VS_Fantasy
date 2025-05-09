@@ -136,27 +136,14 @@ func upgrade_weapon():
 		print("Ya tienes el arma más poderosa.")
 		return
 
-	change_weapon(current_map)
-
-
-# Cambiar el arma del jugador según el mapa
-func change_weapon(map_name):    
-	var weapon_scene = weapons_by_map[map_name][current_weapon_index]
+	var weapon_scene = weapons_by_map[current_map][current_weapon_index]
 	var weapon = weapon_scene.instantiate()
-
-	if weapon_reference:
-		weapon_reference.queue_free()  # Elimina el arma anterior
 	
-	weapon_reference = weapon
-	add_child(weapon_reference)
-	weapon_reference.position = get_node("WeaponSlot").position  # Coloca el arma en el punto correcto
-	print("Arma equipada:", weapon_reference.name)
-
-
-#Comprobar si es posible mejorar arma
-func can_upgrade_weapon() -> bool:
-	return current_weapon_index < weapons_by_map[current_map].size() - 1
+	weapon.global_position = sprite.global_position
 	
+	get_tree().current_scene.add_child(weapon)
+
+
 #Función de muerte
 func die():
 	if is_dead:
