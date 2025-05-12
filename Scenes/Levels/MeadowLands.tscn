@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bdx2rfm3j5jmn"]
+[gd_scene load_steps=23 format=4 uid="uid://bdx2rfm3j5jmn"]
 
 [ext_resource type="Texture2D" uid="uid://c6m5fo2opao7n" path="res://Assets/MeadowLands/Water/Water.png" id="1_3y06x"]
 [ext_resource type="Texture2D" uid="uid://8tbaqpu3gesd" path="res://Assets/MeadowLands/Water/Rocks/Rocks_04.png" id="2_0uwpk"]
@@ -9,12 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://d2w5rpy4ceoe2" path="res://Scenes/player.tscn" id="7_snsdn"]
 [ext_resource type="PackedScene" uid="uid://b2dloy4fbgjby" path="res://Scenes/UI/menu_pause.tscn" id="8_kct7r"]
 [ext_resource type="PackedScene" uid="uid://dkwu8jck6q6ih" path="res://Scenes/Levels/SpawnManager/spawn_manager.tscn" id="10_qof85"]
-[ext_resource type="PackedScene" uid="uid://c7iqxf2wjgpkv" path="res://Scenes/Enemies/Archer.tscn" id="11_u35fm"]
-[ext_resource type="PackedScene" uid="uid://d3isl6tjjjemr" path="res://Scenes/Enemies/ArmoredAxeman.tscn" id="12_mmgt8"]
-[ext_resource type="PackedScene" uid="uid://bafasmuo1m1e4" path="res://Scenes/Enemies/Lancer.tscn" id="12_vue2l"]
-[ext_resource type="PackedScene" uid="uid://dseuubdy11ry0" path="res://Scenes/Enemies/SwordMan.tscn" id="13_ksug1"]
-[ext_resource type="PackedScene" uid="uid://df15iofrnqlke" path="res://Scenes/Enemies/knight.tscn" id="14_wa5yl"]
-[ext_resource type="PackedScene" uid="uid://1wbxvr3l36ow" path="res://Scenes/Enemies/knightTemplar.tscn" id="15_eg7xk"]
 [ext_resource type="PackedScene" uid="uid://cptxlatfcu8vr" path="res://Scenes/UI/menu_lvl_up.tscn" id="17_cj87o"]
 [ext_resource type="PackedScene" uid="uid://d3qbalne2pv5f" path="res://Scenes/UI/hud.tscn" id="17_lbgg2"]
 [ext_resource type="PackedScene" uid="uid://bsqp46ibnv27h" path="res://Scenes/Weapons/Pistol.tscn" id="17_rewbf"]
@@ -1205,14 +1199,13 @@ position = Vector2(-35, -248)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(37, 20)
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="SpawnManager" parent="." instance=ExtResource("10_qof85")]
 player_path = NodePath("../Player")
 trees_tilemap_path = NodePath("../Terrains/Trees")
-enemy_scene = Array[PackedScene]([ExtResource("11_u35fm"), ExtResource("12_mmgt8"), ExtResource("12_vue2l"), ExtResource("13_ksug1"), ExtResource("14_wa5yl"), ExtResource("15_eg7xk")])
 spawn_area_rect = Rect2(-1750, -1120, 3730, 1930)
 max_enemies = 50
 enemies_per_spawn = 5
