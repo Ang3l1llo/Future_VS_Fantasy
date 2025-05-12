@@ -1,23 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqjk3es2jqme"]
+[gd_scene load_steps=3 format=3 uid="uid://cqjk3es2jqme"]
 
 [ext_resource type="Script" path="res://Scripts/UI_Scripts/menu_victory.gd" id="1_34lnf"]
+[ext_resource type="Texture2D" uid="uid://bopr53npko5av" path="res://Assets/Utils/Menu_victoria.png" id="2_uncl0"]
 
 [node name="MenuVictory" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 444.0
+offset_top = 6.0
+offset_right = 492.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_34lnf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -480.0
+offset_top = -31.0
+offset_right = 1520.0
+offset_bottom = 1112.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = -21.0
+offset_right = 1101.0
+offset_bottom = 1080.0
+texture = ExtResource("2_uncl0")
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Bt_continue" type="Button" parent="."]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 745.0
+offset_right = 497.0
+offset_bottom = 859.0
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Bt_exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 746.0
+offset_right = 894.0
+offset_bottom = 859.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 55.0
+offset_right = 883.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 120
+text = "Victory!"
+
+[connection signal="pressed" from="Bt_continue" to="." method="_on_bt_continue_pressed"]
+[connection signal="pressed" from="Bt_exit" to="." method="_on_bt_exit_pressed"]

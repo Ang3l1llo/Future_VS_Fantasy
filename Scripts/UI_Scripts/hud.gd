@@ -33,10 +33,9 @@ func _process(delta):
 		timer -= delta
 		update_timer_label()
 	else:
-		# Cuando el tiempo se acaba, pasaríamos al segundo nivel
+		# Cuando el tiempo se acaba, pasaríamos al menú de victoria para ir al siguiente nivel
 		is_game_over = true
-		# POR HACER
-		# EJEMPLO: get_tree().change_scene("res://level2.tscn")
+		get_tree().change_scene_to_file("res://Scenes/UI/menu_victory.tscn")
 
 func update_timer_label():
 	# Convertir el tiempo restante en minutos y segundos

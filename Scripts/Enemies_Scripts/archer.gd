@@ -13,6 +13,7 @@ var max_health = 100
 var current_health = max_health
 var speed = 50
 
+@warning_ignore("UNUSED_SIGNAL")
 signal enemy_died
 
 func _physics_process(_delta):

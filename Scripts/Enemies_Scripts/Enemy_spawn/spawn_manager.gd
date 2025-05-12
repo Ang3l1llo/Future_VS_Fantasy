@@ -60,7 +60,7 @@ func _process(delta):
 func spawn_enemies():
 	for i in enemies_per_spawn:
 		var _spawned = false
-		for attempt in range(100):
+		for attempt in range(100): #Pongo muchos intentos para aumentar la probabilidad de que salga bien
 			var pos = get_random_spawn_position()
 			print("Intento de spawn en:", pos)
 
@@ -78,9 +78,7 @@ func spawn_enemies():
 				_spawned = true
 				break
 
-		if not _spawned:
-			print("No se pudo spawnear enemigo en los 100 intentos")
-
+#Para elegir de forma aleatoria el enemigo
 func pick_enemy(map_name: String) -> PackedScene:
 	var pool = []
 	for enemy_scene in enemies_by_map.get(map_name, {}).keys():
@@ -89,6 +87,7 @@ func pick_enemy(map_name: String) -> PackedScene:
 			pool.append(enemy_scene)
 	return pool.pick_random()
 
+#Para elegir un spot aleatorio del enemigo
 func get_random_spawn_position() -> Vector2:
 	var rect = spawn_area_rect
 	var random_distance = randf_range(spawn_distance_min, spawn_distance_max)
@@ -107,6 +106,7 @@ func get_random_spawn_position() -> Vector2:
 	)
 	return spawn_pos
 
+#Para comprobar si ese spot es válido
 func is_valid_spawn(pos: Vector2) -> bool:
 	var test_shape = CircleShape2D.new()
 	test_shape.radius = 5
@@ -114,7 +114,7 @@ func is_valid_spawn(pos: Vector2) -> bool:
 	var query = PhysicsShapeQueryParameters2D.new()
 	query.shape = test_shape
 	query.transform = Transform2D(0, pos)
-	query.collision_mask = 1 << 5
+	query.collision_mask = 1 << 4
 
 	var space_state = get_world_2d().direct_space_state
 	var result = space_state.intersect_shape(query)

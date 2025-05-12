@@ -143,6 +143,7 @@ func upgrade_weapon():
 	
 	get_tree().current_scene.add_child(weapon)
 	
+#Para comprobar si tiene el mejor arma ya
 func has_max_weapon() -> bool:
 	return current_weapon_index >= weapons_by_map[current_map].size() - 1
 

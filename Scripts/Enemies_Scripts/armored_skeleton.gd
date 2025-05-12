@@ -16,6 +16,7 @@ var current_health = max_health
 var damage = 20
 var speed = 50
 
+@warning_ignore("UNUSED_SIGNAL")
 signal enemy_died
 
 

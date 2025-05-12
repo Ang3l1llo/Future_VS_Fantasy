@@ -16,6 +16,7 @@ var current_health = max_health
 var damage = 15
 var speed = 50
 
+@warning_ignore("UNUSED_SIGNAL")
 signal enemy_died
 
 func _ready():
