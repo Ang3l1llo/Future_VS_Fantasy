@@ -8,10 +8,15 @@ func _ready():
 func show_menu(player):
 	player_ref = player
 	visible = true
+	
 
 func  _on_upgrade_weapon():
-		player_ref.upgrade_weapon()
-		close_menu()
+	if player_ref.has_max_weapon():
+		show_message("¡Ya tienes el mejor arma!")
+		return
+	
+	player_ref.upgrade_weapon()
+	close_menu()
 
 func _on_increase_health():
 	player_ref.max_health += 100
@@ -21,6 +26,13 @@ func _on_increase_health():
 func _on_increase_speed():
 	player_ref.movement_speed += 20.0
 	close_menu()
+
+func show_message(text):
+	var label = $MessageLabel
+	label.text = text
+	label.visible = true
+	await get_tree().create_timer(2.0).timeout  
+	label.visible = false
 
 func close_menu():
 	visible = false

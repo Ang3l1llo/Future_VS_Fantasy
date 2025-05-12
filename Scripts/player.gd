@@ -7,7 +7,7 @@ var max_health = 100
 var current_health = max_health
 var level = 1
 var experience = 0
-var experience_to_lvl = 100
+var experience_to_lvl = 10
 var is_dead = false
 
 # Diccionario de armas por mapa, para controlar que equipar al subir de nivel
@@ -142,6 +142,9 @@ func upgrade_weapon():
 	weapon.global_position = sprite.global_position
 	
 	get_tree().current_scene.add_child(weapon)
+	
+func has_max_weapon() -> bool:
+	return current_weapon_index >= weapons_by_map[current_map].size() - 1
 
 
 #Función de muerte

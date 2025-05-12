@@ -26,7 +26,6 @@ func _process(delta):
 	# Actualiza la vida del jugador 
 	life_bar.value = player.current_health
 	var percent = clamp(round((float(player.current_health) / float(player.max_health)) * 100), 0, 100)
-	print("VIDA: ", player.current_health, "/", player.max_health, " → ", percent, "%")
 	$"HealthBar/PercentageLabel".text = str(percent) + "%"
 
 	# Reduce el tiempo del temporizador

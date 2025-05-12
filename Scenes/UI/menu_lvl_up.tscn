@@ -47,6 +47,14 @@ offset_top = 437.0
 offset_right = 1584.0
 offset_bottom = 603.0
 
+[node name="MessageLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1125.0
+offset_top = 619.0
+offset_right = 1552.0
+offset_bottom = 756.0
+theme_override_font_sizes/font_size = 40
+
 [connection signal="pressed" from="Bt_weapon" to="." method="_on_upgrade_weapon"]
 [connection signal="pressed" from="Bt_life" to="." method="_on_increase_health"]
 [connection signal="pressed" from="Bt_speed" to="." method="_on_increase_speed"]
