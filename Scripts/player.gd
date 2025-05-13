@@ -140,8 +140,24 @@ func upgrade_weapon():
 	var weapon = weapon_scene.instantiate()
 	
 	weapon.global_position = sprite.global_position
-	
 	get_tree().current_scene.add_child(weapon)
+	
+	# Para el pequeño portal de las armas
+	if weapon.has_node("CollisionShape2D"):
+		var pivot_node := weapon.get_node("CollisionShape2D") as CollisionShape2D
+		var portal_pos := pivot_node.global_position
+
+		var portal_scene = preload("res://Scenes/portal.tscn")
+		var portal = portal_scene.instantiate()
+		portal.global_position = portal_pos
+		portal.scale = Vector2(1.2, 1.2)
+		portal.lifetime = 0.8
+
+		get_tree().current_scene.add_child(portal)
+	else:
+		print("fallito")
+
+	
 	
 #Para comprobar si tiene el mejor arma ya
 func has_max_weapon() -> bool:
