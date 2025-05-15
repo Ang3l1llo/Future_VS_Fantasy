@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bdx2rfm3j5jmn"]
+[gd_scene load_steps=25 format=4 uid="uid://bdx2rfm3j5jmn"]
 
 [ext_resource type="Texture2D" uid="uid://c6m5fo2opao7n" path="res://Assets/MeadowLands/Water/Water.png" id="1_3y06x"]
 [ext_resource type="Texture2D" uid="uid://8tbaqpu3gesd" path="res://Assets/MeadowLands/Water/Rocks/Rocks_04.png" id="2_0uwpk"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b2dloy4fbgjby" path="res://Scenes/UI/menu_pause.tscn" id="8_kct7r"]
 [ext_resource type="PackedScene" uid="uid://dkwu8jck6q6ih" path="res://Scenes/Levels/SpawnManager/spawn_manager.tscn" id="10_qof85"]
 [ext_resource type="PackedScene" uid="uid://blr0ojam24g4l" path="res://Scenes/portal.tscn" id="13_usl8p"]
+[ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music_Controller/node.tscn" id="14_i64h4"]
 [ext_resource type="PackedScene" uid="uid://cptxlatfcu8vr" path="res://Scenes/UI/menu_lvl_up.tscn" id="17_cj87o"]
 [ext_resource type="PackedScene" uid="uid://d3qbalne2pv5f" path="res://Scenes/UI/hud.tscn" id="17_lbgg2"]
 [ext_resource type="PackedScene" uid="uid://bsqp46ibnv27h" path="res://Scenes/Weapons/Pistol.tscn" id="17_rewbf"]
@@ -1206,9 +1207,11 @@ position_smoothing_speed = 10.0
 
 [node name="SpawnManager" parent="." instance=ExtResource("10_qof85")]
 player_path = NodePath("../Player")
-trees_tilemap_path = NodePath("../Terrains/Trees")
+hud_path = NodePath("../HudLayer/HUD")
 spawn_area_rect = Rect2(-1750, -1120, 3730, 1930)
-enemies_per_spawn = 5
+max_enemies_start = 2
+max_enemies_endgame = 200
+enemies_per_spawn_endgame = 20
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 layer = 10
@@ -1250,3 +1253,6 @@ position = Vector2(34, -238)
 [node name="Portal" parent="." instance=ExtResource("13_usl8p")]
 position = Vector2(0, -226)
 scale = Vector2(2, 2)
+
+[node name="MusicController" parent="." instance=ExtResource("14_i64h4")]
+hud_path = NodePath("../HudLayer/HUD")

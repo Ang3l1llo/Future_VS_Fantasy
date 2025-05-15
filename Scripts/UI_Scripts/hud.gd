@@ -3,7 +3,7 @@ extends Control
 @export var player_path: NodePath
 @export var life_bar: TextureProgressBar  # Barra de vida
 @export var timer_label: Label  # Etiqueta para el temporizador
-@export var game_duration: float = 600.0  # 10 mins
+@export var game_duration: float = 600  # 10 mins
 
 var timer: float = game_duration
 var is_game_over: bool = false
@@ -35,6 +35,7 @@ func _process(delta):
 	else:
 		# Cuando el tiempo se acaba, pasaríamos al menú de victoria para ir al siguiente nivel
 		is_game_over = true
+		Global.current_level = get_tree().current_scene.scene_file_path
 		get_tree().change_scene_to_file("res://Scenes/UI/menu_victory.tscn")
 
 func update_timer_label():
@@ -42,3 +43,6 @@ func update_timer_label():
 	var minutes = int(float(timer) / 60) # Sino daba error por divisiones enteras
 	var seconds = int(timer) % 60
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
+	
+func get_elapsed_time() -> float:
+	return game_duration - timer

@@ -17,6 +17,10 @@ boot_splash/image="res://Assets/Utils/FutureVSFantasy_icon.png"
 boot_splash/fullsize=false
 config/icon="res://Assets/Utils/FutureVSFantasy_icon.png"
 
+[autoload]
+
+Global="*res://Scripts/global.gd"
+
 [display]
 
 window/size/viewport_width=1920

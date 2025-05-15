@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bg2b53c678dtc"]
+[gd_scene load_steps=27 format=4 uid="uid://bg2b53c678dtc"]
 
 [ext_resource type="Texture2D" uid="uid://y6fiel82ydu" path="res://Assets/Mistery Woods/MainLev.png" id="1_8rvus"]
 [ext_resource type="Texture2D" uid="uid://ci5j8ce5e642y" path="res://Assets/Mistery Woods/Anim/Mushroom1A.png" id="2_ecl82"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c1c3obdmxhvlq" path="res://Scenes/Weapons/Pistol3.tscn" id="10_a1ucs"]
 [ext_resource type="PackedScene" uid="uid://cptxlatfcu8vr" path="res://Scenes/UI/menu_lvl_up.tscn" id="10_bt7s6"]
 [ext_resource type="PackedScene" uid="uid://d3qbalne2pv5f" path="res://Scenes/UI/hud.tscn" id="11_hebfe"]
+[ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music_Controller/node.tscn" id="14_xnwh0"]
 
 [sub_resource type="TileSet" id="TileSet_rse7o"]
 
@@ -14581,14 +14582,13 @@ tile_set = SubResource("TileSet_d8q34")
 position = Vector2(-129, 141)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 
 [node name="SpawnManager" parent="." instance=ExtResource("8_2g8x0")]
 player_path = NodePath("../Player")
-trees_tilemap_path = NodePath("../Terrains/Trees")
+hud_path = NodePath("../HudLayer/HUD")
 spawn_area_rect = Rect2(-1978, -920, 3700, 2100)
-max_enemies = 50
-enemies_per_spawn = 10
 current_map = "MisteryWoods"
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
@@ -14600,6 +14600,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -1340.0
+offset_top = -352.0
+offset_right = -1340.0
+offset_bottom = -352.0
 
 [node name="LevelUpLayer" type="CanvasLayer" parent="."]
 layer = 10
@@ -14611,6 +14615,10 @@ size_flags_horizontal = 4
 layer = 9
 
 [node name="HUD" parent="HudLayer" instance=ExtResource("11_hebfe")]
+offset_left = 182.0
+offset_top = 32.0
+offset_right = 182.0
+offset_bottom = 32.0
 player_path = NodePath("../../Player")
 
 [node name="Pistol3" parent="." instance=ExtResource("10_a1ucs")]
@@ -14619,3 +14627,7 @@ position = Vector2(-66, 161)
 [node name="Portal" parent="." instance=ExtResource("9_g4uvg")]
 position = Vector2(-95, 165)
 scale = Vector2(2, 2)
+
+[node name="MusicController" parent="." instance=ExtResource("14_xnwh0")]
+current_map = "MisteryWoods"
+hud_path = NodePath("../HudLayer/HUD")

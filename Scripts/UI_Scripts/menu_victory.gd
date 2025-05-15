@@ -2,8 +2,7 @@ extends Control
 
 
 func _on_bt_continue_pressed():
-	var current_scene = get_tree().current_scene.scene_file_path
-	
+	var current_scene = Global.current_level
 	var next_scene = ""
 	
 	if current_scene == "res://Scenes/Levels/MeadowLands.tscn":

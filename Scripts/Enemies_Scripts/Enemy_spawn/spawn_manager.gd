@@ -1,15 +1,27 @@
 extends Node2D
 
 @export var player_path: NodePath
-@export var trees_tilemap_path: NodePath
+@export var hud_path: NodePath
 @export var spawn_area_rect: Rect2
+
 @export var spawn_distance_min: float = 400.0
 @export var spawn_distance_max: float = 600.0
-@export var max_enemies: int = 10
-@export var spawn_interval: float = 3.0
-@export var enemies_per_spawn: int = 2
-@export var current_map: String = "MeadowLands"  # Esto tengo que modificarlo en editor para otros maps
 
+var max_enemies: int = 10
+@export var max_enemies_start: int = 10
+@export var max_enemies_endgame := 30
+
+var spawn_interval: float = 3.0
+@export var spawn_interval_start: float = 3.0
+@export var spawn_interval_endgame := 1.0
+
+var enemies_per_spawn: int = 2
+@export var enemies_per_spawn_start: int = 2
+@export var enemies_per_spawn_endgame := 6
+
+@export var current_map: String = "MeadowLands"  # Esto tengo que modificarlo en editor para otros maps
+  
+var hud
 var player: Node2D
 var trees: TileMapLayer
 var current_enemies: Array = []
@@ -19,38 +31,44 @@ var spawn_timer: float = 0.0
 var enemies_by_map = {
 	"MeadowLands": {
 		preload("res://Scenes/Enemies/Archer.tscn"): 0.5,
-		preload("res://Scenes/Enemies/ArmoredAxeman.tscn"): 0.5,
+		preload("res://Scenes/Enemies/ArmoredAxeman.tscn"): 0.6,
 		preload("res://Scenes/Enemies/knight.tscn"): 0.3,
 		preload("res://Scenes/Enemies/knightTemplar.tscn"): 0.3,
 		preload("res://Scenes/Enemies/SwordMan.tscn"): 0.2,
 		preload("res://Scenes/Enemies/Lancer.tscn"): 0.1
 	},
 	"MisteryWoods": {
-		preload("res://Scenes/Enemies/Skeleton.tscn"): 0.5,
+		preload("res://Scenes/Enemies/Skeleton.tscn"): 0.6,
 		preload("res://Scenes/Enemies/SkeletonArcher.tscn"): 0.5,
-		preload("res://Scenes/Enemies/ArmoredSkeleton.tscn"): 0.3,
-		preload("res://Scenes/Enemies/Slime.tscn"): 0.4,
-		preload("res://Scenes/Enemies/GreatSwordSkeleton.tscn"): 0.2
+		preload("res://Scenes/Enemies/ArmoredSkeleton.tscn"): 0.2,
+		preload("res://Scenes/Enemies/Slime.tscn"): 0.3,
+		preload("res://Scenes/Enemies/GreatSwordSkeleton.tscn"): 0.1
 	},
 	"FinalZone": {
-		preload("res://Scenes/Enemies/orc.tscn"): 0.5,
+		preload("res://Scenes/Enemies/orc.tscn"): 0.6,
 		preload("res://Scenes/Enemies/ArmoredOrc.tscn"): 0.4,
 		preload("res://Scenes/Enemies/EliteOrc.tscn"): 0.3,
-		preload("res://Scenes/Enemies/WereWolf.tscn"): 0.3,
+		preload("res://Scenes/Enemies/WereWolf.tscn"): 0.2,
 		preload("res://Scenes/Enemies/OrcRider.tscn"): 0.2,
-		preload("res://Scenes/Enemies/WereBear.tscn"): 0.2,
+		preload("res://Scenes/Enemies/WereBear.tscn"): 0.1,
 		preload("res://Scenes/Enemies/Wizard.tscn"): 0.1
 	}
 }
 
 func _ready():
 	player = get_node(player_path)
-	trees = get_node(trees_tilemap_path)
+	hud = get_node(hud_path)
+	
+	spawn_interval = spawn_interval_start
+	enemies_per_spawn = enemies_per_spawn_start
+	max_enemies = max_enemies_start
 
 func _process(delta):
 	if not player:
 		return
-
+	
+	update_spawn_parameters()
+	
 	spawn_timer += delta
 	if spawn_timer >= spawn_interval:
 		spawn_timer = 0.0
@@ -58,7 +76,7 @@ func _process(delta):
 			spawn_enemies()
 
 func spawn_enemies():
-	for i in enemies_per_spawn:
+	for i in range(enemies_per_spawn):
 		var _spawned = false
 		for attempt in range(100): #Pongo muchos intentos para aumentar la probabilidad de que salga bien
 			var pos = get_random_spawn_position()
@@ -109,7 +127,7 @@ func get_random_spawn_position() -> Vector2:
 #Para comprobar si ese spot es válido
 func is_valid_spawn(pos: Vector2) -> bool:
 	var test_shape = CircleShape2D.new()
-	test_shape.radius = 10
+	test_shape.radius = 30
 
 	var query = PhysicsShapeQueryParameters2D.new()
 	query.shape = test_shape
@@ -124,6 +142,17 @@ func is_valid_spawn(pos: Vector2) -> bool:
 		return false
 
 	return true
+
+func update_spawn_parameters():
+
+	var elapsed_time = hud.get_elapsed_time()
+	var progress = clamp(elapsed_time / hud.game_duration, 0.0, 1.0)
+
+	# Primer valor como empieza, segundo valor como termina
+	spawn_interval = lerp(spawn_interval_start, spawn_interval_endgame, progress)
+	enemies_per_spawn = int(lerp(enemies_per_spawn_start, enemies_per_spawn_endgame, progress))
+	max_enemies = int(lerp(max_enemies_start, max_enemies_endgame, progress))
+
 
 func _on_enemy_died(enemy):
 	if enemy in current_enemies:
