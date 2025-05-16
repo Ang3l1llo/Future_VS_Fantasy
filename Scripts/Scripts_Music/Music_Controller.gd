@@ -16,15 +16,15 @@ var level_music_config = {
 			"res://Music/Battle_Music/MeadowLands/Musica_mapa1_early.mp3",
 			"res://Music/Battle_Music/MeadowLands/Musica_mapa1_midgame.mp3",
 			"res://Music/Battle_Music/MeadowLands/Musica_mapa1_lategame.mp3"
-		],
-		"custom_change_times": [168.0]  # Cambiar para que cuadre
+		]
 	},
 	"MisteryWoods": {
 		"songs": [
 			"res://Music/Battle_Music/MisteryWoods/Musica_mapa2_early.mp3",
 			"res://Music/Battle_Music/MisteryWoods/Musica_mapa2_midgame.mp3",
 			"res://Music/Battle_Music/MisteryWoods/Musica_mapa2_lategame.mp3"
-		]
+		],
+		"custom_change_times": [194.0]
 	},
 	"FinalZone": {
 		"songs": [

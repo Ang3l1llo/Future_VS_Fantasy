@@ -1,7 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://d13cfthkk6gya"]
+[gd_scene load_steps=8 format=3 uid="uid://d13cfthkk6gya"]
 
 [ext_resource type="Script" path="res://Scripts/UI_Scripts/menu_principal.gd" id="1_lvdj3"]
 [ext_resource type="Texture2D" uid="uid://ckf47iiqmuhst" path="res://Assets/Utils/Menú_principal.png" id="2_fce8u"]
+[ext_resource type="AudioStream" uid="uid://cyhe571x56y35" path="res://Music/Buttons_Music/Botón_start_principal.mp3" id="3_4rrje"]
+[ext_resource type="AudioStream" uid="uid://c1hdtabach41" path="res://Music/Menu_principal.mp3" id="4_r47wg"]
+
+[sub_resource type="Animation" id="Animation_sasv6"]
+resource_name = "fade_in"
+length = 4.0
+step = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade_effect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.86, 3.93),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6y6fg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade_effect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8tmtq"]
+_data = {
+"RESET": SubResource("Animation_6y6fg"),
+"fade_in": SubResource("Animation_sasv6")
+}
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -60,6 +100,32 @@ offset_top = 619.0
 offset_right = 1298.0
 offset_bottom = 741.0
 
+[node name="ButtonClickPlay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4rrje")
+
+[node name="ChangeSceneTimer" type="Timer" parent="."]
+wait_time = 1.3
+one_shot = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_r47wg")
+autoplay = true
+
+[node name="Fade_effect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 1961.0
+offset_bottom = 1087.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8tmtq")
+}
+
 [connection signal="pressed" from="Bt_start" to="." method="_on_bt_start_pressed"]
 [connection signal="pressed" from="Bt_settings" to="." method="_on_bt_settings_pressed"]
 [connection signal="pressed" from="Bt_quit" to="." method="_on_bt_quit_pressed"]
+[connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]

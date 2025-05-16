@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c1c3obdmxhvlq" path="res://Scenes/Weapons/Pistol3.tscn" id="10_a1ucs"]
 [ext_resource type="PackedScene" uid="uid://cptxlatfcu8vr" path="res://Scenes/UI/menu_lvl_up.tscn" id="10_bt7s6"]
 [ext_resource type="PackedScene" uid="uid://d3qbalne2pv5f" path="res://Scenes/UI/hud.tscn" id="11_hebfe"]
-[ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music_Controller/node.tscn" id="14_xnwh0"]
+[ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music_Controller/MusicController.tscn" id="14_xnwh0"]
 
 [sub_resource type="TileSet" id="TileSet_rse7o"]
 

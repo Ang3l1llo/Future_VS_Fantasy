@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b2dloy4fbgjby" path="res://Scenes/UI/menu_pause.tscn" id="8_kct7r"]
 [ext_resource type="PackedScene" uid="uid://dkwu8jck6q6ih" path="res://Scenes/Levels/SpawnManager/spawn_manager.tscn" id="10_qof85"]
 [ext_resource type="PackedScene" uid="uid://blr0ojam24g4l" path="res://Scenes/portal.tscn" id="13_usl8p"]
-[ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music_Controller/node.tscn" id="14_i64h4"]
+[ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music_Controller/MusicController.tscn" id="14_i64h4"]
 [ext_resource type="PackedScene" uid="uid://cptxlatfcu8vr" path="res://Scenes/UI/menu_lvl_up.tscn" id="17_cj87o"]
 [ext_resource type="PackedScene" uid="uid://d3qbalne2pv5f" path="res://Scenes/UI/hud.tscn" id="17_lbgg2"]
 [ext_resource type="PackedScene" uid="uid://bsqp46ibnv27h" path="res://Scenes/Weapons/Pistol.tscn" id="17_rewbf"]
