@@ -42,6 +42,9 @@ func _equip_weapon(body):
 	# Guardar la referencia
 	body.weapon_reference = self
 	
+	# Reproducir sonido de equipar arma
+	Global.play_equip_sound()
+	
 	
 #Función para disparar
 func shoot():

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvo7glwrif3fr"]
+[gd_scene load_steps=5 format=3 uid="uid://cvo7glwrif3fr"]
 
 [ext_resource type="Script" path="res://Scripts/UI_Scripts/menu_death.gd" id="1_yxxu5"]
 [ext_resource type="Texture2D" uid="uid://4x0hc17kjcdc" path="res://Assets/Utils/Menú_muerte.png" id="2_re5ly"]
+[ext_resource type="AudioStream" uid="uid://cf0xoj332lsrc" path="res://Music/Buttons_Music/Botón_muerte_restart.wav" id="3_xpxti"]
+[ext_resource type="AudioStream" uid="uid://cy6q0f1vqqgpc" path="res://Music/Buttons_Music/Botón_Exit_muerte.wav" id="4_g0e73"]
 
 [node name="MenuDeath" type="Control"]
 layout_mode = 3
@@ -43,6 +45,12 @@ offset_left = 608.0
 offset_top = 814.0
 offset_right = 828.0
 offset_bottom = 906.0
+
+[node name="Button_death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xpxti")
+
+[node name="Button_exit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_g0e73")
 
 [connection signal="pressed" from="Bt_retry" to="." method="_on_bt_retry_pressed"]
 [connection signal="pressed" from="Bt_quit" to="." method="_on_bt_quit_pressed"]

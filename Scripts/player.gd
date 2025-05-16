@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
+@onready var death_sound = $Death
+@onready var takeDamage_sound = $Take_damage
+
 var movement_speed = 200.0
 var weapon_reference = null  
 var max_health = 100
@@ -93,7 +96,11 @@ func handle_shooting():
 
 #Función para recibir daño de los enemigos
 func take_damage(amount):
+	if is_dead:
+		return
+		
 	current_health -= amount
+	takeDamage_sound.play()
 	print("¡El jugador ha recibido daño! Vida actual:", current_health)
 
 	if current_health <= 0:
@@ -158,7 +165,6 @@ func upgrade_weapon():
 		print("fallito")
 
 	
-	
 #Para comprobar si tiene el mejor arma ya
 func has_max_weapon() -> bool:
 	return current_weapon_index >= weapons_by_map[current_map].size() - 1
@@ -171,6 +177,7 @@ func die():
 	is_dead = true
 
 	velocity = Vector2.ZERO
+	death_sound.play()
 	sprite.play("DEATH")
 	print("¡Game Over!")
 

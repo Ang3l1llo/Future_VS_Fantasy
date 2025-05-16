@@ -127,7 +127,7 @@ func get_random_spawn_position() -> Vector2:
 #Para comprobar si ese spot es válido
 func is_valid_spawn(pos: Vector2) -> bool:
 	var test_shape = CircleShape2D.new()
-	test_shape.radius = 30
+	test_shape.radius = 50
 
 	var query = PhysicsShapeQueryParameters2D.new()
 	query.shape = test_shape

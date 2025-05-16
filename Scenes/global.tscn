@@ -4,3 +4,5 @@
 
 [node name="Global" type="Node"]
 script = ExtResource("1_gxi25")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

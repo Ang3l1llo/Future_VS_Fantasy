@@ -28,6 +28,12 @@ func _input(event: InputEvent):
 func _on_bt_restart_pressed():
 	restart_exit_button.play()
 	await restart_exit_button.finished
+	
+	#Evitar que suene la música de fondo al pulsar 
+	var music_controller = get_tree().current_scene.get_node_or_null("MusicController")
+	if music_controller:
+		music_controller.stop_all_music()
+		
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
@@ -35,5 +41,10 @@ func _on_bt_restart_pressed():
 func _on_bt_exit_pressed():
 	restart_exit_button.play()
 	await restart_exit_button.finished
+	
+	var music_controller = get_tree().current_scene.get_node_or_null("MusicController")
+	if music_controller:
+		music_controller.stop_all_music()
+		
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/UI/menu_principal.tscn")

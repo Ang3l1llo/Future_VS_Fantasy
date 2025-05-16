@@ -95,3 +95,8 @@ func pause_before_next_song(seconds):
 func _on_pause_timeout():
 	is_waiting = false
 	play_song(current_song_index + 1)
+	
+func stop_all_music():
+	for child in get_children():
+		if child is AudioStreamPlayer:
+			child.stop()
