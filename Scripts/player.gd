@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var death_sound = $Death
 @onready var takeDamage_sound = $Take_damage
+@onready var bloodEffect = $Blood
+@onready var blood_anim = $Blood.get_node("AnimatedSprite2D")
 
 var movement_speed = 200.0
 var weapon_reference = null  
@@ -102,6 +104,12 @@ func take_damage(amount):
 	current_health -= amount
 	takeDamage_sound.play()
 	print("¡El jugador ha recibido daño! Vida actual:", current_health)
+	
+	#Efecto sangrado
+	bloodEffect.visible = true
+	blood_anim.play("bleed")
+	await blood_anim.animation_finished
+	bloodEffect.visible = false
 
 	if current_health <= 0:
 		die()

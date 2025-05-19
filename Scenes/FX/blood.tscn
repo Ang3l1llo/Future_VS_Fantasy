@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://oqwtse7yd3nr"]
+
+[ext_resource type="Texture2D" uid="uid://b41jqn6ois7x3" path="res://Assets/Utils/FX_blood/spritesheet.png" id="1_d5gqf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a152"]
+atlas = ExtResource("1_d5gqf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogm03"]
+atlas = ExtResource("1_d5gqf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i68c"]
+atlas = ExtResource("1_d5gqf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nain3"]
+atlas = ExtResource("1_d5gqf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smc8d"]
+atlas = ExtResource("1_d5gqf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17fr7"]
+atlas = ExtResource("1_d5gqf")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeycy"]
+atlas = ExtResource("1_d5gqf")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gkh5"]
+atlas = ExtResource("1_d5gqf")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckbdh"]
+atlas = ExtResource("1_d5gqf")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_myavp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a152")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogm03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i68c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nain3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smc8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17fr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeycy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gkh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckbdh")
+}],
+"loop": false,
+"name": &"bleed",
+"speed": 14.0
+}]
+
+[node name="Blood" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_myavp")
+animation = &"bleed"
+frame = 8
+frame_progress = 1.0

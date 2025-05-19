@@ -104,7 +104,7 @@ offset_bottom = 741.0
 stream = ExtResource("3_4rrje")
 
 [node name="ChangeSceneTimer" type="Timer" parent="."]
-wait_time = 1.3
+wait_time = 1.5
 one_shot = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]

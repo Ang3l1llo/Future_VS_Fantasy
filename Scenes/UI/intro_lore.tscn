@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8nyc2si1c018"]
+
+[ext_resource type="Script" path="res://Scripts/UI_Scripts/intro_lore.gd" id="1_ueecc"]
+[ext_resource type="AudioStream" uid="uid://cfnyvaowgf5hw" path="res://Music/Effects_music/PC.wav" id="2_w08p7"]
+
+[node name="Intro_lore" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ueecc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1931.0
+offset_bottom = 1086.0
+color = Color(0, 0, 0, 1)
+
+[node name="Texto" type="Label" parent="."]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 65.0
+offset_right = 1639.0
+offset_bottom = 952.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.03
+
+[node name="PressAnyKey" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1373.0
+offset_top = 978.0
+offset_right = 1862.0
+offset_bottom = 1013.0
+theme_override_colors/font_color = Color(0.643016, 0, 0.0901456, 1)
+theme_override_font_sizes/font_size = 25
+text = "Presiona cualquier tecla para continuar.."
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_w08p7")
+
+[connection signal="timeout" from="Timer" to="." method="_on_TypeTimer_timeout"]
