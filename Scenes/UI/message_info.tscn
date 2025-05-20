@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dckxbtcsris8w"]
+
+[ext_resource type="Script" path="res://Scripts/UI_Scripts/message_info.gd" id="1_xb3g5"]
+[ext_resource type="Texture2D" uid="uid://dwwkeqwcglsh7" path="res://Assets/Utils/Message_info_banner.png" id="2_kwoao"]
+
+[node name="Message_Info" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xb3g5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 164.0
+offset_right = 1236.0
+offset_bottom = 775.0
+texture = ExtResource("2_kwoao")
+expand_mode = 1
+
+[node name="Message" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 119.0
+offset_top = 125.0
+offset_right = -116.0
+offset_bottom = -121.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.03
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

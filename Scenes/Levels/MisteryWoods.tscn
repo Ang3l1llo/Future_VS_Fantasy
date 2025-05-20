@@ -1,8 +1,12 @@
-[gd_scene load_steps=27 format=4 uid="uid://bg2b53c678dtc"]
+[gd_scene load_steps=32 format=4 uid="uid://bg2b53c678dtc"]
 
 [ext_resource type="Texture2D" uid="uid://y6fiel82ydu" path="res://Assets/Mistery Woods/MainLev.png" id="1_8rvus"]
+[ext_resource type="Texture2D" uid="uid://bj76rrc05iq5q" path="res://Assets/Mistery Woods/top.png" id="1_v4jej"]
+[ext_resource type="Texture2D" uid="uid://dx352u62har5y" path="res://Assets/Mistery Woods/front.png" id="2_0ql8x"]
 [ext_resource type="Texture2D" uid="uid://ci5j8ce5e642y" path="res://Assets/Mistery Woods/Anim/Mushroom1A.png" id="2_ecl82"]
+[ext_resource type="Texture2D" uid="uid://jx6pdr0v31bs" path="res://Assets/Mistery Woods/bottom.png" id="3_24xcg"]
 [ext_resource type="Texture2D" uid="uid://bgod2f4p6jwua" path="res://Assets/Mistery Woods/Anim/Mushroom3B.png" id="3_cksai"]
+[ext_resource type="Texture2D" uid="uid://lhx53ht3dmed" path="res://Assets/Mistery Woods/left.png" id="4_1i5gu"]
 [ext_resource type="Texture2D" uid="uid://boeun7ke0ibol" path="res://Assets/Mistery Woods/Anim/Tree1C.png" id="4_ctd8s"]
 [ext_resource type="Texture2D" uid="uid://bbg2bv72210p5" path="res://Assets/Mistery Woods/Anim/Mushroom5C.png" id="5_ludr5"]
 [ext_resource type="PackedScene" uid="uid://d2w5rpy4ceoe2" path="res://Scenes/player.tscn" id="5_u5nu0"]
@@ -14,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cptxlatfcu8vr" path="res://Scenes/UI/menu_lvl_up.tscn" id="10_bt7s6"]
 [ext_resource type="PackedScene" uid="uid://d3qbalne2pv5f" path="res://Scenes/UI/hud.tscn" id="11_hebfe"]
 [ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music_Controller/MusicController.tscn" id="14_xnwh0"]
+[ext_resource type="PackedScene" uid="uid://dckxbtcsris8w" path="res://Scenes/UI/message_info.tscn" id="15_74b02"]
 
 [sub_resource type="TileSet" id="TileSet_rse7o"]
 
@@ -14550,12 +14555,36 @@ sources/0 = SubResource("TileSetAtlasSource_ipwn1")
 [node name="Background" type="TileMapLayer" parent="Terrains"]
 tile_set = SubResource("TileSet_rse7o")
 
-[node name="ColorRect" type="ColorRect" parent="Terrains/Background"]
+[node name="TextureRect" type="TextureRect" parent="Terrains/Background"]
+texture_filter = 1
 offset_left = -2563.0
-offset_top = -1452.0
-offset_right = 2651.0
-offset_bottom = 1887.0
-color = Color(0, 0, 0, 1)
+offset_top = 210.0
+offset_right = 16.0
+offset_bottom = 1885.0
+texture = ExtResource("1_v4jej")
+
+[node name="TextureRect2" type="TextureRect" parent="Terrains/Background"]
+texture_filter = 1
+offset_left = 4.0
+offset_top = -1444.0
+offset_right = 2650.0
+offset_bottom = 228.0
+texture = ExtResource("2_0ql8x")
+
+[node name="TextureRect3" type="TextureRect" parent="Terrains/Background"]
+texture_filter = 1
+offset_top = 227.0
+offset_right = 2652.0
+offset_bottom = 1879.0
+texture = ExtResource("3_24xcg")
+
+[node name="TextureRect4" type="TextureRect" parent="Terrains/Background"]
+texture_filter = 1
+offset_left = -2565.0
+offset_top = -1441.0
+offset_right = 5.0
+offset_bottom = 211.0
+texture = ExtResource("4_1i5gu")
 
 [node name="Ground" type="TileMapLayer" parent="Terrains"]
 texture_filter = 1
@@ -14589,9 +14618,9 @@ position_smoothing_enabled = true
 player_path = NodePath("../Player")
 hud_path = NodePath("../HudLayer/HUD")
 spawn_area_rect = Rect2(-1978, -920, 3700, 2100)
-max_enemies_start = 100
+max_enemies_start = 5
 max_enemies_endgame = 110
-spawn_interval_start = 1.0
+spawn_interval_start = 5.0
 enemies_per_spawn_start = 20
 enemies_per_spawn_endgame = 20
 current_map = "MisteryWoods"
@@ -14625,6 +14654,16 @@ offset_top = 32.0
 offset_right = 182.0
 offset_bottom = 32.0
 player_path = NodePath("../../Player")
+
+[node name="LoreLayer" type="CanvasLayer" parent="."]
+layer = 9
+
+[node name="Message_Info" parent="LoreLayer" instance=ExtResource("15_74b02")]
+offset_left = -599.0
+offset_top = -135.0
+offset_right = -599.0
+offset_bottom = -135.0
+nombre_mapa = "MisteryWoods"
 
 [node name="Pistol3" parent="." instance=ExtResource("10_a1ucs")]
 position = Vector2(-66, 161)

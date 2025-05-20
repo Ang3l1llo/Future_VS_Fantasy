@@ -2,7 +2,7 @@ extends Control
 
 @onready var lore_label = $Texto
 @onready var press_any_key = $PressAnyKey
-@onready var type_timer = $Timer
+@onready var timer = $Timer
 @onready var audio_player = $AudioStreamPlayer
 var blink_tween = null
 
@@ -41,7 +41,7 @@ var lore_finished = false
 func _ready():
 	press_any_key.visible = false  
 	audio_player.play()
-	type_timer.start()
+	timer.start()
 
 func _on_TypeTimer_timeout():
 	if current_index < text.length():
@@ -49,7 +49,7 @@ func _on_TypeTimer_timeout():
 		lore_label.text = displayed_text
 		current_index += 1
 	else:
-		type_timer.stop()
+		timer.stop()
 		lore_finished = true
 		press_any_key.visible = true  
 		_start_blinking()

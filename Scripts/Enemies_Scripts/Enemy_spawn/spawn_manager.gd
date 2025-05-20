@@ -59,6 +59,7 @@ func _ready():
 	player = get_node(player_path)
 	hud = get_node(hud_path)
 	
+	spawn_timer = -10.0  # espera unos segundos para que el jugador lea el mensaje
 	spawn_interval = spawn_interval_start
 	enemies_per_spawn = enemies_per_spawn_start
 	max_enemies = max_enemies_start
