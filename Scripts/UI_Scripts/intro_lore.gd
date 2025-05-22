@@ -7,10 +7,10 @@ extends Control
 var blink_tween = null
 
 var text := """
-Año 2025, el mundo se va a la mierda...
+Año 2030, el mundo se va a la mierda...
 
 
-Los políticos han abandonado a la clase obrera por sus propios intereses y beneficios.
+Los políticos han abandonado a la población por sus propios intereses y beneficios.
 
 Las personas de mayor estatus social y económico huyen a sus refugios nucleares y sus palacios de cristal.
 

@@ -13,7 +13,7 @@ Ha habido complicaciones con la transportación..
 
 Parece que has acabado en otro universo..
 
-Localización actual: Lo llaman MeadowLands - Año 856.
+Localización actual: MeadowLands - Año 856.
 Objetivos prioritarios: SOBREVIVIR.
 Serás transportado a otro lugar. 
 

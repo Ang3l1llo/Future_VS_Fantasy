@@ -53,6 +53,7 @@ func _physics_process(_delta):
 	movement()
 	aim_weapon()
 	handle_shooting()
+	
 	#Esto fuerza la posición del jugador a estar en valores enteros de píxeles, evitando lag
 	global_position = global_position.round()
 
@@ -62,18 +63,24 @@ func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var y_mov = Input.get_action_strength("down") - Input.get_action_strength("up")
 	var mov = Vector2(x_mov, y_mov)
-	velocity = mov.normalized() * movement_speed
-	move_and_slide()
-	
+
 	if mov.length() > 0:
+		mov = mov.normalized()
+		velocity = mov * movement_speed
 		sprite.play("RUN")
+		
+		#Para rotar al personaje si mira hacia un lado u otro
+		if x_mov != 0:
+			sprite.scale.x = 1 if x_mov > 0 else -1
+		
 	else:
+		velocity.x = move_toward(velocity.x, 0, movement_speed)
+		velocity.y = move_toward(velocity.y, 0, movement_speed)
 		sprite.play("IDLE")
 
-	#Para rotar al personaje si mira hacia un lado u otro
-	if x_mov != 0:
-		sprite.scale.x = 1 if x_mov > 0 else -1
-
+	move_and_slide()
+	
+	
 #Función para apuntar 
 func aim_weapon():
 	if weapon_reference:

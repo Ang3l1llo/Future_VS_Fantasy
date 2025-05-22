@@ -6,6 +6,12 @@ extends Control
 func _on_bt_continue_pressed():
 	button_continue.play()
 	await button_continue.finished
+	
+	#Guardar progreso
+	var level_name = Global.current_level.get_file().get_basename() #Para no quedarnos con la ruta entera, solo nombre del mapa
+	Global.save_progress(level_name)
+	
+	#Tener constancia del nivel actual
 	var current_scene = Global.current_level
 	var next_scene = ""
 	
@@ -17,7 +23,9 @@ func _on_bt_continue_pressed():
 		pass
 		#POR HACER, MOSTRAR VICTORIA FINAL
 
+	Global.score_at_level_start = Global.score
 	get_tree().change_scene_to_file(next_scene)
+	
 
 func _on_bt_exit_pressed():
 	button_exit.play()

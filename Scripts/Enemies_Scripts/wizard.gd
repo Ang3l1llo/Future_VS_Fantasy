@@ -46,7 +46,7 @@ func movement():
 
 			# Solo se ajusta si mira a la izquierda
 			if not facing_right:
-				magic_spawn.position = Vector2(0, 30)  # ajustar a mano cuando rota..
+				magic_spawn.position = Vector2(0, 30)  # ajustado a mano cuando rota..
 			else:
 				magic_spawn.position = Vector2(68, 31)   
 

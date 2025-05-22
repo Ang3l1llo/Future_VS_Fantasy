@@ -2,8 +2,10 @@ extends Control
 
 @onready var name_player = $LineEdit
 @onready var start_button_sound = $Start_button_sound
+@onready var start_button = $Button
 
 func _on_start_button_pressed():
+	start_button.disabled = true
 	var nombre = name_player.text.strip_edges()
 	start_button_sound.play()
 	await start_button_sound.finished
