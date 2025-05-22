@@ -6,13 +6,13 @@ extends CharacterBody2D
 @onready var bloodEffect = $Blood
 @onready var blood_anim = $Blood.get_node("AnimatedSprite2D")
 
-var movement_speed = 200.0
+var movement_speed = 70.0
 var weapon_reference = null  
 var max_health = 100
 var current_health = max_health
 var level = 1
 var experience = 0
-var experience_to_lvl = 10
+var experience_to_lvl = 50
 var is_dead = false
 
 # Diccionario de armas por mapa, para controlar que equipar al subir de nivel
@@ -74,7 +74,6 @@ func movement():
 	if x_mov != 0:
 		sprite.scale.x = 1 if x_mov > 0 else -1
 
-
 #Función para apuntar 
 func aim_weapon():
 	if weapon_reference:
@@ -128,7 +127,7 @@ func level_up():
 	level += 1
 	print("Subida de level")
 	experience -= experience_to_lvl
-	experience_to_lvl = int(experience_to_lvl * 1.2) #Ajustar con la dificultad relativa
+	experience_to_lvl = int(experience_to_lvl * 2) #Ajustar con la dificultad relativa
 	get_tree().paused = true
 	show_menu_lvl_up()
 

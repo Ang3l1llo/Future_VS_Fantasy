@@ -12,10 +12,11 @@ extends CharacterBody2D
 var can_attack = true
 var is_attacking = false
 var is_hurt = false
-var max_health = 100
+var max_health = 600
 var current_health = max_health
-var damage = 20
-var speed = 50
+var damage = 25
+var speed = 70
+var score_points: int = 20
 
 @warning_ignore("UNUSED_SIGNAL")
 signal enemy_died
@@ -140,6 +141,8 @@ func die():
 	exp_pickup.global_position = sprite.global_position
 	get_tree().current_scene.add_child(exp_pickup)
 	
+	# Sumar puntos al global y actualizar la API
+	Global.add_points(score_points)
 	
 	emit_signal("enemy_died")
 	queue_free()

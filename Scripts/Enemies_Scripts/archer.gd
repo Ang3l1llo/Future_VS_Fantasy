@@ -12,6 +12,7 @@ var is_hurt = false
 var max_health = 100
 var current_health = max_health
 var speed = 50
+var score_points: int = 5
 
 @warning_ignore("UNUSED_SIGNAL")
 signal enemy_died
@@ -95,6 +96,10 @@ func die():
 	var exp_pickup = preload("res://Scenes/Crystals/Blue_crystal.tscn").instantiate()
 	exp_pickup.global_position = sprite.global_position
 	get_tree().current_scene.add_child(exp_pickup)
+	
+	# Sumar puntos al global y actualizar la API
+	Global.add_points(score_points)
+	print("Score actual:", Global.score)
 	
 	emit_signal("enemy_died")
 	queue_free()

@@ -15,11 +15,19 @@ func _on_bt_start_pressed():
 	onClick.play()
 	timer.start()
 
-func _on_bt_settings_pressed():
-	pass
+func _on_best_players_button_pressed():
+	Global.fetch_top5(self)  
+	get_tree().change_scene_to_file("res://Scenes/UI/top_5.tscn")
 
 func _on_bt_quit_pressed():
 	get_tree().quit()
 
 func _on_change_scene_timer_timeout():
-	get_tree().change_scene_to_file("res://Scenes/UI/intro_lore.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI/input_player_name.tscn")
+	
+func _on_top5_received(_result, response_code, _headers, body):
+	if response_code == 200:
+		Global.top5_players = JSON.parse_string(body.get_string_from_utf8())
+		get_tree().change_scene_to_file("res://Scenes/UI/top5_players.tscn")
+	else:
+		print("Error al recibir el top 5:", response_code)

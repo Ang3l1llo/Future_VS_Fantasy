@@ -10,9 +10,10 @@ extends CharacterBody2D
 var can_attack = true
 var is_attacking = false
 var is_hurt = false
-var max_health = 100
+var max_health = 300
 var current_health = max_health
 var speed = 50
+var score_points: int = 30
 
 @warning_ignore("UNUSED_SIGNAL")
 signal enemy_died
@@ -110,6 +111,15 @@ func die():
 	velocity = Vector2.ZERO
 	move_and_slide()
 	await play_and_wait("DEATH")
+	
+	#Drop de cristalito
+	var exp_pickup = preload("res://Scenes/Crystals/red_crystal.tscn").instantiate()
+	exp_pickup.global_position = sprite.global_position
+	get_tree().current_scene.add_child(exp_pickup)
+	
+	# Sumar puntos al global y actualizar la API
+	Global.add_points(score_points)
+	
 	emit_signal("enemy_died")
 	queue_free()
 

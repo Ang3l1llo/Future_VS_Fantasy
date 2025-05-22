@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var experience: int = 20
+@export var experience: int = 15
 
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))

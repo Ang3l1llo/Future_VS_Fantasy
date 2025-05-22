@@ -4,6 +4,7 @@ extends Control
 @export var life_bar: TextureProgressBar  # Barra de vida
 @export var timer_label: Label  # Etiqueta para el temporizador
 @export var game_duration: float = 600  # 10 mins
+@onready var score_label = $ScoreLabel #Puntuación
 
 var timer: float = game_duration
 var is_game_over: bool = false
@@ -27,7 +28,10 @@ func _process(delta):
 	life_bar.value = player.current_health
 	var percent = clamp(round((float(player.current_health) / float(player.max_health)) * 100), 0, 100)
 	$"HealthBar/PercentageLabel".text = str(percent) + "%"
-
+	
+	#Actualiza puntuación
+	score_label.text = "Score: %d" % Global.score
+	
 	# Reduce el tiempo del temporizador
 	if timer > 0:
 		timer -= delta

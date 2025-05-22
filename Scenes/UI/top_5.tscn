@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://n8nasulvnmfo"]
+
+[ext_resource type="Script" path="res://Scripts/UI_Scripts/top_5.gd" id="1_cpk75"]
+[ext_resource type="Texture2D" uid="uid://bs6dbjqjlgdc5" path="res://Assets/Utils/Top5Players_fixed.png" id="2_h4ehu"]
+[ext_resource type="AudioStream" uid="uid://ckvkgn3v4f1hk" path="res://Music/Buttons_Music/Botones_pausa.mp3" id="3_pmrsa"]
+
+[node name="Top5" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cpk75")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 2038.0
+offset_bottom = 1157.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 28.0
+offset_right = 1565.0
+offset_bottom = 1052.0
+mouse_filter = 2
+texture = ExtResource("2_h4ehu")
+
+[node name="Player1Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 875.0
+offset_top = 300.0
+offset_right = 1342.0
+offset_bottom = 378.0
+theme_override_font_sizes/font_size = 35
+
+[node name="Player2Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 874.0
+offset_top = 401.0
+offset_right = 1345.0
+offset_bottom = 472.0
+theme_override_font_sizes/font_size = 35
+
+[node name="Player3Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 876.0
+offset_top = 501.0
+offset_right = 1341.0
+offset_bottom = 569.0
+theme_override_font_sizes/font_size = 35
+
+[node name="Player4Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 877.0
+offset_top = 599.0
+offset_right = 1347.0
+offset_bottom = 670.0
+theme_override_font_sizes/font_size = 35
+
+[node name="Player5Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 877.0
+offset_top = 697.0
+offset_right = 1345.0
+offset_bottom = 766.0
+theme_override_font_sizes/font_size = 35
+
+[node name="Bt_back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 903.0
+offset_top = 867.0
+offset_right = 1206.0
+offset_bottom = 960.0
+
+[node name="Back_button_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pmrsa")
+
+[connection signal="pressed" from="Bt_back" to="." method="_on_bt_back_pressed"]

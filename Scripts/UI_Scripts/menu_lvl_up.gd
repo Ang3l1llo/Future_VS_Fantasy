@@ -25,13 +25,13 @@ func  _on_upgrade_weapon():
 
 func _on_increase_health():
 	life_bt.play()
-	player_ref.max_health += 100
+	player_ref.max_health += 50
 	player_ref.current_health = player_ref.max_health
 	close_menu()
 
 func _on_increase_speed():
 	speed_bt.play()
-	player_ref.movement_speed += 20.0
+	player_ref.movement_speed += 5.0
 	close_menu()
 
 func show_message(text):

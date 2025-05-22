@@ -1,7 +1,7 @@
 extends Area2D
 
-var damage = 25
-var fire_rate := 0.5
+var damage = 45
+var fire_rate := 0.6
 var cooldown_timer := 0.0
 
 func _physics_process(delta):

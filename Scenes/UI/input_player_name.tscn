@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbbugib82qfjv"]
+
+[ext_resource type="Script" path="res://Scripts/UI_Scripts/input_player_name.gd" id="1_r6nmn"]
+[ext_resource type="Texture2D" uid="uid://s5p1mthvt2jj" path="res://Assets/Utils/ENTER_USERNAME.png" id="2_ub5fb"]
+[ext_resource type="Texture2D" uid="uid://bc7gt72vitumq" path="res://Assets/Utils/Botón_nombreJugador.png" id="3_mx1r0"]
+[ext_resource type="AudioStream" uid="uid://ckvkgn3v4f1hk" path="res://Music/Buttons_Music/Botones_pausa.mp3" id="4_t02hp"]
+
+[node name="InputPlayerName" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6nmn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1945.0
+offset_bottom = 1085.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 349.0
+offset_right = 1591.0
+offset_bottom = 1068.0
+mouse_filter = 2
+texture = ExtResource("2_ub5fb")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 381.0
+offset_right = 1375.0
+offset_bottom = 580.0
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Elige tu nombre.."
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 786.0
+offset_top = 660.0
+offset_right = 1174.0
+offset_bottom = 898.0
+
+[node name="BotónNombreJugador" type="Sprite2D" parent="."]
+position = Vector2(980, 775)
+scale = Vector2(0.448242, 0.448242)
+texture = ExtResource("3_mx1r0")
+
+[node name="Start_button_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t02hp")
+
+[connection signal="pressed" from="Button" to="." method="_on_start_button_pressed"]
