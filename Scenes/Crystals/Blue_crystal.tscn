@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b875hawwok21f"]
+[gd_scene load_steps=9 format=3 uid="uid://b875hawwok21f"]
 
 [ext_resource type="Script" path="res://Scripts/Crystal_Scripts/blue_crystal.gd" id="1_6g8cf"]
 [ext_resource type="Texture2D" uid="uid://bjskc5gt732vy" path="res://Assets/Crystal_Animation/Blue/blue_crystal_0000.png" id="1_ucj33"]
 [ext_resource type="Texture2D" uid="uid://cbxjuxymgl2k7" path="res://Assets/Crystal_Animation/Blue/blue_crystal_0001.png" id="2_6g23x"]
 [ext_resource type="Texture2D" uid="uid://cjrsuqpum0ylj" path="res://Assets/Crystal_Animation/Blue/blue_crystal_0002.png" id="3_bknao"]
 [ext_resource type="Texture2D" uid="uid://cc6f57hwxl6wu" path="res://Assets/Crystal_Animation/Blue/blue_crystal_0003.png" id="4_eou2b"]
+[ext_resource type="AudioStream" uid="uid://dfx3366mhpu61" path="res://Music/Effects_music/Equip (Jewel).mp3" id="6_vt417"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_616mv"]
 animations = [{
@@ -26,6 +27,9 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vh3ic"]
+radius = 4.93558
+
 [node name="Blue_crystal" type="Area2D"]
 collision_layer = 8
 script = ExtResource("1_6g8cf")
@@ -37,5 +41,10 @@ sprite_frames = SubResource("SpriteFrames_616mv")
 animation = &"idle"
 frame_progress = 0.522886
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -4, 2, -1, 2, 1, 2, 1, 0, 6, -2.41616, 1.16767, -3, 0)
+[node name="Gem_collision" type="CollisionShape2D" parent="."]
+rotation = -0.853466
+skew = 0.174533
+shape = SubResource("CircleShape2D_vh3ic")
+
+[node name="PickUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vt417")

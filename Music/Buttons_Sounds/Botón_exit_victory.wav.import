@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bcwlct5ypim0u"
-path="res://.godot/imported/Botón_exit_victory.wav-7ec6541f131e90f916c4f8167a2a79a2.sample"
+path="res://.godot/imported/Botón_exit_victory.wav-469db4b3ecdc5303a62ceeaaf56c84a4.sample"
 
 [deps]
 
-source_file="res://Music/Buttons_Music/Botón_exit_victory.wav"
-dest_files=["res://.godot/imported/Botón_exit_victory.wav-7ec6541f131e90f916c4f8167a2a79a2.sample"]
+source_file="res://Music/Buttons_Sounds/Botón_exit_victory.wav"
+dest_files=["res://.godot/imported/Botón_exit_victory.wav-469db4b3ecdc5303a62ceeaaf56c84a4.sample"]
 
 [params]
 

@@ -1,8 +1,101 @@
-[gd_scene load_steps=4 format=3 uid="uid://n8nasulvnmfo"]
+[gd_scene load_steps=18 format=3 uid="uid://n8nasulvnmfo"]
 
 [ext_resource type="Script" path="res://Scripts/UI_Scripts/top_5.gd" id="1_cpk75"]
 [ext_resource type="Texture2D" uid="uid://bs6dbjqjlgdc5" path="res://Assets/Utils/Top5Players_fixed.png" id="2_h4ehu"]
-[ext_resource type="AudioStream" uid="uid://ckvkgn3v4f1hk" path="res://Music/Buttons_Music/Botones_pausa.mp3" id="3_pmrsa"]
+[ext_resource type="AudioStream" uid="uid://ckvkgn3v4f1hk" path="res://Music/Buttons_Sounds/Botones_pausa.mp3" id="3_pmrsa"]
+[ext_resource type="Texture2D" uid="uid://bf0kfxttic3gm" path="res://Assets/Utils/Loading_bar.png" id="4_h4vik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h032t"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eui2r"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6vij"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yqe0"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ipek"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5emg"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1l0s"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qracp"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbhec"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpb8l"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxn0g"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0lkw"]
+atlas = ExtResource("4_h4vik")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ey7di"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h032t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eui2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6vij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yqe0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ipek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5emg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1l0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qracp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbhec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpb8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxn0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0lkw")
+}],
+"loop": true,
+"name": &"loading",
+"speed": 10.0
+}]
 
 [node name="Top5" type="Control"]
 layout_mode = 3
@@ -77,5 +170,12 @@ offset_bottom = 960.0
 
 [node name="Back_button_audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_pmrsa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1063, 508)
+scale = Vector2(4.90625, 4.90625)
+sprite_frames = SubResource("SpriteFrames_ey7di")
+animation = &"loading"
 
 [connection signal="pressed" from="Bt_back" to="." method="_on_bt_back_pressed"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d13cfthkk6gya"]
+[gd_scene load_steps=10 format=3 uid="uid://d13cfthkk6gya"]
 
 [ext_resource type="Script" path="res://Scripts/UI_Scripts/menu_principal.gd" id="1_lvdj3"]
 [ext_resource type="Texture2D" uid="uid://bh78awcyixypp" path="res://Assets/Utils/NuevoFondoPrincipal.png" id="2_6jqsu"]
-[ext_resource type="AudioStream" uid="uid://cyhe571x56y35" path="res://Music/Buttons_Music/Botón_start_principal.mp3" id="3_4rrje"]
+[ext_resource type="AudioStream" uid="uid://cyhe571x56y35" path="res://Music/Buttons_Sounds/Botón_start_principal.mp3" id="3_4rrje"]
+[ext_resource type="AudioStream" uid="uid://db8c58qb78l6f" path="res://Music/Buttons_Sounds/Top5Sound.mp3" id="4_oxbm7"]
 [ext_resource type="AudioStream" uid="uid://c1hdtabach41" path="res://Music/Menu_principal.mp3" id="4_r47wg"]
+[ext_resource type="AudioStream" uid="uid://c25d05nt83rd" path="res://Music/Buttons_Sounds/LoadGameSound.mp3" id="5_bx6x0"]
 
 [sub_resource type="Animation" id="Animation_6y6fg"]
 length = 0.001
@@ -106,8 +108,14 @@ offset_top = 407.0
 offset_right = 1229.0
 offset_bottom = 512.0
 
-[node name="ButtonClickPlay" type="AudioStreamPlayer" parent="."]
+[node name="ButtonMusicPlay" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4rrje")
+
+[node name="ButtonMusicTop5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oxbm7")
+
+[node name="ButtonMusicLoadGame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bx6x0")
 
 [node name="ChangeSceneTimer" type="Timer" parent="."]
 wait_time = 1.5

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ots5f0wk4v5g"
-path="res://.godot/imported/Pick_lvl_weapon.wav-eb59b42260b37a6abf6c7a0b58676fc2.sample"
+path="res://.godot/imported/Pick_lvl_weapon.wav-09c185c9679e4d505c27e4d7c1e2ec9b.sample"
 
 [deps]
 
-source_file="res://Music/Buttons_Music/Pick_lvl_weapon.wav"
-dest_files=["res://.godot/imported/Pick_lvl_weapon.wav-eb59b42260b37a6abf6c7a0b58676fc2.sample"]
+source_file="res://Music/Buttons_Sounds/Pick_lvl_weapon.wav"
+dest_files=["res://.godot/imported/Pick_lvl_weapon.wav-09c185c9679e4d505c27e4d7c1e2ec9b.sample"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/UI_Scripts/menu_pause.gd" id="1_u7ycb"]
 [ext_resource type="Texture2D" uid="uid://bcshxvkbftbgj" path="res://Assets/Utils/Menú_pausa.png" id="2_4vsfk"]
-[ext_resource type="AudioStream" uid="uid://ckvkgn3v4f1hk" path="res://Music/Buttons_Music/Botones_pausa.mp3" id="3_8n1b8"]
-[ext_resource type="AudioStream" uid="uid://b47s84lujyd65" path="res://Music/Buttons_Music/Pause.mp3" id="4_4axsl"]
+[ext_resource type="AudioStream" uid="uid://ckvkgn3v4f1hk" path="res://Music/Buttons_Sounds/Botones_pausa.mp3" id="3_8n1b8"]
+[ext_resource type="AudioStream" uid="uid://b47s84lujyd65" path="res://Music/Buttons_Sounds/Pause.mp3" id="4_4axsl"]
 
 [node name="MenuPause" type="Control"]
 process_mode = 3

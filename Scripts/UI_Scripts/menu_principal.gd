@@ -1,6 +1,8 @@
 extends Control
 
-@onready var onClick = $ButtonClickPlay
+@onready var start_button_music = $ButtonMusicPlay
+@onready var tops_button_music = $ButtonMusicTop5
+@onready var load_button_music = $ButtonMusicLoadGame
 @onready var timer = $ChangeSceneTimer
 @onready var start_button = $Bt_start
 @onready var tops_button = $Bt_tops
@@ -18,12 +20,14 @@ func _on_bt_start_pressed():
 	Global.score_at_level_start = 0
 
 	music.stop()
-	onClick.play()
+	start_button_music.play()
 	timer.start()
 
 
 func _on_best_players_button_pressed():
 	tops_button.disabled = true
+	tops_button_music.play()
+	await tops_button_music.finished
 	Global.fetch_top5(self)  
 	get_tree().change_scene_to_file("res://Scenes/UI/top_5.tscn")
 
@@ -47,6 +51,7 @@ func _on_top5_received(_result, response_code, _headers, body):
 
 func _on_bt_load_pressed():
 	load_button.disabled = true
+	load_button_music.play()
 	var next_level = Global.get_next_unlocked_level()
 	Global.current_level = next_level  # Para que se actualice correctamente el nivel actual
 	get_tree().change_scene_to_file(next_level)

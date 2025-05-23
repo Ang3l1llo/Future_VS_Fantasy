@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cf0xoj332lsrc"
-path="res://.godot/imported/Botón_muerte_restart.wav-2b6e92c2ecb5dab36ad8b825b4f8109c.sample"
+path="res://.godot/imported/Botón_muerte_restart.wav-eea6c244273d3ac6500f21891efb6e42.sample"
 
 [deps]
 
-source_file="res://Music/Buttons_Music/Botón_muerte_restart.wav"
-dest_files=["res://.godot/imported/Botón_muerte_restart.wav-2b6e92c2ecb5dab36ad8b825b4f8109c.sample"]
+source_file="res://Music/Buttons_Sounds/Botón_muerte_restart.wav"
+dest_files=["res://.godot/imported/Botón_muerte_restart.wav-eea6c244273d3ac6500f21891efb6e42.sample"]
 
 [params]
 

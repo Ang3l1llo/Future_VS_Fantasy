@@ -1210,8 +1210,12 @@ position_smoothing_speed = 10.0
 player_path = NodePath("../Player")
 hud_path = NodePath("../HudLayer/HUD")
 spawn_area_rect = Rect2(-1750, -1120, 3730, 1930)
-max_enemies_start = 2
-max_enemies_endgame = 200
+spawn_distance_min = 500.0
+spawn_distance_max = 700.0
+max_enemies_start = 4
+max_enemies_endgame = 100
+spawn_interval_start = 6.0
+spawn_interval_endgame = 3.0
 enemies_per_spawn_endgame = 20
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]

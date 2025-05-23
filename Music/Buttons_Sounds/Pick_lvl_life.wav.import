@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dxt6jik8d8hjj"
-path="res://.godot/imported/Pick_lvl_life.wav-80985b4e97c01008aab2bcb9726f7ab5.sample"
+path="res://.godot/imported/Pick_lvl_life.wav-0f4b6fe344e808c4d576265ef3d46619.sample"
 
 [deps]
 
-source_file="res://Music/Buttons_Music/Pick_lvl_life.wav"
-dest_files=["res://.godot/imported/Pick_lvl_life.wav-80985b4e97c01008aab2bcb9726f7ab5.sample"]
+source_file="res://Music/Buttons_Sounds/Pick_lvl_life.wav"
+dest_files=["res://.godot/imported/Pick_lvl_life.wav-0f4b6fe344e808c4d576265ef3d46619.sample"]
 
 [params]
 
