@@ -54,10 +54,7 @@ func _physics_process(_delta):
 	aim_weapon()
 	handle_shooting()
 	
-	#Esto fuerza la posición del jugador a estar en valores enteros de píxeles, evitando lag
-	global_position = global_position.round()
-
-
+	
 #Función que controla el movimiento
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")

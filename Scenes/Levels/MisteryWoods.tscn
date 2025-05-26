@@ -14613,6 +14613,7 @@ position = Vector2(-129, 141)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="SpawnManager" parent="." instance=ExtResource("8_2g8x0")]
 player_path = NodePath("../Player")
