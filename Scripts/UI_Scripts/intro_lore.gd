@@ -56,6 +56,8 @@ func _on_TypeTimer_timeout():
 
 func _unhandled_input(event):
 	if lore_finished and event is InputEventKey and event.pressed:
+		Global.current_level = "res://Scenes/Levels/MeadowLands.tscn"
+		Global.score_at_level_start = Global.score
 		get_tree().change_scene_to_file("res://Scenes/Levels/MeadowLands.tscn")
 
 #Para el efectito visual del parpadeo

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://t0xpobohu68e"]
+[gd_scene load_steps=7 format=3 uid="uid://t0xpobohu68e"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Rifle5.gd" id="1_htx5v"]
 [ext_resource type="Texture2D" uid="uid://8sv24ib6raaq" path="res://Scenes/Weapons/ATLAS/Atlas_rifle5.tres" id="1_n7m35"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_7m2ta"]
 [ext_resource type="PackedScene" uid="uid://b5n7vii16qbd8" path="res://Scenes/Weapons/BULLETS/bullet_rifle.tscn" id="4_kv0yw"]
+[ext_resource type="AudioStream" uid="uid://dglgic3kehp56" path="res://Music/Weapons_Sounds/Rifle5.wav" id="5_fa245"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2nbi"]
 size = Vector2(27, 12)
@@ -39,5 +40,9 @@ position = Vector2(24, -2)
 
 [node name="Bullet_rifle" parent="Pivot/ShootingPoint" instance=ExtResource("4_kv0yw")]
 position = Vector2(3, -0.5)
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fa245")
+volume_db = -5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

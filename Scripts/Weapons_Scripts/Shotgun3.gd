@@ -3,6 +3,7 @@ extends Area2D
 var damage = 45
 var fire_rate := 0.6
 var cooldown_timer := 0.0
+@onready var shoot_sound = $ShootSound
 
 func _physics_process(delta):
 	if cooldown_timer > 0.0:
@@ -64,6 +65,8 @@ func shoot():
 	# Parámetros de la escopeta
 	var num_pellets = 5  # Número de balas por disparo
 	var spread_angle = deg_to_rad(20)  # Ángulo total de dispersión 
+	
+	shoot_sound.play()
 
 	for i in num_pellets:
 		var pellet = BULLET.instantiate()

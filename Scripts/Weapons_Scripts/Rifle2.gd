@@ -3,6 +3,7 @@ extends Area2D
 var damage = 50
 var fire_rate := 0.15
 var cooldown_timer := 0.0
+@onready var shootsound = $ShootSound
 
 func _physics_process(delta):
 	if cooldown_timer > 0.0:
@@ -55,6 +56,8 @@ func shoot():
 	
 	const BULLET = preload("res://Scenes/Weapons/BULLETS/bullet_rifle.tscn")
 	var new_bullet = BULLET.instantiate()
+	
+	shootsound.play()
 
 	# Base de disparo
 	var shooting_position = $Pivot/ShootingPoint.global_position

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkhhlle7x3q4l"]
+[gd_scene load_steps=7 format=3 uid="uid://bkhhlle7x3q4l"]
 
 [ext_resource type="Texture2D" uid="uid://31lsp74uk86l" path="res://Scenes/Weapons/ATLAS/Atlas_shotgun2.tres" id="1_70onc"]
 [ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Shotgun2.gd" id="1_iy22t"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_0dga7"]
 [ext_resource type="PackedScene" uid="uid://dqwcf448vrmne" path="res://Scenes/Weapons/BULLETS/bullet_shotgun.tscn" id="4_co3o3"]
+[ext_resource type="AudioStream" uid="uid://ct88ie8gid6c" path="res://Music/Weapons_Sounds/Shotgun3.wav" id="5_wivft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_capvk"]
 size = Vector2(28, 8)
@@ -39,5 +40,9 @@ position = Vector2(22, -4)
 
 [node name="Bullet_shotgun" parent="Pivot/ShootingPoint" instance=ExtResource("4_co3o3")]
 position = Vector2(5.5, -1)
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wivft")
+volume_db = -5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
