@@ -11,11 +11,12 @@ config_version=5
 [application]
 
 config/name="Future vs Fantasy"
-run/main_scene="res://Scenes/Levels/MeadowLands.tscn"
+run/main_scene="res://Scenes/UI/menu_principal.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/image="res://Assets/Utils/FutureVSFantasy_icon.png"
 boot_splash/fullsize=false
 config/icon="res://Assets/Utils/FutureVSFantasy_icon.png"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 
@@ -111,3 +112,7 @@ pause={
 2d_physics/layer_4="Pickup"
 2d_physics/layer_5="Trees"
 2d_physics/layer_6="EnemyBullets"
+
+[rendering]
+
+anti_aliasing/quality/msaa_2d=1

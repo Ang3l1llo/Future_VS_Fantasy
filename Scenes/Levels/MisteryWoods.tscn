@@ -14545,7 +14545,7 @@ texture = ExtResource("6_4f6q0")
 
 [sub_resource type="TileSet" id="TileSet_d8q34"]
 physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 35
+physics_layer_0/collision_mask = 39
 sources/0 = SubResource("TileSetAtlasSource_ipwn1")
 
 [node name="MisteryWoods" type="Node2D"]
