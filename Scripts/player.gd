@@ -12,7 +12,7 @@ var max_health = 100
 var current_health = max_health
 var level = 1
 var experience = 0
-var experience_to_lvl = 50
+var experience_to_lvl = 10
 var is_dead = false
 
 # Diccionario de armas por mapa, para controlar que equipar al subir de nivel
@@ -43,7 +43,7 @@ var weapons_by_map = {
 	]
 }
 
-var current_map = ""  # Para guardar el mapa actual
+@export var current_map = ""  # Para guardar el mapa actual
 var current_weapon_index = 0  # Índice de la arma actual para saber cuál tiene euipada
 
 func _physics_process(_delta):

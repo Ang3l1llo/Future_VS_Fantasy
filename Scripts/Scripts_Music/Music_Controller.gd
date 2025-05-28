@@ -28,8 +28,11 @@ var level_music_config = {
 	},
 	"FinalZone": {
 		"songs": [
-			"res://Audio/Levels/FinalZone/battle_loop.ogg"
-		]
+			"res://Music/Battle_Music/FinalZone/Musica_mapa3_early.mp3",
+			"res://Music/Battle_Music/FinalZone/Musica_mapa3_midgame.mp3",
+			"res://Music/Battle_Music/FinalZone/Musica_mapa3_lategame.mp3"
+		],
+		"custom_change_times": [215.0, 390.0]
 	}
 }
 
@@ -47,9 +50,13 @@ func _ready():
 	if "custom_change_times" in config:
 		change_times = config.custom_change_times.duplicate()
 		
-		if songs.size() > 2:
-			var next_change = change_times[0] + songs[1].get_length()
-			change_times.append(next_change)
+		# Completar change_times para cubrir todos los cambios de canción
+		while change_times.size() < songs.size() - 1:
+			var last_time = change_times[-1]
+			var next_index = change_times.size()
+			var next_duration = songs[next_index].get_length()
+			change_times.append(last_time + next_duration)
+		
 			
 	else:
 		change_times = []
