@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3 uid="uid://0ga3ykwutppx"]
+
+[ext_resource type="Script" path="res://Scripts/scroll_container.gd" id="1_4l073"]
+[ext_resource type="AudioStream" uid="uid://b0tlanuupffn7" path="res://Music/Effects_music/Credits.mp3" id="2_rmfyg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3vek"]
+bg_color = Color(0, 0, 0, 1)
+anti_aliasing = false
+
+[node name="CreditScene" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." node_paths=PackedStringArray("text_node")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3vek")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_4l073")
+text_node = NodePath("MarginContainer/RichTextLabel")
+credits_time = 500.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=40][b][u]CRÉDITOS[/u][/b][/font_size]
+
+
+
+
+
+[font_size=28][b]PROGRAMACIÓN[/b][/font_size]
+
+[font_size=20]
+Realizado por [b]Ángel Sánchez Mendoza[/b]
+
+Este videojuego ha sido creado utilizando el motor de juego [b]GODOT[/b], utilizando su lenguaje nativo [i]GDScript[/i],
+
+muy intuitivo y cómodo de utilizar, con sintaxis similar a python.
+
+Se ha utilizado C# y .NET para la implementación de la API.
+[/font_size]
+
+
+
+
+
+[font_size=28][b]ARTE[/b][/font_size]
+
+[font_size=20]
+Los diseños empleados en este juego son cortesía de personas que
+
+con mucho esfuerzo, dedicación y generosidad (bueno algunos son de pago)
+
+los subieron a plataformas como [i]itch.io[/i] o [i]craftpix.net[/i].
+
+-Zerie  
+-PixelFrog  
+-FkgCluster  
+-Pekschi  
+-Nectanebo  
+-Szadi art  
+[/font_size]
+
+
+
+
+
+[font_size=28][b]AGRADECIMIENTOS[/b][/font_size]
+
+[font_size=20]
+En primer lugar al centro por las enseñanzas impartidas,  
+he aprendido muchas cositas este año
+
+Concretamente la realización del videojuego se la debo a [b]Javier[/b]  
+que nos dio mucha caña con el tema de videojuegos
+
+La API sin duda es gracias a [b]Diego[/b]  
+que nos hizo hacer APIs hasta que nos salieran por las orejas
+
+En cuanto al diseño si no os ha gustado algo es culpa de [b]Ignacio[/b]
+
+
+A mis colegas de clase que hicieron mucho más fácil todo para mí  
+con su compañía, en especial a [b]Luis[/b], [b]Raúl[/b] y [b]Josué[/b]
+
+
+A mi buen colega [b]Tatú[/b], sin el cual no habría dado nunca  
+el salto al mundillo de la programación
+
+
+A mi novia [b]María[/b], que siempre me ha estado apoyando  
+y aguantándome todos los días  
+Una gran artista y diseñadora gráfica (aunque no quiso hacerme ni un solo asset)  
+y la quiero mucho
+
+
+Por último, pero no por ello menos importante,  
+a mi viejo amigo y sensei [b]Tocinator[/b]  
+que estuvo ayudándome aguantando mis interminables audios  
+y estúpidas preguntas hasta el final  
+[/font_size]
+
+
+[font_size=34][b]GRACIAS[/b][/font_size][/center]
+"
+fit_content = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rmfyg")
+autoplay = true

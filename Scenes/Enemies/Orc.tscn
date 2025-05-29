@@ -238,6 +238,7 @@ radius = 8.0
 radius = 13.0
 
 [node name="Orc" type="CharacterBody2D"]
+scale = Vector2(1.1, 1.1)
 collision_layer = 2
 collision_mask = 23
 script = ExtResource("1_bim8a")

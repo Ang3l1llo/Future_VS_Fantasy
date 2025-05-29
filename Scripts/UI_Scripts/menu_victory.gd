@@ -2,8 +2,11 @@ extends Control
 
 @onready var button_continue = $Button_continue
 @onready var button_exit = $Button_exit
+@onready var music = $Music
+
 
 func _on_bt_continue_pressed():
+	await music.finished
 	button_continue.play()
 	await button_continue.finished
 	
@@ -28,6 +31,7 @@ func _on_bt_continue_pressed():
 	
 
 func _on_bt_exit_pressed():
+	await music.finished
 	button_exit.play()
 	await button_exit.finished
 	get_tree().change_scene_to_file("res://Scenes/UI/menu_principal.tscn")

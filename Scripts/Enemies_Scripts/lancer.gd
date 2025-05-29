@@ -137,7 +137,7 @@ func die():
 	await play_and_wait("DEATH")
 	
 	#Drop de cristalito
-	var exp_pickup = preload("res://Scenes/Crystals/pink_crystal.tscn").instantiate()
+	var exp_pickup = preload("res://Scenes/Crystals/red_crystal.tscn").instantiate()
 	exp_pickup.global_position = sprite.global_position
 	get_tree().current_scene.add_child(exp_pickup)
 	

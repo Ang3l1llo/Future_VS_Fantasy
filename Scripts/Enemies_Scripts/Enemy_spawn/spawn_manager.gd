@@ -35,7 +35,7 @@ var enemies_by_map = {
 		preload("res://Scenes/Enemies/knight.tscn"): 0.3,
 		preload("res://Scenes/Enemies/knightTemplar.tscn"): 0.3,
 		preload("res://Scenes/Enemies/SwordMan.tscn"): 0.2,
-		preload("res://Scenes/Enemies/Lancer.tscn"): 0.1
+		preload("res://Scenes/Enemies/Lancer.tscn"): 0.05
 	},
 	"MisteryWoods": {
 		preload("res://Scenes/Enemies/Skeleton.tscn"): 0.6,
@@ -50,8 +50,8 @@ var enemies_by_map = {
 		preload("res://Scenes/Enemies/EliteOrc.tscn"): 0.3,
 		preload("res://Scenes/Enemies/WereWolf.tscn"): 0.2,
 		preload("res://Scenes/Enemies/OrcRider.tscn"): 0.2,
-		preload("res://Scenes/Enemies/WereBear.tscn"): 0.1,
-		preload("res://Scenes/Enemies/Wizard.tscn"): 0.1
+		preload("res://Scenes/Enemies/WereBear.tscn"): 0.05,
+		preload("res://Scenes/Enemies/Wizard.tscn"): 0.05
 	}
 }
 
@@ -99,12 +99,24 @@ func spawn_enemies():
 
 #Para elegir de forma aleatoria el enemigo
 func pick_enemy(map_name: String) -> PackedScene:
-	var pool = []
-	for enemy_scene in enemies_by_map.get(map_name, {}).keys():
-		var weight = enemies_by_map[map_name][enemy_scene] * 100
-		for i in int(weight):
-			pool.append(enemy_scene)
-	return pool.pick_random()
+	var enemy_weights = enemies_by_map.get(map_name, {})
+	if enemy_weights.is_empty():
+		return null
+
+	var total_weight = 0.0
+	for weight in enemy_weights.values():
+		total_weight += weight
+
+	var rand = randf() * total_weight
+	var cumulative = 0.0
+
+	for enemy_scene in enemy_weights:
+		cumulative += enemy_weights[enemy_scene]
+		if rand <= cumulative:
+			return enemy_scene
+	
+	# Fallback (no debería llegar aquí nunca)
+	return enemy_weights.keys()[0]
 
 #Para elegir un spot aleatorio del enemigo
 func get_random_spawn_position() -> Vector2:

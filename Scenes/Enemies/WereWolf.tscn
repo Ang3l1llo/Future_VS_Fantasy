@@ -314,6 +314,7 @@ size = Vector2(31, 33.9856)
 radius = 14.0
 
 [node name="WereWolf" type="CharacterBody2D"]
+scale = Vector2(1.2, 1.2)
 collision_layer = 2
 collision_mask = 23
 platform_floor_layers = 4294901760
