@@ -28,7 +28,7 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 script = ExtResource("1_4l073")
 text_node = NodePath("MarginContainer/RichTextLabel")
-credits_time = 500.0
+credits_time = 420.0
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
 layout_mode = 2
@@ -44,18 +44,43 @@ text = "[center][font_size=40][b][u]CRÉDITOS[/u][/b][/font_size]
 
 
 
-[font_size=28][b]PROGRAMACIÓN[/b][/font_size]
+[font_size=28][b]DESARROLLO[/b][/font_size]
 
 [font_size=20]
-Realizado por [b]Ángel Sánchez Mendoza[/b]
+Autor: [b]Ángel Sánchez Mendoza[/b]
 
-Este videojuego ha sido creado utilizando el motor de juego [b]GODOT[/b], utilizando su lenguaje nativo [i]GDScript[/i],
+Desarrollador: [b]Ángel Sánchez Mendoza[/b]
 
-muy intuitivo y cómodo de utilizar, con sintaxis similar a python.
+Tester: [b]Ángel Sánchez Mendoza[/b]
 
-Se ha utilizado C# y .NET para la implementación de la API.
+Creación de niveles: [b]Ángel Sánchez Mendoza[/b]
+
+Animación: [b]Ángel Sánchez Mendoza[/b]
 [/font_size]
 
+
+
+
+[font_size=28][b]TECNOLOGÍAS[/b][/font_size]
+
+[font_size=20]
+• Motor de juego: [b]Godot Engine[/b]  
+
+• Lenguaje principal: [i]GDScript[/i]  
+
+• Backend: [b]C# + .NET [/b]  
+
+• API REST con MongoDB  
+[/font_size]
+
+
+
+
+[font_size=28][b]MÚSICA Y EFECTOS DE SONIDO[/b][/font_size]
+
+[font_size=20]
+Efectos sonoros y música extraídos de bibliotecas libres de derechos y paquetes gratuitos.
+[/font_size]
 
 
 
@@ -63,12 +88,7 @@ Se ha utilizado C# y .NET para la implementación de la API.
 [font_size=28][b]ARTE[/b][/font_size]
 
 [font_size=20]
-Los diseños empleados en este juego son cortesía de personas que
-
-con mucho esfuerzo, dedicación y generosidad (bueno algunos son de pago)
-
-los subieron a plataformas como [i]itch.io[/i] o [i]craftpix.net[/i].
-
+Recursos de pixel art proporcionados por:  
 -Zerie  
 -PixelFrog  
 -FkgCluster  
@@ -80,44 +100,28 @@ los subieron a plataformas como [i]itch.io[/i] o [i]craftpix.net[/i].
 
 
 
+[font_size=28][b]LICENCIAS Y RECURSOS[/b][/font_size]
+[font_size=20]
+Todos los recursos utilizados en este juego han sido obtenidos de plataformas legales  
+y respetan sus respectivas licencias de uso comercial y personal
+[/font_size]
 
 [font_size=28][b]AGRADECIMIENTOS[/b][/font_size]
 
 [font_size=20]
-En primer lugar al centro por las enseñanzas impartidas,  
-he aprendido muchas cositas este año
-
-Concretamente la realización del videojuego se la debo a [b]Javier[/b]  
-que nos dio mucha caña con el tema de videojuegos
-
-La API sin duda es gracias a [b]Diego[/b]  
-que nos hizo hacer APIs hasta que nos salieran por las orejas
-
-En cuanto al diseño si no os ha gustado algo es culpa de [b]Ignacio[/b]
-
-
-A mis colegas de clase que hicieron mucho más fácil todo para mí  
-con su compañía, en especial a [b]Luis[/b], [b]Raúl[/b] y [b]Josué[/b]
-
-
-A mi buen colega [b]Tatú[/b], sin el cual no habría dado nunca  
-el salto al mundillo de la programación
-
-
-A mi novia [b]María[/b], que siempre me ha estado apoyando  
-y aguantándome todos los días  
-Una gran artista y diseñadora gráfica (aunque no quiso hacerme ni un solo asset)  
-y la quiero mucho
-
-
-Por último, pero no por ello menos importante,  
-a mi viejo amigo y sensei [b]Tocinator[/b]  
-que estuvo ayudándome aguantando mis interminables audios  
-y estúpidas preguntas hasta el final  
+- Javier Ortega
+-Ignacio Díaz
+-Diego Linares
+-Luis Baena
+-Raúl Toledo
+-Josué 
+-María Gestido
+-Jesús de Ory
+-Carlos Tocino
 [/font_size]
 
 
-[font_size=34][b]GRACIAS[/b][/font_size][/center]
+[font_size=34][b]GRACIAS POR JUGAR[/b][/font_size][/center]
 "
 fit_content = true
 

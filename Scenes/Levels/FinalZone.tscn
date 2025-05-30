@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=4 uid="uid://bg2b53c678dtc"]
+[gd_scene load_steps=33 format=4 uid="uid://bg2b53c678dtc"]
 
 [ext_resource type="Texture2D" uid="uid://y6fiel82ydu" path="res://Assets/Mistery Woods/MainLev.png" id="1_8rvus"]
+[ext_resource type="PackedScene" uid="uid://oywkpdef85cx" path="res://Scenes/level_tracker.tscn" id="1_qm2oi"]
 [ext_resource type="Texture2D" uid="uid://bj76rrc05iq5q" path="res://Assets/Mistery Woods/top.png" id="1_v4jej"]
 [ext_resource type="Texture2D" uid="uid://dx352u62har5y" path="res://Assets/Mistery Woods/front.png" id="2_0ql8x"]
 [ext_resource type="Texture2D" uid="uid://ci5j8ce5e642y" path="res://Assets/Mistery Woods/Anim/Mushroom1A.png" id="2_ecl82"]
@@ -14549,6 +14550,8 @@ physics_layer_0/collision_mask = 39
 sources/0 = SubResource("TileSetAtlasSource_ipwn1")
 
 [node name="FinalZone" type="Node2D"]
+
+[node name="LevelTracker" parent="." instance=ExtResource("1_qm2oi")]
 
 [node name="Terrains" type="Node2D" parent="."]
 

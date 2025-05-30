@@ -3,35 +3,60 @@ extends Control
 @onready var button_continue = $Button_continue
 @onready var button_exit = $Button_exit
 @onready var music = $Music
+@onready var Bt_continue = $Bt_continue
+@onready var Bt_exit = $Bt_exit
+var can_interact := false
 
+func _ready():
+	await get_tree().process_frame
+	can_interact = true
 
 func _on_bt_continue_pressed():
-	await music.finished
+	if !can_interact or !is_inside_tree():
+		print("Botón ignorado: aún no se puede interactuar o nodo fuera del árbol")
+		return
+	
+	can_interact = false  # Prevenir interacciones futuras
+	Bt_continue.disabled = true
+	Bt_exit.disabled = true  # También desactiva el otro por si acaso
+	
+	if music.playing:
+		await music.finished
 	button_continue.play()
 	await button_continue.finished
 	
-	#Guardar progreso
-	var level_name = Global.current_level.get_file().get_basename() #Para no quedarnos con la ruta entera, solo nombre del mapa
+	var level_name = Global.current_level.get_file().get_basename()
 	Global.save_progress(level_name)
 	
-	#Tener constancia del nivel actual
 	var current_scene = Global.current_level
 	var next_scene = ""
-	
+
 	if current_scene == "res://Scenes/Levels/MeadowLands.tscn":
 		next_scene = "res://Scenes/Levels/MisteryWoods.tscn"
 	elif current_scene == "res://Scenes/Levels/MisteryWoods.tscn":
 		next_scene = "res://Scenes/Levels/FinalZone.tscn"
 	else:
-		pass
-		#POR HACER, MOSTRAR VICTORIA FINAL
+		next_scene = "res://Scenes/UI/credit_scene.tscn"
 
 	Global.score_at_level_start = Global.score
-	get_tree().change_scene_to_file(next_scene)
 	
+	var tree := get_tree()
+	if tree:
+		tree.change_scene_to_file(next_scene)
+	else:
+		print("Error: get_tree() devolvió null")
 
 func _on_bt_exit_pressed():
-	await music.finished
+	if !can_interact or !is_inside_tree():
+		print("Botón ignorado: aún no se puede interactuar o nodo fuera del árbol")
+		return
+	
+	can_interact = false
+	Bt_continue.disabled = true
+	Bt_exit.disabled = true
+	
+	if music.playing:
+		await music.finished
 	button_exit.play()
 	await button_exit.finished
 	get_tree().change_scene_to_file("res://Scenes/UI/menu_principal.tscn")

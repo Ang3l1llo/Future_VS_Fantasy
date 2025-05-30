@@ -39,8 +39,16 @@ func reset():
 	player_name = ""
 	player_id = ""
 	score = 0
-
-
+	score_at_level_start = 0
+	
+	# Resetea progreso
+	progress = {
+		"MeadowLands": false,
+		"MisteryWoods": false,
+		"FinalZone": false
+	}
+	delete_save_file()
+	
 # Llamada a la API para crear jugador
 func create_player(nombre: String, callback_node: Node):
 	player_name = nombre
@@ -88,31 +96,39 @@ func fetch_top5(callback_node: Node):
 #Para guardar el progrso
 func save_progress(level_name: String):
 	var save_path = "user://savegame.json"
-
-	# Cargar datos existentes si los hubiera
+	
+	# Cargar datos actuales guardados para no perderlos
+	var data = {
+		"progress": {
+			"MeadowLands": false,
+			"MisteryWoods": false,
+			"FinalZone": false
+		},
+		"player_name": Global.player_name,
+		"score": Global.score
+	}
+	
 	if FileAccess.file_exists(save_path):
-		var checkfile = FileAccess.open(save_path, FileAccess.READ)
-		var content = checkfile.get_as_text()
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		var content = file.get_as_text()
 		var parsed = JSON.parse_string(content)
-
 		if typeof(parsed) == TYPE_DICTIONARY:
-			progress = parsed
-		else:
-			# Si el contenido es inválido, reiniciar
-			progress = {
-				"MeadowLands": false,
-				"MisteryWoods": false,
-				"FinalZone": false
-			}
-		checkfile.close()
+			data = parsed
+		file.close()
 	
-	# Marcar el nivel como completado
-	progress[level_name] = true
+	# Actualizar progreso si nivel válido
+	if level_name != "":
+		var clean_name = level_name.get_file().get_basename()
+		data["progress"][clean_name] = true
 	
-	# Guarda el nuevo progreso
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_string(JSON.stringify(progress))
-	file.close()
+	# Actualizar nombre y score actuales (por si cambiaron)
+	data["player_name"] = Global.player_name
+	data["score"] = Global.score
+	
+	# Guardar datos actualizados
+	var fileNewData = FileAccess.open(save_path, FileAccess.WRITE)
+	fileNewData.store_string(JSON.stringify(data))
+	fileNewData.close()
 
 
 # Funciñon para cargar partida
@@ -122,16 +138,29 @@ func load_progress():
 		var file = FileAccess.open(save_path, FileAccess.READ)
 		var content = file.get_as_text()
 		var parsed = JSON.parse_string(content)
-	
 		if typeof(parsed) == TYPE_DICTIONARY:
-			progress = parsed
-		
+			if parsed.has("progress"):
+				progress = parsed["progress"]
+			if parsed.has("player_name"):
+				Global.player_name = parsed["player_name"]
+			if parsed.has("score"):
+				Global.score = parsed["score"]
 		file.close()
+
+
+#Borrar datos
+func delete_save_file():
+	var dir = DirAccess.open("user://")
+	if dir.file_exists("savegame.json"):
+		var err = dir.remove("savegame.json")
+		if err != OK:
+			print("Error al borrar el archivo de guardado:", err)
 
 
 #Para cargar el nivel correspondient
 func get_next_unlocked_level() -> String:
 	load_progress()  
+	print("Progreso cargado:", progress)
 
 	if !progress.get("MeadowLands", false):
 		return "res://Scenes/Levels/MeadowLands.tscn"
@@ -140,4 +169,4 @@ func get_next_unlocked_level() -> String:
 	elif !progress.get("FinalZone", false):
 		return "res://Scenes/Levels/FinalZone.tscn"
 	else:
-		return ""  # FALTARÍA PAMNTALLITA FINAL VICTORIA
+		return "res://Scenes/UI/credit_scene.tscn"

@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=4 uid="uid://djsiqv2wn543l"]
+[gd_scene load_steps=25 format=4 uid="uid://djsiqv2wn543l"]
 
+[ext_resource type="PackedScene" uid="uid://oywkpdef85cx" path="res://Scenes/level_tracker.tscn" id="1_jmxrd"]
 [ext_resource type="Texture2D" uid="uid://dd6k7i7tfl2ib" path="res://Assets/Tiled_files_skeletons/water_detilazation.png" id="1_phw57"]
 [ext_resource type="Texture2D" uid="uid://bckwv6mp3hjxq" path="res://Assets/Tiled_files_skeletons/Ground_rocks.png" id="2_k418v"]
 [ext_resource type="Texture2D" uid="uid://bfns35u35vged" path="res://Assets/Tiled_files_skeletons/Objects.png" id="3_8dd5o"]
@@ -3267,6 +3268,8 @@ physics_layer_0/collision_mask = 39
 sources/0 = SubResource("TileSetAtlasSource_um6dq")
 
 [node name="MisteryWoods" type="Node2D"]
+
+[node name="LevelTracker" parent="." instance=ExtResource("1_jmxrd")]
 
 [node name="Terrains" type="Node2D" parent="."]
 

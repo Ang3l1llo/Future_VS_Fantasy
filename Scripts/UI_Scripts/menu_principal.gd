@@ -12,13 +12,13 @@ extends Control
 
 func _ready():
 	animation_player.play("fade_in")
+	if !FileAccess.file_exists("user://savegame.json"):
+		load_button.disabled = true
 	
 	
 func _on_bt_start_pressed():
 	start_button.disabled = true #Estom lo hago para evitar spams
-	Global.score = 0
-	Global.score_at_level_start = 0
-
+	Global.reset() #Borra datos al iniciar nueva partida
 	music.stop()
 	start_button_music.play()
 	timer.start()

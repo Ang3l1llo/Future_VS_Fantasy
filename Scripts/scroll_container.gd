@@ -28,7 +28,7 @@ func _ready():
 	
 	# Timer para cuando finalizan los credits
 	var timer = Timer.new()
-	timer.wait_time = 50.0
+	timer.wait_time = 61.0
 	timer.one_shot = true
 	add_child(timer)
 	timer.timeout.connect(_on_credits_finished)

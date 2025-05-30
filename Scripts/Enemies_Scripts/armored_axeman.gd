@@ -12,6 +12,7 @@ extends CharacterBody2D
 var can_attack = true
 var is_attacking = false
 var is_hurt = false
+var is_dead = false
 var max_health = 200
 var current_health = max_health
 var damage = 15
@@ -130,6 +131,10 @@ func take_damage(damage_amount: int):
 		await die()
 
 func die():
+	if is_dead:
+		return
+		
+	is_dead = true
 	is_attacking = true
 	can_attack = false
 	velocity = Vector2.ZERO
