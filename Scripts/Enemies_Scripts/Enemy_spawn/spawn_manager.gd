@@ -1,20 +1,26 @@
 extends Node2D
 
+#Cambiar nodos para cada mapa, por tema referencias
 @export var player_path: NodePath
 @export var hud_path: NodePath
 @export var spawn_area_rect: Rect2
 
-@export var spawn_distance_min: float = 400.0
-@export var spawn_distance_max: float = 600.0
+#Distancias de spawn o liberación de enemigo si está muy lejos
+@export var spawn_distance_min: float = 500.0
+@export var spawn_distance_max: float = 700.0
+@export var despawn_distance: float = 1400.0
 
+#Número de enemigos límite
 var max_enemies: int = 10
 @export var max_enemies_start: int = 10
 @export var max_enemies_endgame := 30
 
+#Intervalo de aparición
 var spawn_interval: float = 3.0
 @export var spawn_interval_start: float = 3.0
 @export var spawn_interval_endgame := 1.0
 
+#Número de enemigos por aparición
 var enemies_per_spawn: int = 2
 @export var enemies_per_spawn_start: int = 2
 @export var enemies_per_spawn_endgame := 6
@@ -68,6 +74,7 @@ func _process(delta):
 	if not player:
 		return
 	
+	check_enemies_distance()
 	update_spawn_parameters()
 	
 	spawn_timer += delta
@@ -118,6 +125,7 @@ func pick_enemy(map_name: String) -> PackedScene:
 	# Fallback (no debería llegar aquí nunca)
 	return enemy_weights.keys()[0]
 
+
 #Para elegir un spot aleatorio del enemigo
 func get_random_spawn_position() -> Vector2:
 	var rect = spawn_area_rect
@@ -136,6 +144,7 @@ func get_random_spawn_position() -> Vector2:
 		randf_range(rect.position.y, rect.position.y + rect.size.y)
 	)
 	return spawn_pos
+
 
 #Para comprobar si ese spot es válido
 func is_valid_spawn(pos: Vector2) -> bool:
@@ -156,6 +165,8 @@ func is_valid_spawn(pos: Vector2) -> bool:
 
 	return true
 
+
+#Va actualizando la cantidad y tiempos del spawn
 func update_spawn_parameters():
 
 	var elapsed_time = hud.get_elapsed_time()
@@ -165,6 +176,19 @@ func update_spawn_parameters():
 	spawn_interval = lerp(spawn_interval_start, spawn_interval_endgame, progress)
 	enemies_per_spawn = int(lerp(enemies_per_spawn_start, enemies_per_spawn_endgame, progress))
 	max_enemies = int(lerp(max_enemies_start, max_enemies_endgame, progress))
+
+
+#Para eliminar un enemigo si se encuentra demsiado lejos
+func check_enemies_distance():
+	for enemy in current_enemies.duplicate():
+		if not is_instance_valid(enemy):
+			current_enemies.erase(enemy)
+			continue
+
+		if player.global_position.distance_to(enemy.global_position) > despawn_distance:
+			print("Enemy despawned por distancia:", enemy.name)
+			current_enemies.erase(enemy)
+			enemy.queue_free()
 
 
 func _on_enemy_died(enemy):
