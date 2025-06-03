@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://by25322sfan42"]
+
+[ext_resource type="Script" path="res://Scripts/UI_Scripts/final_lore.gd" id="1_0cqfg"]
+[ext_resource type="AudioStream" uid="uid://cfnyvaowgf5hw" path="res://Music/Effects_music/PC.wav" id="2_6nntq"]
+
+[node name="final_lore" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0cqfg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 1954.0
+offset_bottom = 1113.0
+color = Color(0, 0, 0, 1)
+
+[node name="Texto" type="Label" parent="."]
+offset_left = 343.0
+offset_top = 87.0
+offset_right = 1693.0
+offset_bottom = 974.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.03
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6nntq")
+
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]

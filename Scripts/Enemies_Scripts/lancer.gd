@@ -16,7 +16,7 @@ var is_dead = false
 var max_health = 600
 var current_health = max_health
 var damage = 25
-var speed = 70
+var speed = 105
 var score_points: int = 20
 
 @warning_ignore("UNUSED_SIGNAL")
@@ -116,7 +116,6 @@ func take_damage(damage_amount: int):
 		return
 	
 	current_health -= damage_amount
-	print("Enemigo recibe daño. Vida restante:", current_health)
 	
 	# Detener el movimiento y reproducir animación de daño
 	is_hurt = true

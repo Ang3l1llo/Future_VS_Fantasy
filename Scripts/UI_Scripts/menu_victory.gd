@@ -36,7 +36,7 @@ func _on_bt_continue_pressed():
 	elif current_scene == "res://Scenes/Levels/MisteryWoods.tscn":
 		next_scene = "res://Scenes/Levels/FinalZone.tscn"
 	else:
-		next_scene = "res://Scenes/UI/credit_scene.tscn"
+		next_scene = "res://Scenes/UI/final_lore.tscn"
 
 	Global.score_at_level_start = Global.score
 	

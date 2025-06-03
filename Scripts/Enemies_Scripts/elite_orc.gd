@@ -13,10 +13,10 @@ var can_attack = true
 var is_attacking = false
 var is_hurt = false
 var is_dead = false
-var max_health = 200
+var max_health = 150
 var current_health = max_health
 var damage = 20
-var speed = 50
+var speed = 65
 var score_points: int = 15
 
 @warning_ignore("UNUSED_SIGNAL")
@@ -116,7 +116,6 @@ func take_damage(damage_amount: int):
 		return
 	
 	current_health -= damage_amount
-	print("Enemigo recibe daño. Vida restante:", current_health)
 	
 	# Detener el movimiento y reproducir animación de daño
 	is_hurt = true
@@ -142,7 +141,7 @@ func die():
 	await play_and_wait("DEATH")
 	
 	#Drop de cristalito
-	var exp_pickup = preload("res://Scenes/Crystals/pink_crystal.tscn").instantiate()
+	var exp_pickup = preload("res://Scenes/Crystals/green_crystal.tscn").instantiate()
 	exp_pickup.global_position = sprite.global_position
 	get_tree().current_scene.add_child(exp_pickup)
 	

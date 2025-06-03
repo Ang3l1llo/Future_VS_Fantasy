@@ -12,7 +12,7 @@ var max_health = 100
 var current_health = max_health
 var level = 1
 var experience = 0
-var experience_to_lvl = 10
+var experience_to_lvl = 30
 var is_dead = false
 
 # Diccionario de armas por mapa, para controlar que equipar al subir de nivel
@@ -105,8 +105,9 @@ func take_damage(amount):
 		return
 		
 	current_health -= amount
+	
+	#Sonido de recibir daño
 	takeDamage_sound.play()
-	print("¡El jugador ha recibido daño! Vida actual:", current_health)
 	
 	#Efecto sangrado
 	bloodEffect.visible = true
@@ -121,7 +122,7 @@ func take_damage(amount):
 #Función para ganar exp
 func gain_experience(amount: int):
 	experience += amount
-	print("Ganaste EXP:", amount, "- Total:", experience)
+	
 	if experience >= experience_to_lvl:
 		level_up()
 
@@ -129,9 +130,8 @@ func gain_experience(amount: int):
 #Función de subida de lvl
 func level_up():
 	level += 1
-	print("Subida de level")
 	experience -= experience_to_lvl
-	experience_to_lvl = int(experience_to_lvl * 2) #Ajustar con la dificultad relativa
+	experience_to_lvl = int(experience_to_lvl * 2) #Ajustar con la dificultad 
 	get_tree().paused = true
 	show_menu_lvl_up()
 
@@ -151,7 +151,6 @@ func upgrade_weapon():
 	
 	if current_weapon_index >= weapons_by_map[current_map].size():
 		current_weapon_index = weapons_by_map[current_map].size() - 1  # Te quedas con la última arma
-		print("Ya tienes el arma más poderosa.")
 		return
 
 	var weapon_scene = weapons_by_map[current_map][current_weapon_index]
@@ -172,8 +171,6 @@ func upgrade_weapon():
 		portal.lifetime = 0.8
 
 		get_tree().current_scene.add_child(portal)
-	else:
-		print("fallito")
 
 	
 #Para comprobar si tiene el mejor arma ya
@@ -190,7 +187,6 @@ func die():
 	velocity = Vector2.ZERO
 	death_sound.play()
 	sprite.play("DEATH")
-	print("¡Game Over!")
 
 	await sprite.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/UI/menu_death.tscn") 

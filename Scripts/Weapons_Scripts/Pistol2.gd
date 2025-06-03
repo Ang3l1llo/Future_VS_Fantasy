@@ -15,8 +15,6 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		print("Recogiendo arma...")
-
 		call_deferred("_equip_weapon", body)
 
 func _equip_weapon(body):

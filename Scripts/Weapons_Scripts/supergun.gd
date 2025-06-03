@@ -1,7 +1,7 @@
 extends Area2D
 
 var damage = 50
-var fire_rate := 0.4
+var fire_rate := 0.5
 var cooldown_timer := 0.0
 @onready var shoot_sound = $ShootSound
 
@@ -17,8 +17,6 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		print("Recogiendo arma...")
-
 		call_deferred("_equip_weapon", body)
 
 func _equip_weapon(body):

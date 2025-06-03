@@ -13,10 +13,11 @@ config_version=5
 config/name="Future vs Fantasy"
 run/main_scene="res://Scenes/UI/menu_principal.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Assets/Utils/FutureVSFantasy_icon.png"
 boot_splash/fullsize=false
 config/icon="res://Assets/Utils/FutureVSFantasy_icon.png"
-boot_splash/minimum_display_time=2000
+boot_splash/minimum_display_time=3000
 
 [autoload]
 

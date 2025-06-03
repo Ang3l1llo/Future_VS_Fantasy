@@ -13,7 +13,7 @@ var is_hurt = false
 var is_dead = false
 var max_health = 500
 var current_health = max_health
-var speed = 50
+var speed = 60
 var score_points: int = 30
 
 @warning_ignore("UNUSED_SIGNAL")
@@ -93,8 +93,7 @@ func take_damage(damage_amount: int):
 		return
 	
 	current_health -= damage_amount
-	print("Enemigo recibe daño. Vida restante:", current_health)
-	
+
 	is_hurt = true
 	velocity = Vector2.ZERO
 	move_and_slide()

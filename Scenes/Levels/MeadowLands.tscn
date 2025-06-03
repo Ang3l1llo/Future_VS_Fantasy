@@ -3849,10 +3849,10 @@ player_path = NodePath("../Player")
 hud_path = NodePath("../HudLayer/HUD")
 spawn_area_rect = Rect2(-1750, -1120, 3730, 1930)
 max_enemies_start = 5
-max_enemies_endgame = 100
+max_enemies_endgame = 80
 spawn_interval_start = 8.0
 spawn_interval_endgame = 3.0
-enemies_per_spawn_endgame = 10
+enemies_per_spawn_endgame = 8
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 layer = 10

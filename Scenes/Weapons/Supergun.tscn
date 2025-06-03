@@ -14,11 +14,11 @@ collision_layer = 8
 script = ExtResource("1_t7p7g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(19.5, 14)
+position = Vector2(21.5, 14)
 shape = SubResource("RectangleShape2D_a6xaw")
 
 [node name="Pivot" type="Marker2D" parent="."]
-position = Vector2(12, 15)
+position = Vector2(14, 15)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 texture_filter = 1

@@ -12,10 +12,10 @@ extends CharacterBody2D
 var can_attack = true
 var is_attacking = false
 var is_hurt = false
-var max_health = 200
+var max_health = 150
 var current_health = max_health
 var damage = 20
-var speed = 60
+var speed = 105
 var score_points: int = 10
 
 @warning_ignore("UNUSED_SIGNAL")

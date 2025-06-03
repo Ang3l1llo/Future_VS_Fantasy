@@ -12,7 +12,7 @@ var is_hurt = false
 var is_dead = false
 var max_health = 60
 var current_health = max_health
-var speed = 50
+var speed = 70
 var score_points: int = 5
 
 @warning_ignore("UNUSED_SIGNAL")
@@ -73,7 +73,6 @@ func take_damage(damage_amount: int):
 		return
 	
 	current_health -= damage_amount
-	print("Enemigo recibe daño. Vida restante:", current_health)
 	
 	is_hurt = true
 	velocity = Vector2.ZERO
@@ -104,7 +103,6 @@ func die():
 	
 	# Sumar puntos al global y actualizar la API
 	Global.add_points(score_points)
-	print("Score actual:", Global.score)
 	
 	emit_signal("enemy_died")
 	queue_free()

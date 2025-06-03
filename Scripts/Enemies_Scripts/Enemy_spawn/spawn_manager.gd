@@ -6,9 +6,9 @@ extends Node2D
 @export var spawn_area_rect: Rect2
 
 #Distancias de spawn o liberación de enemigo si está muy lejos
-@export var spawn_distance_min: float = 500.0
-@export var spawn_distance_max: float = 700.0
-@export var despawn_distance: float = 1400.0
+@export var spawn_distance_min: float = 600.0
+@export var spawn_distance_max: float = 800.0
+@export var despawn_distance: float = 1500.0
 
 #Número de enemigos límite
 var max_enemies: int = 10
@@ -48,14 +48,14 @@ var enemies_by_map = {
 		preload("res://Scenes/Enemies/SkeletonArcher.tscn"): 0.5,
 		preload("res://Scenes/Enemies/ArmoredSkeleton.tscn"): 0.2,
 		preload("res://Scenes/Enemies/Slime.tscn"): 0.3,
-		preload("res://Scenes/Enemies/GreatSwordSkeleton.tscn"): 0.1
+		preload("res://Scenes/Enemies/GreatSwordSkeleton.tscn"): 0.05
 	},
 	"FinalZone": {
 		preload("res://Scenes/Enemies/orc.tscn"): 0.6,
 		preload("res://Scenes/Enemies/ArmoredOrc.tscn"): 0.4,
 		preload("res://Scenes/Enemies/EliteOrc.tscn"): 0.3,
 		preload("res://Scenes/Enemies/WereWolf.tscn"): 0.2,
-		preload("res://Scenes/Enemies/OrcRider.tscn"): 0.2,
+		preload("res://Scenes/Enemies/OrcRider.tscn"): 0.1,
 		preload("res://Scenes/Enemies/WereBear.tscn"): 0.05,
 		preload("res://Scenes/Enemies/Wizard.tscn"): 0.05
 	}
@@ -65,7 +65,7 @@ func _ready():
 	player = get_node(player_path)
 	hud = get_node(hud_path)
 	
-	spawn_timer = -5.0  # espera unos segundos para que el jugador lea el mensaje
+	spawn_timer = -3.0  # espera unos segundos para que el jugador lea el mensaje
 	spawn_interval = spawn_interval_start
 	enemies_per_spawn = enemies_per_spawn_start
 	max_enemies = max_enemies_start
@@ -88,10 +88,8 @@ func spawn_enemies():
 		var _spawned = false
 		for attempt in range(100): #Pongo muchos intentos para aumentar la probabilidad de que salga bien
 			var pos = get_random_spawn_position()
-			print("Intento de spawn en:", pos)
 
 			if is_valid_spawn(pos):
-				print("Posición válida encontrada:", pos)
 
 				var enemy = pick_enemy(current_map).instantiate()
 				enemy.global_position = pos
@@ -160,7 +158,6 @@ func is_valid_spawn(pos: Vector2) -> bool:
 	var result = space_state.intersect_shape(query)
 
 	if result.size() > 0:
-		print("Colisión detectada en spawn con árboles:", result)
 		return false
 
 	return true
@@ -186,7 +183,6 @@ func check_enemies_distance():
 			continue
 
 		if player.global_position.distance_to(enemy.global_position) > despawn_distance:
-			print("Enemy despawned por distancia:", enemy.name)
 			current_enemies.erase(enemy)
 			enemy.queue_free()
 
