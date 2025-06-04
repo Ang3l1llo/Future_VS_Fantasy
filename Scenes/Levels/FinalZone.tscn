@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bg2b53c678dtc"]
+[gd_scene load_steps=35 format=4 uid="uid://bg2b53c678dtc"]
 
 [ext_resource type="Texture2D" uid="uid://y6fiel82ydu" path="res://Assets/Mistery Woods/MainLev.png" id="1_8rvus"]
 [ext_resource type="PackedScene" uid="uid://oywkpdef85cx" path="res://Scenes/level_tracker.tscn" id="1_qm2oi"]
@@ -21,10 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://bch8pqv3e7q5j" path="res://Scenes/Weapons/Pistol5.tscn" id="13_4f2q1"]
 [ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music_Controller/MusicController.tscn" id="14_xnwh0"]
 [ext_resource type="PackedScene" uid="uid://dckxbtcsris8w" path="res://Scenes/UI/message_info.tscn" id="15_74b02"]
-[ext_resource type="PackedScene" uid="uid://7o081iv42rgm" path="res://Scenes/Weapons/Shotgun.tscn" id="22_x5uwo"]
-[ext_resource type="PackedScene" uid="uid://bprbrofajq4ol" path="res://Scenes/Weapons/Pistol6.tscn" id="23_3c2lk"]
-[ext_resource type="PackedScene" uid="uid://t0xpobohu68e" path="res://Scenes/Weapons/Rifle5.tscn" id="24_l4w8k"]
-[ext_resource type="PackedScene" uid="uid://blkol8fk3vevx" path="res://Scenes/Weapons/Rifle6.tscn" id="25_80thp"]
 
 [sub_resource type="TileSet" id="TileSet_rse7o"]
 
@@ -19855,8 +19851,8 @@ position_smoothing_speed = 10.0
 player_path = NodePath("../Player")
 hud_path = NodePath("../HudLayer/HUD")
 spawn_area_rect = Rect2(-1978, -920, 3700, 2100)
-max_enemies_start = 0
-max_enemies_endgame = 0
+max_enemies_start = 5
+max_enemies_endgame = 120
 spawn_interval_start = 8.0
 spawn_interval_endgame = 3.0
 enemies_per_spawn_endgame = 12
@@ -19912,15 +19908,3 @@ scale = Vector2(2, 2)
 [node name="MusicController" parent="." instance=ExtResource("14_xnwh0")]
 current_map = "FinalZone"
 hud_path = NodePath("../HudLayer/HUD")
-
-[node name="Shotgun" parent="." instance=ExtResource("22_x5uwo")]
-position = Vector2(-119, 213)
-
-[node name="Pistol6" parent="." instance=ExtResource("23_3c2lk")]
-position = Vector2(-151, 170)
-
-[node name="Rifle5" parent="." instance=ExtResource("24_l4w8k")]
-position = Vector2(-182, 123)
-
-[node name="Rifle6" parent="." instance=ExtResource("25_80thp")]
-position = Vector2(-130, 87)

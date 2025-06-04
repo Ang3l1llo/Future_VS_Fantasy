@@ -95,7 +95,7 @@ func aim_weapon():
 
 #Función para manejar el disparo
 func handle_shooting():
-	if Input.is_action_just_pressed("shoot") and weapon_reference:
+	if Input.is_action_pressed("shoot") and weapon_reference:
 		weapon_reference.shoot()
 
 
