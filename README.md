@@ -25,11 +25,13 @@ Future vs Fantasy es un juego de acción y supervivencia inspirado principalment
 ### Inspiración
 
 - **Vampire Survivors**  
-Posiblemente el precursor o referente de este género. No podía faltar como inspiración a mi juego. Aunque pretendo que mi juego tenga gráficos algo mejores, sería algo similar a esto.
+Posiblemente el precursor o referente de este género. No podía faltar como inspiración a mi juego.
+
 # ![Inspiración1](./Assets/Inspirations/Vampire_inspiration.png)
 
 - **Spellbook Demonslayers**  
 Juego muy similar al vampire survivors, pero más enfocado a la magia y ataques a distancia. Algo más moderno que el juego en el que se basa pero manteniendo esa esencia retro.
+
 # ![Inspiración2](./Assets/Inspirations/inspiration2.jpg)
 
 - **Survivor.io**  
@@ -43,30 +45,29 @@ Juego para móvil con enfoque más moderno todavía donde controlas a un persona
 ## Género y Plataforma
 
 - **Género:** Roguelike, Bullet Hell, Supervivencia.  
-- **Plataformas:** PC (posible adaptación a móvil en el futuro si me da tiempo).
+- **Plataformas:** PC (posible adaptación a móvil en el futuro).
 
 ---
 
 ## Historia y Ambientación
 
-El protagonista es un viajero del tiempo cuyo objetivo era salvar a la humanidad del futuro que les espera, ya que está plagado de guerras por culpa de los fascistas, problemas sociales, pésimos gobernantes y líderes, mucha hambruna...Pero el problema es que los científicos e ingenieros calculan mal y ocurre un error en la matriz del transportador, provocando que nuestro viajero llegue por error a otro universo en lugar del pasado, un mundo dominado por seres fantásticos. Con su arsenal de armas modernas, debe sobrevivir y derrotar a las oleadas de enemigos mientras descubre cómo ha llegado ahí y busca una forma de regresar a su tiempo, o al menos, a su mundo.
+El protagonista es un viajero del tiempo cuyo objetivo es salvar a la humanidad del futuro que les espera, ya que está plagado de guerras por culpa de los que ostentan el poder, problemas sociales, pésimos gobernantes y líderes, mucha hambruna...Pero hay un problema que los científicos e ingenieros calculan mal y ocurre un error en la matriz del transportador, provocando que nuestro viajero llegue por error a otro universo en lugar del pasado, un mundo dominado por seres fantásticos. Con su arsenal de armas modernas, debe sobrevivir y derrotar a las oleadas de enemigos mientras busca una forma de regresar a su tiempo, o al menos, a su mundo.
 
 ---
 
 ## Mecánicas de Juego
 
 - Movimiento en 360° (teclado).  
-- Disparo manual en la dirección de movimiento del jugador.  
-- Hordas de enemigos aumentando en dificultad con el tiempo.  
+- Disparo manual en la dirección del cursor del jugador. 
+- Hordas de enemigos aumentando progresivamente la dificultad con el tiempo.
 - Mejoras y habilidades adquiridas con la experiencia.  
-- Recolección de objetos de mejora (salud, potenciadores).
 
 ---
 
 ## Controles
 
 - **PC:** Teclas W-A-S-D o teclas de dirección para moverse, clic o barra espaciadora para disparar.  
-- **Móvil (si lo desarrollo):** Joystick virtual para moverse, botón de disparo.
+- **Móvil (futuro desarrollo):** Joystick virtual para moverse, botón de disparo/disparo a la posición táctil.
 
 ---
 
@@ -75,56 +76,56 @@ El protagonista es un viajero del tiempo cuyo objetivo era salvar a la humanidad
 - **Protagonista:** Un viajero del tiempo armado con tecnología moderna.  
 - **Enemigos:**
   - Caballeros medievales con espadas, arcos, escudos, lanzas..  
-  - Orcos con gran resistencia y ataques cuerpo a cuerpo pesados.  
+  - Orcos con gran resistencia y ataque. 
   - Magos que lanzan proyectiles mágicos.  
-  - Esqueletos chungos y slimes.  
+  - Esqueletos terroríficos y slimes.  
   - Bestias como hombres-lobo y hombres-oso.
 
 ---
 
 ## Armas y Habilidades
 
-- **Armas cuerpo a cuerpo:** navajilla, bate de béisbol, espada.  
-- **Pistola:** Disparo tiro a tiro. Variedad de pistolas.  
-- **Fusiles:** Disparo de repetición. Variedad de fusiles.  
-- **Escopeta:** Disparo con dispersión y gran potencia, pero corto alcance.  
-- Al subir de nivel se podrá elegir o bien arma, o bien mejorar habilidades (más daño, mayor velocidad del pj, mayor protección…)
+- **Pistola:** Cadencia buena, daño reducido al ser el arma más básica.
+- **Subfusil:** Cadencia muy alta, daño bajo que se compensa con la cantidad de balas por segundo.
+- **Fusiles:** Cadencia buena, daño más elevado.
+- **Escopeta:** Cadencia baja, daño elevado y disparo con dispersión de los proyectiles. 
+- Al subir de nivel se podrá elegir o bien arma, o bien mejorar habilidades (más daño o velocidad de movimiento)
 
 ---
 
 ## Niveles y Mapas
 
-- Habrá 3 mapas distintos, cada uno con su propio diseño y características.  
-- Prado del rey: Al ser el primer mapa, quiero que sea clarito y sencillo.  
-- *(Los otros mapas por determinar)*
+Hay 3 mapas distintos, cada uno con su propio diseño y características:
+
+- **MeadowLands:**  Al ser el primer mapa, quiero que sea clarito y sencillo.  
+- **MisteryWoods:** Los bosques misteriosos, este mapa es algo más complejo y tétrico, con referencias más oscuras. Los enemigos son esqueletos.
+- **FinalZone:** La zona final, este es el nivel más difícil, los enemigos tienen más vida, daño, velocidad y hay mayor cantidad. Son  orcos, bestias y magos para darle un plus de dificultad con un enemigo que lanza proyectiles más fuertes.
 
 ---
 
 ## Sistema de Progresión
 
-- Eliminar enemigos otorga experiencia.  
-- Subida de nivel permite mejorar habilidades básicas o elegir nuevas armas.  
-- Sistema de desbloqueo de mejoras permanentes.
+- Eliminar enemigos hace que suelten un cristal, que dependiendo del color dará más o menos experiencia al recolectarlo.
+- Subida de nivel que permite mejorar habilidades básicas como la vida o velocidad de movimiento o bien cambiar tu arma actual por una mejor.
 
 ---
 
 ## Objetivo del Juego
 
-- Sobrevivir el mayor tiempo posible y acabar con el boss de cada zona mientras derrotas hordas de enemigos.  
-- Implementación de tabla de líderes con las mejores puntuaciones y tiempos, conectado a una BBDD para poder guardar y mostrar esa información.
+- Sobrevivir eliminando enemigos para poder subir nivel,  mejorar tu personaje y así poder aguantar los 10 minutos que dura cada nivel.
 
 ---
 
 ## Aspectos Técnicos
 
 - **Motor:** Godot Engine.  
-- **Conexión a BBDD:** MongoDB, con una API que implementaré basándome en la que ya tuvimos que realizar.  
-- **Gráficos:** Pixel-art o 2.5D. Tendré que mezclar un poco debido al enfoque y mezcla de assets, pero manteniendo la máxima cohesión posible.  
-- **Inteligencia Artificial:** Básica para enemigos con patrones de ataque, todos los enemigos cogen agro instantáneo, pero algunos atacarán de cerca, otros de lejos..
+- **Conexión a BBDD:** MongoDB mediante una API sencilla.Solamente una colección llamada players(jugadores) que almacena los nombres de los jugadores y sus puntuaciones.
+- **Gráficos:** pixel-art . Hay una mezcla de assets de diferentes autores, coherente con mi estilo de juego. 
+- **Inteligencia Artificial:** muy básica para los enemigos. Nada más “spawnear” van directos hacia el personaje, realizando ataques aleatorios entre los posibles que tienen.
 
 ---
 
 ## Música
 
-Quiero que sea una música que concuerde con el estilo de juego, así que posiblemente sea rock/metal, alomejor es un rock más tranquilo y cuando aparece el boss rompe una canción más fuerte, todavía por determinar.
+Cada nivel tiene 3 canciones diferentes, la primera es siempre la más “suave” o tranquila, la segunda es un poco más intensa y la tercera es la más potente para realzar esos momentos de tensión en los últimos minutos de cada nivel en los que es más difícil sobrevivir. En cuanto a los estilos se mezcla una **electrónica** tipo 8 bits, **rock and roll** y **heavy metal**.
 
