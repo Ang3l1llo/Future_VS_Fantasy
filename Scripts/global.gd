@@ -34,7 +34,7 @@ func play_equip_sound():
 	if audio_player:
 		audio_player.play()
 
-
+	
 func reset():
 	player_name = ""
 	player_id = ""
