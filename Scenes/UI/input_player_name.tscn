@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bbbugib82qfjv"]
 
-[ext_resource type="Script" path="res://Scripts/UI_Scripts/input_player_name.gd" id="1_r6nmn"]
+[ext_resource type="Script" path="res://Scripts/UI/input_player_name.gd" id="1_r6nmn"]
 [ext_resource type="Texture2D" uid="uid://s5p1mthvt2jj" path="res://Assets/Utils/ENTER_USERNAME.png" id="2_ub5fb"]
 [ext_resource type="Texture2D" uid="uid://bc7gt72vitumq" path="res://Assets/Utils/Botón_nombreJugador.png" id="3_mx1r0"]
 [ext_resource type="AudioStream" uid="uid://ckvkgn3v4f1hk" path="res://Music/Buttons_Sounds/Botones_pausa.mp3" id="4_t02hp"]

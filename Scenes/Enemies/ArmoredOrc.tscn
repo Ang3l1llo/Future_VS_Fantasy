@@ -1,6 +1,6 @@
 [gd_scene load_steps=54 format=3 uid="uid://bc47c5jow5eft"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/armored_orc.gd" id="1_5rgb0"]
+[ext_resource type="Script" path="res://Scripts/Enemies/armored_orc.gd" id="1_5rgb0"]
 [ext_resource type="Texture2D" uid="uid://dvvgcydde7c5t" path="res://Assets/Enemies/Armored Orc/Armored Orc-Attack01.png" id="1_odbq0"]
 [ext_resource type="Texture2D" uid="uid://pu843dxoak17" path="res://Assets/Enemies/Armored Orc/Armored Orc-Attack02.png" id="2_uy2p3"]
 [ext_resource type="Texture2D" uid="uid://gkcadxvt1l57" path="res://Assets/Enemies/Armored Orc/Armored Orc-Attack03.png" id="3_c0ivg"]

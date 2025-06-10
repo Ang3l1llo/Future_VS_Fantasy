@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cqjk3es2jqme"]
 
-[ext_resource type="Script" path="res://Scripts/UI_Scripts/menu_victory.gd" id="1_34lnf"]
+[ext_resource type="Script" path="res://Scripts/UI/menu_victory.gd" id="1_34lnf"]
 [ext_resource type="Texture2D" uid="uid://bopr53npko5av" path="res://Assets/Utils/Menu_victoria.png" id="2_uncl0"]
 [ext_resource type="AudioStream" uid="uid://dqqbr1f4flnjv" path="res://Music/Buttons_Sounds/Botón_continuar.mp3" id="3_2ccww"]
 [ext_resource type="AudioStream" uid="uid://bcwlct5ypim0u" path="res://Music/Buttons_Sounds/Botón_exit_victory.wav" id="4_hgpvk"]
-[ext_resource type="AudioStream" uid="uid://cegwjymqr7jcb" path="res://Music/Effects_music/Victoria.mp3" id="5_bx021"]
+[ext_resource type="AudioStream" uid="uid://cegwjymqr7jcb" path="res://Music/Effects/Victoria.mp3" id="5_bx021"]
 
 [node name="MenuVictory" type="Control"]
 layout_mode = 3

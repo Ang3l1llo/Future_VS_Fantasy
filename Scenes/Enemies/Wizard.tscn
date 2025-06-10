@@ -1,7 +1,7 @@
 [gd_scene load_steps=51 format=3 uid="uid://bt4x3mwi0nliu"]
 
 [ext_resource type="Texture2D" uid="uid://ct51ekffiudud" path="res://Assets/Enemies/Wizard/Wizard.png" id="1_5jk45"]
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/wizard.gd" id="1_qf0q8"]
+[ext_resource type="Script" path="res://Scripts/Enemies/wizard.gd" id="1_qf0q8"]
 [ext_resource type="PackedScene" uid="uid://4manxit6mtt0" path="res://Scenes/Enemies/Enemy_Bullets/fire_ball.tscn" id="2_7f2lw"]
 [ext_resource type="PackedScene" uid="uid://cp37ks2ycty0p" path="res://Scenes/Enemies/Enemy_Bullets/ice_ball.tscn" id="3_en2y8"]
 

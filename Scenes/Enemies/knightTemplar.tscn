@@ -1,7 +1,7 @@
 [gd_scene load_steps=56 format=3 uid="uid://1wbxvr3l36ow"]
 
 [ext_resource type="Texture2D" uid="uid://cfeu0rsqbmcmy" path="res://Assets/Enemies/Knight Templar/Knight Templar-Attack01.png" id="1_kydku"]
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/knight_templar.gd" id="1_q4tqb"]
+[ext_resource type="Script" path="res://Scripts/Enemies/knight_templar.gd" id="1_q4tqb"]
 [ext_resource type="Texture2D" uid="uid://cxu6jacuy4ljc" path="res://Assets/Enemies/Knight Templar/Knight Templar-Attack02.png" id="2_qmq00"]
 [ext_resource type="Texture2D" uid="uid://c3oqnwq30p7ai" path="res://Assets/Enemies/Knight Templar/Knight Templar-Attack03.png" id="3_5d5tn"]
 [ext_resource type="Texture2D" uid="uid://cw2kotm8202vc" path="res://Assets/Enemies/Knight Templar/Knight Templar-Death.png" id="4_2vxh0"]

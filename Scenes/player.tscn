@@ -1,9 +1,9 @@
 [gd_scene load_steps=29 format=3 uid="uid://d2w5rpy4ceoe2"]
 
-[ext_resource type="Texture2D" uid="uid://gx6bgahagf4w" path="res://Assets/Main Char and Weapons/GZ2-Character_1_24px.png" id="1_c2p5b"]
+[ext_resource type="Texture2D" uid="uid://gx6bgahagf4w" path="res://Assets/MainChar_and_Weapons/GZ2-Character_1_24px.png" id="1_c2p5b"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_qe5dq"]
-[ext_resource type="AudioStream" uid="uid://dnj1m0k7f8701" path="res://Music/Effects_music/Muerte_main.wav" id="3_8a8ge"]
-[ext_resource type="AudioStream" uid="uid://d2kojpx0vl5sg" path="res://Music/Effects_music/Recibir_daño.wav" id="3_l86f1"]
+[ext_resource type="AudioStream" uid="uid://dnj1m0k7f8701" path="res://Music/Effects/Muerte_main.wav" id="3_8a8ge"]
+[ext_resource type="AudioStream" uid="uid://d2kojpx0vl5sg" path="res://Music/Effects/Recibir_daño.wav" id="3_l86f1"]
 [ext_resource type="PackedScene" uid="uid://oqwtse7yd3nr" path="res://Scenes/FX/blood.tscn" id="5_t77fl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1krl"]

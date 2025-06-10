@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dckxbtcsris8w"]
 
-[ext_resource type="Script" path="res://Scripts/UI_Scripts/message_info.gd" id="1_xb3g5"]
+[ext_resource type="Script" path="res://Scripts/UI/message_info.gd" id="1_xb3g5"]
 [ext_resource type="Texture2D" uid="uid://dwwkeqwcglsh7" path="res://Assets/Utils/Message_info_banner.png" id="2_kwoao"]
 
 [node name="Message_Info" type="Control"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=61 format=3 uid="uid://c57qns2h18lr1"]
 
 [ext_resource type="Texture2D" uid="uid://dpw6h1gqaix62" path="res://Assets/Enemies/Werebear/Werebear-Attack01.png" id="1_8skdf"]
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/were_bear.gd" id="1_4501c"]
+[ext_resource type="Script" path="res://Scripts/Enemies/were_bear.gd" id="1_4501c"]
 [ext_resource type="Texture2D" uid="uid://7rsoqfhyx786" path="res://Assets/Enemies/Werebear/Werebear-Attack02.png" id="2_dlqha"]
 [ext_resource type="Texture2D" uid="uid://dj2axjthulga0" path="res://Assets/Enemies/Werebear/Werebear-Attack03.png" id="3_jop5q"]
 [ext_resource type="Texture2D" uid="uid://d2uqiqoay4jc7" path="res://Assets/Enemies/Werebear/Werebear-Death.png" id="4_72wqg"]

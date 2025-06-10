@@ -20,7 +20,7 @@ var progress = {
 }
 
 # Sonido de equipar
-var equip_sound = preload("res://Music/Effects_music/Equip_weapon.wav")
+var equip_sound = preload("res://Music/Effects/Equip_weapon.wav")
 var audio_player: AudioStreamPlayer
 
 

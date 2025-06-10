@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://dwex1vebudoq2"]
 
 [ext_resource type="Texture2D" uid="uid://d0h2wnt22d31n" path="res://Assets/Enemies/Slime/Slime-Attack01.png" id="1_5v8wx"]
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/slime.gd" id="1_lai2p"]
+[ext_resource type="Script" path="res://Scripts/Enemies/slime.gd" id="1_lai2p"]
 [ext_resource type="Texture2D" uid="uid://b5872berft534" path="res://Assets/Enemies/Slime/Slime-Attack02.png" id="2_vkkwd"]
 [ext_resource type="Texture2D" uid="uid://ch1ddfiectobv" path="res://Assets/Enemies/Slime/Slime-Death.png" id="3_uce5m"]
 [ext_resource type="Texture2D" uid="uid://cweygeenvv5d4" path="res://Assets/Enemies/Slime/Slime-Hurt.png" id="4_1fufw"]

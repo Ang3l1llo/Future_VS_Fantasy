@@ -1,6 +1,6 @@
 [gd_scene load_steps=50 format=3 uid="uid://ktg2ktedxo3d"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/were_wolf.gd" id="1_p0nf0"]
+[ext_resource type="Script" path="res://Scripts/Enemies/were_wolf.gd" id="1_p0nf0"]
 [ext_resource type="Texture2D" uid="uid://v4oqo8ppokmq" path="res://Assets/Enemies/Werewolf/Werewolf-Attack01.png" id="1_vg653"]
 [ext_resource type="Texture2D" uid="uid://b5fyhly0jwdo0" path="res://Assets/Enemies/Werewolf/Werewolf-Attack02.png" id="2_bd0r0"]
 [ext_resource type="Texture2D" uid="uid://7wwvfbw1h1cf" path="res://Assets/Enemies/Werewolf/Werewolf-Death.png" id="3_m860f"]

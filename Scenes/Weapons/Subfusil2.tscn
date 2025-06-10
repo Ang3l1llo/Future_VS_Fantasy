@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d0vig4i8ictgx"]
 
 [ext_resource type="Texture2D" uid="uid://du42f7wmfdn37" path="res://Scenes/Weapons/ATLAS/Atlas_subfusil2.tres" id="1_l0p1g"]
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Subfusil2.gd" id="1_ml2ly"]
+[ext_resource type="Script" path="res://Scripts/Weapons/Subfusil2.gd" id="1_ml2ly"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_10bbw"]
 [ext_resource type="PackedScene" uid="uid://ctxcv6ur3cmvm" path="res://Scenes/Weapons/BULLETS/bullet_pistol.tscn" id="4_hibgf"]
 [ext_resource type="AudioStream" uid="uid://cyy2aw52y2vqx" path="res://Music/Weapons_Sounds/Subfusil2.wav" id="5_6fkgl"]

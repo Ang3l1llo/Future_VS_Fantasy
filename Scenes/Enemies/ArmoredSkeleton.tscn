@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://bp3jfb25t3n1q"]
 
 [ext_resource type="Texture2D" uid="uid://m3on638fq3y2" path="res://Assets/Enemies/Armored Skeleton/Armored Skeleton-Attack01.png" id="1_8su0i"]
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/armored_skeleton.gd" id="1_86xnu"]
+[ext_resource type="Script" path="res://Scripts/Enemies/armored_skeleton.gd" id="1_86xnu"]
 [ext_resource type="Texture2D" uid="uid://h2ys4mhxxc81" path="res://Assets/Enemies/Armored Skeleton/Armored Skeleton-Attack02.png" id="2_neaqf"]
 [ext_resource type="Texture2D" uid="uid://6pgilu5wvx02" path="res://Assets/Enemies/Armored Skeleton/Armored Skeleton-Death.png" id="3_3n8s0"]
 [ext_resource type="Texture2D" uid="uid://bq3evc0icwgml" path="res://Assets/Enemies/Armored Skeleton/Armored Skeleton-Hurt.png" id="4_gwmx1"]

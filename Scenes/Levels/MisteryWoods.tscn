@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cptxlatfcu8vr" path="res://Scenes/UI/menu_lvl_up.tscn" id="9_nqdmo"]
 [ext_resource type="PackedScene" uid="uid://d3qbalne2pv5f" path="res://Scenes/UI/hud.tscn" id="10_kfm1i"]
 [ext_resource type="PackedScene" uid="uid://dckxbtcsris8w" path="res://Scenes/UI/message_info.tscn" id="11_g0qb0"]
-[ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music_Controller/MusicController.tscn" id="12_2uiqx"]
+[ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music/MusicController.tscn" id="12_2uiqx"]
 [ext_resource type="PackedScene" uid="uid://blr0ojam24g4l" path="res://Scenes/portal.tscn" id="14_ji2ou"]
 [ext_resource type="PackedScene" uid="uid://c1c3obdmxhvlq" path="res://Scenes/Weapons/Pistol3.tscn" id="14_p6qgy"]
 

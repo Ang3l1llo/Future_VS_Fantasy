@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvo7glwrif3fr"]
 
-[ext_resource type="Script" path="res://Scripts/UI_Scripts/menu_death.gd" id="1_yxxu5"]
+[ext_resource type="Script" path="res://Scripts/UI/menu_death.gd" id="1_yxxu5"]
 [ext_resource type="Texture2D" uid="uid://4x0hc17kjcdc" path="res://Assets/Utils/Menú_muerte.png" id="2_re5ly"]
 [ext_resource type="AudioStream" uid="uid://cf0xoj332lsrc" path="res://Music/Buttons_Sounds/Botón_muerte_restart.wav" id="3_xpxti"]
 [ext_resource type="AudioStream" uid="uid://cy6q0f1vqqgpc" path="res://Music/Buttons_Sounds/Botón_Exit_muerte.wav" id="4_g0e73"]

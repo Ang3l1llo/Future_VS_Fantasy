@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://0ga3ykwutppx"]
 
 [ext_resource type="Script" path="res://Scripts/scroll_container.gd" id="1_4l073"]
-[ext_resource type="AudioStream" uid="uid://b0tlanuupffn7" path="res://Music/Effects_music/Credits.mp3" id="2_rmfyg"]
+[ext_resource type="AudioStream" uid="uid://b0tlanuupffn7" path="res://Music/Effects/Credits.mp3" id="2_rmfyg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3vek"]
 bg_color = Color(0, 0, 0, 1)

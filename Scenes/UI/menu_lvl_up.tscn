@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cptxlatfcu8vr"]
 
-[ext_resource type="Script" path="res://Scripts/UI_Scripts/menu_lvl_up.gd" id="1_iwefw"]
+[ext_resource type="Script" path="res://Scripts/UI/menu_lvl_up.gd" id="1_iwefw"]
 [ext_resource type="Texture2D" uid="uid://cgdvccia0htyg" path="res://Assets/Utils/Menú_lvlUp.png" id="2_vbutw"]
 [ext_resource type="AudioStream" uid="uid://ots5f0wk4v5g" path="res://Music/Buttons_Sounds/Pick_lvl_weapon.wav" id="3_h55ki"]
 [ext_resource type="AudioStream" uid="uid://dxt6jik8d8hjj" path="res://Music/Buttons_Sounds/Pick_lvl_life.wav" id="4_jqwbe"]

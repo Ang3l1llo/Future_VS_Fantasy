@@ -1,7 +1,7 @@
 [gd_scene load_steps=59 format=3 uid="uid://d3isl6tjjjemr"]
 
 [ext_resource type="Texture2D" uid="uid://bfqcnls1xh6bo" path="res://Assets/Enemies/Armored Axeman/Armored Axeman-Attack01.png" id="1_mwi3g"]
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/armored_axeman.gd" id="1_t0y1t"]
+[ext_resource type="Script" path="res://Scripts/Enemies/armored_axeman.gd" id="1_t0y1t"]
 [ext_resource type="Texture2D" uid="uid://c4ijsnpradkex" path="res://Assets/Enemies/Armored Axeman/Armored Axeman-Attack02.png" id="2_2q135"]
 [ext_resource type="Texture2D" uid="uid://ctrafronn3abl" path="res://Assets/Enemies/Armored Axeman/Armored Axeman-Attack03.png" id="3_ye0he"]
 [ext_resource type="Texture2D" uid="uid://smijw3vvnd1p" path="res://Assets/Enemies/Armored Axeman/Armored Axeman-Death.png" id="4_s45fc"]

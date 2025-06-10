@@ -1,7 +1,7 @@
 [gd_scene load_steps=57 format=3 uid="uid://do7w0dhnasnc0"]
 
 [ext_resource type="Texture2D" uid="uid://fb3wfy6dhm5y" path="res://Assets/Enemies/Orc Rider/Orc rider-Attack01.png" id="1_j3ogd"]
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/orc_rider.gd" id="1_w40ma"]
+[ext_resource type="Script" path="res://Scripts/Enemies/orc_rider.gd" id="1_w40ma"]
 [ext_resource type="Texture2D" uid="uid://dfqlp50ilkg6w" path="res://Assets/Enemies/Orc Rider/Orc rider-Attack02.png" id="2_4ref5"]
 [ext_resource type="Texture2D" uid="uid://disibhofuv874" path="res://Assets/Enemies/Orc Rider/Orc rider-Attack03.png" id="3_qp11c"]
 [ext_resource type="Texture2D" uid="uid://f716smar1lg8" path="res://Assets/Enemies/Orc Rider/Orc rider-Death.png" id="4_m86ke"]

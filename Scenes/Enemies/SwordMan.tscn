@@ -1,6 +1,6 @@
 [gd_scene load_steps=63 format=3 uid="uid://dseuubdy11ry0"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/sword_man.gd" id="1_0c2v2"]
+[ext_resource type="Script" path="res://Scripts/Enemies/sword_man.gd" id="1_0c2v2"]
 [ext_resource type="Texture2D" uid="uid://btkwfvw73gsqp" path="res://Assets/Enemies/SwordMan/Swordsman-Attack01.png" id="1_x1w1h"]
 [ext_resource type="Texture2D" uid="uid://dlh3qk1l1nqh7" path="res://Assets/Enemies/SwordMan/Swordsman-Attack02.png" id="2_g75ly"]
 [ext_resource type="Texture2D" uid="uid://bpv27n18rett" path="res://Assets/Enemies/SwordMan/Swordsman-Attack3.png" id="3_q0tlj"]

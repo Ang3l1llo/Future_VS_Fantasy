@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://c7iqxf2wjgpkv"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/archer.gd" id="1_1jdeb"]
+[ext_resource type="Script" path="res://Scripts/Enemies/archer.gd" id="1_1jdeb"]
 [ext_resource type="Texture2D" uid="uid://biyrdfyjsphhp" path="res://Assets/Enemies/Archer/Archer-Attack01.png" id="1_ef6bt"]
 [ext_resource type="PackedScene" uid="uid://d2ldpxjyyychj" path="res://Scenes/Enemies/Enemy_Bullets/arrow.tscn" id="2_mfng7"]
 [ext_resource type="Texture2D" uid="uid://b5aag3etqlnhb" path="res://Assets/Enemies/Archer/Archer-Death.png" id="3_ir6bf"]

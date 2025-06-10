@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8nyc2si1c018"]
 
-[ext_resource type="Script" path="res://Scripts/UI_Scripts/intro_lore.gd" id="1_ueecc"]
-[ext_resource type="AudioStream" uid="uid://cfnyvaowgf5hw" path="res://Music/Effects_music/PC.wav" id="2_w08p7"]
+[ext_resource type="Script" path="res://Scripts/UI/intro_lore.gd" id="1_ueecc"]
+[ext_resource type="AudioStream" uid="uid://cfnyvaowgf5hw" path="res://Music/Effects/PC.wav" id="2_w08p7"]
 
 [node name="Intro_lore" type="Control"]
 layout_mode = 3

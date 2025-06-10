@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d4i6ls77h0m23"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/supergun.gd" id="1_t7p7g"]
+[ext_resource type="Script" path="res://Scripts/Weapons/supergun.gd" id="1_t7p7g"]
 [ext_resource type="Texture2D" uid="uid://bog6tywf3xyxw" path="res://Scenes/Weapons/ATLAS/Atlas_supergun.tres" id="2_oqwd4"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="3_jvegl"]
 [ext_resource type="PackedScene" uid="uid://b7lcbqv01mlk8" path="res://Scenes/Weapons/BULLETS/bullet_supergun.tscn" id="4_iwhdm"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://b0aee3mhihogs"]
 
-[ext_resource type="Script" path="res://Scripts/Crystal_Scripts/red_crystal.gd" id="1_bgcsm"]
+[ext_resource type="Script" path="res://Scripts/Crystals/red_crystal.gd" id="1_bgcsm"]
 [ext_resource type="Texture2D" uid="uid://on7n87nyh1a7" path="res://Assets/Crystal_Animation/Red/red_crystal_0000.png" id="1_yq2sk"]
 [ext_resource type="Texture2D" uid="uid://2n08t4u41weq" path="res://Assets/Crystal_Animation/Red/red_crystal_0001.png" id="2_qh0d6"]
 [ext_resource type="Texture2D" uid="uid://4sl2mvj23kkd" path="res://Assets/Crystal_Animation/Red/red_crystal_0002.png" id="3_4v01t"]
 [ext_resource type="Texture2D" uid="uid://d0ab6tvwleiru" path="res://Assets/Crystal_Animation/Red/red_crystal_0003.png" id="4_0fadk"]
-[ext_resource type="AudioStream" uid="uid://dfx3366mhpu61" path="res://Music/Effects_music/Equip (Jewel).mp3" id="6_2gy4t"]
+[ext_resource type="AudioStream" uid="uid://dfx3366mhpu61" path="res://Music/Effects/Equip (Jewel).mp3" id="6_2gy4t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ep62n"]
 animations = [{

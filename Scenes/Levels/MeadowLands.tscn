@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dcutfofn1a8ja" path="res://Assets/MeadowLands/Buildings/Castle/Castle_Yellow.png" id="12_yvown"]
 [ext_resource type="Texture2D" uid="uid://2ehxxyr5sfti" path="res://Assets/MeadowLands/Buildings/House/House_Red.png" id="13_722ds"]
 [ext_resource type="PackedScene" uid="uid://blr0ojam24g4l" path="res://Scenes/portal.tscn" id="13_usl8p"]
-[ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music_Controller/MusicController.tscn" id="14_i64h4"]
+[ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music/MusicController.tscn" id="14_i64h4"]
 [ext_resource type="Texture2D" uid="uid://538kkhjiy4uc" path="res://Assets/MeadowLands/Buildings/Tower/Tower_Blue.png" id="14_opqce"]
 [ext_resource type="Texture2D" uid="uid://bmvnv3xo8vjva" path="res://Assets/MeadowLands/Buildings/Tower/Tower_Purple.png" id="15_kyasy"]
 [ext_resource type="Texture2D" uid="uid://b3o7tx1yywmte" path="res://Assets/MeadowLands/Buildings/Tower/Tower_Red.png" id="16_rr5ti"]

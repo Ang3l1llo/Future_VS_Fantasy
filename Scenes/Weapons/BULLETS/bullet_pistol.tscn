@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctxcv6ur3cmvm"]
 
 [ext_resource type="Texture2D" uid="uid://bbxah20xcflhr" path="res://Scenes/Weapons/ATLAS/Bullet_pistol.tres" id="1_2ully"]
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/BULLETS/bullet_pistol.gd" id="1_y5xl0"]
+[ext_resource type="Script" path="res://Scripts/Weapons/BULLETS/bullet_pistol.gd" id="1_y5xl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wk6tq"]
 size = Vector2(4.6, 1.3)

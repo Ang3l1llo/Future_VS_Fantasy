@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://epr38ni8ir6w"]
 
 [ext_resource type="Texture2D" uid="uid://cnkm41o7l7tma" path="res://Assets/Enemies/Orc/Orc-Attack01.png" id="1_b5hqv"]
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/orc.gd" id="1_bim8a"]
+[ext_resource type="Script" path="res://Scripts/Enemies/orc.gd" id="1_bim8a"]
 [ext_resource type="Texture2D" uid="uid://cxjtijh82awp5" path="res://Assets/Enemies/Orc/Orc-Attack02.png" id="2_7ewik"]
 [ext_resource type="Texture2D" uid="uid://cvlldm445myde" path="res://Assets/Enemies/Orc/Orc-Death.png" id="3_2sws0"]
 [ext_resource type="Texture2D" uid="uid://dfsfghrofbcwg" path="res://Assets/Enemies/Orc/Orc-Hurt.png" id="4_ddpcm"]

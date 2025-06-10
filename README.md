@@ -38,7 +38,7 @@ Juego muy similar al vampire survivors, pero más enfocado a la magia y ataques 
 Juego para móvil con enfoque más moderno todavía donde controlas a un personaje que se defiende de hordas de zombies. Es muy adictivo y tiene varias combinaciones de armas y evoluciones finales de las mismas.
 # ![Inspiración3](./Assets/Inspirations/inspiration3.jpeg)
 
-**Pero son solo inspiraciones. No quiero que mi juego sea solo moverse y esquivar, pretendo que sea el jugador el q elija cuando sale el disparo y no que salga siempre automáticamente, para que sea un poco más divertido y controlable el juego, sin tanto caos pero con ese rollo.**
+**Pero son solo inspiraciones. No quiero que mi juego sea solo moverse y esquivar, pretendo que sea el jugador el que elija cuando sale el disparo y no que salga siempre automáticamente, para que sea un poco más divertido y controlable el juego, sin tanto caos pero con ese estilo.**
 
 ---
 
@@ -97,7 +97,7 @@ El protagonista es un viajero del tiempo cuyo objetivo es salvar a la humanidad 
 
 Hay 3 mapas distintos, cada uno con su propio diseño y características:
 
-- **MeadowLands:**  Al ser el primer mapa, quiero que sea clarito y sencillo.  
+- **MeadowLands:**  Al ser el primer mapa, quiero que sea claro y sencillo.  
 - **MisteryWoods:** Los bosques misteriosos, este mapa es algo más complejo y tétrico, con referencias más oscuras. Los enemigos son esqueletos.
 - **FinalZone:** La zona final, este es el nivel más difícil, los enemigos tienen más vida, daño, velocidad y hay mayor cantidad. Son  orcos, bestias y magos para darle un plus de dificultad con un enemigo que lanza proyectiles más fuertes.
 
@@ -119,7 +119,8 @@ Hay 3 mapas distintos, cada uno con su propio diseño y características:
 ## Aspectos Técnicos
 
 - **Motor:** Godot Engine.  
-- **Conexión a BBDD:** MongoDB mediante una API sencilla.Solamente una colección llamada players(jugadores) que almacena los nombres de los jugadores y sus puntuaciones.
+- **Conexión a BBDD:** MongoDB mediante una API sencilla. [Enlace de la API](https://github.com/Ang3l1llo/API_PSP)
+Solamente una colección llamada players(jugadores) que almacena los nombres de los jugadores y sus puntuaciones.
 - **Gráficos:** pixel-art . Hay una mezcla de assets de diferentes autores, coherente con mi estilo de juego. 
 - **Inteligencia Artificial:** muy básica para los enemigos. Nada más “spawnear” van directos hacia el personaje, realizando ataques aleatorios entre los posibles que tienen.
 

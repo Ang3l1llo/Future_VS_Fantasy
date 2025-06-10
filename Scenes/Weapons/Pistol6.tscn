@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bprbrofajq4ol"]
 
 [ext_resource type="Texture2D" uid="uid://e1vsc4ydnesw" path="res://Scenes/Weapons/ATLAS/Atlas_pistol6.tres" id="1_4tstl"]
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Pistol6.gd" id="1_bkrd8"]
+[ext_resource type="Script" path="res://Scripts/Weapons/Pistol6.gd" id="1_bkrd8"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_1gmmb"]
 [ext_resource type="PackedScene" uid="uid://ctxcv6ur3cmvm" path="res://Scenes/Weapons/BULLETS/bullet_pistol.tscn" id="4_qdm8v"]
 [ext_resource type="AudioStream" uid="uid://dm56p1yfwr8q4" path="res://Music/Weapons_Sounds/Pistol6.mp3" id="5_y2oxi"]

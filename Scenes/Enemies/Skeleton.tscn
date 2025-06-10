@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=3 uid="uid://tovl0mp1e3ry"]
 
 [ext_resource type="Texture2D" uid="uid://de8w8kjiru8yp" path="res://Assets/Enemies/Skeleton/Skeleton-Attack01.png" id="1_0k5q6"]
-[ext_resource type="Script" path="res://Scripts/Enemies_Scripts/skeleton.gd" id="1_a55cs"]
+[ext_resource type="Script" path="res://Scripts/Enemies/skeleton.gd" id="1_a55cs"]
 [ext_resource type="Texture2D" uid="uid://2tusqdllhsqh" path="res://Assets/Enemies/Skeleton/Skeleton-Attack02.png" id="2_70e3l"]
 [ext_resource type="Texture2D" uid="uid://bqkmgm85fc2mq" path="res://Assets/Enemies/Skeleton/Skeleton-Death.png" id="3_i81dm"]
 [ext_resource type="Texture2D" uid="uid://2xtfqsix8yni" path="res://Assets/Enemies/Skeleton/Skeleton-Hurt.png" id="4_ynqof"]

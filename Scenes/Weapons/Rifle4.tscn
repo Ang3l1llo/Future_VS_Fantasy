@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dbpumilpellgv"]
 
 [ext_resource type="Texture2D" uid="uid://6lhf0u2lui3l" path="res://Scenes/Weapons/ATLAS/Atlas_rifle4.tres" id="1_pljxm"]
-[ext_resource type="Script" path="res://Scripts/Weapons_Scripts/Rifle4.gd" id="1_r3vwg"]
+[ext_resource type="Script" path="res://Scripts/Weapons/Rifle4.gd" id="1_r3vwg"]
 [ext_resource type="Texture2D" uid="uid://d1ipimsjb4gic" path="res://Scenes/Weapons/ATLAS/Atlas_manitas.tres" id="2_xrpno"]
 [ext_resource type="PackedScene" uid="uid://b5n7vii16qbd8" path="res://Scenes/Weapons/BULLETS/bullet_rifle.tscn" id="4_ui50d"]
 [ext_resource type="AudioStream" uid="uid://dyymprsulyq5c" path="res://Music/Weapons_Sounds/Rifle4.wav" id="5_wkyah"]
