@@ -236,3 +236,6 @@ shape = SubResource("CircleShape2D_88xxb")
 
 [node name="ArrowSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(37, 30)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true

@@ -49,36 +49,73 @@ func reset():
 	}
 	delete_save_file()
 	
+#Guarda puntuación localmente
+func add_points_local(points: int):
+	score += points
+	
 # Llamada a la API para crear jugador
-func create_player(nombre: String, callback_node: Node):
-	player_name = nombre
+func create_player(nombre: String):
+	player_name = nombre  # Guardamos inmediatamente
 	var url = "https://api-psp-1nuc.onrender.com/api/Player"
 	var headers = ["Content-Type: application/json"]
 	var body = JSON.stringify({ "nombre": nombre, "puntuacion": 0 })
 
 	var request = HTTPRequest.new()
 	add_child(request)
-	request.request_completed.connect(callback_node._on_create_player_completed)
+
+	request.request_completed.connect(_on_create_player_completed.bind(request))  # usamos bind
+
 	var err = request.request(url, headers, HTTPClient.METHOD_POST, body)
 	if err != OK:
 		push_error("Error al crear jugador: %s" % err)
 
+# Manejador directo para crear jugador
+func _on_create_player_completed(_result, response_code, _headers, body, request):
+	if response_code == 201:
+		var parsed = JSON.parse_string(body.get_string_from_utf8())
+		if parsed is Dictionary and parsed.has("id"):
+			player_id = parsed["id"]
+			print("ID del jugador recibido:", player_id)
+			# Guardar en disco si ya se ha comenzado la partida
+			save_progress("")  # "" evita marcar niveles como completados
+		else:
+			print("Respuesta sin ID válida.")
+	else:
+		print("Error al crear el jugador en la API. Código:", response_code)
+
+	request.queue_free()
+
+
 
 # Llamada a la API para sumar puntos
-func add_points(points: int):
+func add_points():
 	if player_id == "":
 		print("ID del jugador no definido aún")
 		return
-	score += points
+		
+	if score <= score_at_level_start:
+		print("No hay puntuación nueva que enviar.")
+		return
 
 	#Ese /%s es una forma de formatear el string en GDScript
 	var url = "https://api-psp-1nuc.onrender.com/api/Player/%s/addpoints" % player_id
 	var headers = ["Content-Type: application/json"]
-	var body = str(points)
+	var body = str(score)
 
 	var request = HTTPRequest.new()
 	add_child(request)
-	request.request(url, headers, HTTPClient.METHOD_PUT, body)
+	
+	request.request_completed.connect(func(_result, response_code, _headers, _body):
+		if response_code == 200:
+			print("Puntuación enviada con éxito")
+		else:
+			print("Falló el envío de puntuación. Código:", response_code)
+		request.queue_free()
+	)
+
+	var err = request.request(url, headers, HTTPClient.METHOD_PUT, body)
+	if err != OK:
+		print("Error al enviar puntuación:", err)
 	
 	
 # Llamada a la API para obtener el top 5 de jugadores
@@ -104,6 +141,7 @@ func save_progress(level_name: String):
 			"MisteryWoods": false,
 			"FinalZone": false
 		},
+		"player_id": Global.player_id,
 		"player_name": Global.player_name,
 		"score": Global.score
 	}
@@ -122,6 +160,7 @@ func save_progress(level_name: String):
 		data["progress"][clean_name] = true
 	
 	# Actualizar nombre y score actuales (por si cambiaron)
+	data["player_id"] = Global.player_id
 	data["player_name"] = Global.player_name
 	data["score"] = Global.score
 	
@@ -141,6 +180,8 @@ func load_progress():
 		if typeof(parsed) == TYPE_DICTIONARY:
 			if parsed.has("progress"):
 				progress = parsed["progress"]
+			if parsed.has("player_id"):  
+				Global.player_id = parsed["player_id"]
 			if parsed.has("player_name"):
 				Global.player_name = parsed["player_name"]
 			if parsed.has("score"):

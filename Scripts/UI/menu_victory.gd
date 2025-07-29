@@ -28,6 +28,8 @@ func _on_bt_continue_pressed():
 	var level_name = Global.current_level.get_file().get_basename()
 	Global.save_progress(level_name)
 	
+	Global.add_points()
+	
 	var current_scene = Global.current_level
 	var next_scene = ""
 

@@ -18,6 +18,9 @@ var score_points: int = 5
 @warning_ignore("UNUSED_SIGNAL")
 signal enemy_died
 
+func _ready():
+	add_to_group("Enemies")
+	
 func _physics_process(_delta):
 	if current_health <= 0:
 		return
@@ -102,7 +105,7 @@ func die():
 	get_tree().current_scene.add_child(exp_pickup)
 	
 	# Sumar puntos al global y actualizar la API
-	Global.add_points(score_points)
+	Global.add_points_local(score_points)
 	
 	emit_signal("enemy_died")
 	queue_free()

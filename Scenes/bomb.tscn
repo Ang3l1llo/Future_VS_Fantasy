@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://bdc7kntx56dxf"]
+
+[ext_resource type="Texture2D" uid="uid://c5hqkrn1ks0d1" path="res://Assets/Utils/Barrel_Red.png" id="1_g7dbh"]
+[ext_resource type="Script" path="res://Scripts/bomb.gd" id="1_o84do"]
+[ext_resource type="AudioStream" uid="uid://dcpxynmxch6ne" path="res://Music/Effects/EXPLOSION Bang Blast 05.wav" id="3_ntpj5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o4xx"]
+atlas = ExtResource("1_g7dbh")
+region = Rect2(0, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gynv"]
+atlas = ExtResource("1_g7dbh")
+region = Rect2(128, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5r0h"]
+atlas = ExtResource("1_g7dbh")
+region = Rect2(256, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpf7g"]
+atlas = ExtResource("1_g7dbh")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqgfk"]
+atlas = ExtResource("1_g7dbh")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgwdn"]
+atlas = ExtResource("1_g7dbh")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adfah"]
+atlas = ExtResource("1_g7dbh")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3fb3"]
+atlas = ExtResource("1_g7dbh")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leri7"]
+atlas = ExtResource("1_g7dbh")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1y78p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o4xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gynv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5r0h")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpf7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqgfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgwdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adfah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3fb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leri7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3dgs"]
+radius = 13.0
+
+[node name="Bomb" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_o84do")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_1y78p")
+animation = &"idle"
+frame = 3
+frame_progress = 0.265129
+
+[node name="Bomb_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_g3dgs")
+
+[node name="BombSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ntpj5")

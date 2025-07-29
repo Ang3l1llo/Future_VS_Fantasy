@@ -34,8 +34,8 @@ func _on_bt_restart_pressed():
 	if music_controller:
 		music_controller.stop_all_music()
 		
-	Global.score = 0 
-	
+	Global.score = Global.score_at_level_start
+ 
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

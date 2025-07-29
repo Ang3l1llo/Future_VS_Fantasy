@@ -5,9 +5,23 @@ extends Area2D
 @onready var gem_coll = $Gem_collision
 @onready var animation = $AnimatedSprite2D
 
+var attracted = false
+var player = null
+var speed = 600
+
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	$AnimatedSprite2D.play("idle")  
+	add_to_group("Crystals")
+	
+func _process(delta):
+	if attracted and player:
+		var direction = (player.sprite.global_position - global_position).normalized()
+		global_position += direction * speed * delta
+	
+func attract(player_ref):
+	attracted = true
+	player = player_ref
 
 func _on_body_entered(body):
 	if body.name == "Player":

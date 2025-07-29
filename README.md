@@ -3,7 +3,7 @@
 ## Índice
 
 1. [Introducción](#introducción)
-    - [Inspiración](#inspiración)
+	- [Inspiración](#inspiración)
 2. [Género y Plataforma](#género-y-plataforma)
 3. [Historia y Ambientación](#historia-y-ambientación)
 4. [Mecánicas de Juego](#mecánicas-de-juego)
@@ -129,4 +129,3 @@ Solamente una colección llamada players(jugadores) que almacena los nombres de 
 ## Música
 
 Cada nivel tiene 3 canciones diferentes, la primera es siempre la más “suave” o tranquila, la segunda es un poco más intensa y la tercera es la más potente para realzar esos momentos de tensión en los últimos minutos de cada nivel en los que es más difícil sobrevivir. En cuanto a los estilos se mezcla una **electrónica** tipo 8 bits, **rock and roll** y **heavy metal**.
-

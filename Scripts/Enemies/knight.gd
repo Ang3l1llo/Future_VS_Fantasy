@@ -27,6 +27,7 @@ func _ready():
 	attack_shape1.disabled = true
 	attack_shape2.disabled = true
 	attack_shape3.disabled = true
+	add_to_group("Enemies")
 	
 func _physics_process(_delta):
 	# Movimiento SIEMPRE, no solo cuando detecta al jugador
@@ -146,7 +147,7 @@ func die():
 	get_tree().current_scene.add_child(exp_pickup)
 	
 	# Sumar puntos al global y actualizar la API
-	Global.add_points(score_points)
+	Global.add_points_local(score_points)
 	
 	emit_signal("enemy_died")
 	queue_free()
