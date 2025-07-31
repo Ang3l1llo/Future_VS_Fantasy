@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bg2b53c678dtc"]
+[gd_scene load_steps=37 format=4 uid="uid://bg2b53c678dtc"]
 
 [ext_resource type="Texture2D" uid="uid://y6fiel82ydu" path="res://Assets/MisteryWoods/MainLev.png" id="1_8rvus"]
 [ext_resource type="PackedScene" uid="uid://oywkpdef85cx" path="res://Scenes/level_tracker.tscn" id="1_qm2oi"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://bch8pqv3e7q5j" path="res://Scenes/Weapons/Pistol5.tscn" id="13_4f2q1"]
 [ext_resource type="PackedScene" uid="uid://d2w8mv4fftesf" path="res://Scenes/Music/MusicController.tscn" id="14_xnwh0"]
 [ext_resource type="PackedScene" uid="uid://dckxbtcsris8w" path="res://Scenes/UI/message_info.tscn" id="15_74b02"]
+[ext_resource type="PackedScene" uid="uid://cvlbgc8hdqaxk" path="res://Scenes/magnet.tscn" id="22_viqgi"]
+[ext_resource type="PackedScene" uid="uid://bdc7kntx56dxf" path="res://Scenes/bomb.tscn" id="23_kq3x2"]
 
 [sub_resource type="TileSet" id="TileSet_rse7o"]
 
@@ -19887,6 +19889,7 @@ offset_top = 32.0
 offset_right = 182.0
 offset_bottom = 32.0
 player_path = NodePath("../../Player")
+music_player_path = NodePath("../../MusicController")
 
 [node name="LoreLayer" type="CanvasLayer" parent="."]
 layer = 9
@@ -19908,3 +19911,9 @@ scale = Vector2(2, 2)
 [node name="MusicController" parent="." instance=ExtResource("14_xnwh0")]
 current_map = "FinalZone"
 hud_path = NodePath("../HudLayer/HUD")
+
+[node name="Magnet" parent="." instance=ExtResource("22_viqgi")]
+position = Vector2(-1313, 850)
+
+[node name="Bomb" parent="." instance=ExtResource("23_kq3x2")]
+position = Vector2(1574, -405)

@@ -11,6 +11,7 @@ var is_dead = false
 func _ready():
 	# El menú de pausa empieza oculto
 	visible = false
+	$TextureRect.modulate.a = 0.9
 
 func _input(event: InputEvent):
 	if not is_dead and event.is_action_pressed("pause"):		
