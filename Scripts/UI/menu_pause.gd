@@ -8,10 +8,12 @@ var is_dead = false
 @onready var pause_button = $Pause
 @onready var restart_exit_button = $Buttons
 
+
 func _ready():
 	# El menú de pausa empieza oculto
 	visible = false
 	$TextureRect.modulate.a = 0.9
+
 
 func _input(event: InputEvent):
 	if not is_dead and event.is_action_pressed("pause"):		
@@ -21,6 +23,7 @@ func _input(event: InputEvent):
 		
 		# Se hace visible el menú
 		visible = is_paused
+		
 		
 		pause_button.play()
 		await pause_button.finished

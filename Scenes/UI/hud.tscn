@@ -60,19 +60,3 @@ offset_top = 1.0
 offset_right = 1079.0
 offset_bottom = 124.0
 theme_override_font_sizes/font_size = 25
-
-[node name="MusicVolumeSlider" type="HSlider" parent="."]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 33.0
-offset_right = 196.0
-offset_bottom = 94.0
-min_value = -40.0
-max_value = 0.0
-
-[node name="MuteButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 89.0
-offset_right = 123.0
-offset_bottom = 120.0

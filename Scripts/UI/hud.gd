@@ -4,11 +4,7 @@ extends Control
 @export var life_bar: TextureProgressBar  # Barra de vida
 @export var timer_label: Label  # Etiqueta para el temporizador
 @export var game_duration: float = 600  # 10 mins
-@export var music_player_path: NodePath 
 @onready var score_label = $ScoreLabel #Puntuación
-@onready var volume_slider = $MusicVolumeSlider
-@onready var mute_button = $MuteButton
-@onready var music_player = get_node(music_player_path)
 
 var timer: float = game_duration
 var is_game_over: bool = false
@@ -25,8 +21,6 @@ func _ready():
 	# Establecer el temporizador inicial
 	update_timer_label()
 	
-	volume_slider.value_changed.connect(_on_volume_changed)
-	mute_button.pressed.connect(_on_mute_pressed)
 
 func _process(delta):
 	if is_game_over:
@@ -59,14 +53,4 @@ func update_timer_label():
 func get_elapsed_time() -> float:
 	return game_duration - timer
 	
-
-func _on_volume_changed(value: float):
-	var music_player = get_node("res://Scenes/Music/MusicController.tscn")  # Ajusta ruta
-	music_player.volume_db = value
-
-
-func _on_mute_pressed():
-	is_muted = !is_muted
-	var master_index = AudioServer.get_bus_index("Master")
-	AudioServer.set_bus_mute(master_index, is_muted)
-	mute_button.text = "Desmutear Todo" if is_muted else "Mutear Todo"
+	

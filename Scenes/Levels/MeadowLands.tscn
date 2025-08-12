@@ -3889,7 +3889,6 @@ offset_top = 32.6459
 offset_right = 173.318
 offset_bottom = 32.6459
 player_path = NodePath("../../Player")
-music_player_path = NodePath("../../MusicController")
 
 [node name="IntroLoreLayer" type="CanvasLayer" parent="."]
 layer = 9
